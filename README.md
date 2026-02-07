@@ -10,7 +10,7 @@ All credit for the original design goes to the [Mimosis](https://github.com/Pseu
 
 A compiled example thesis is available here:
 
-[compiled-thesis.pdf](compiled-thesis.pdf)
+[compiled-thesis.pdf](https://github.com/tabreturn/phd-latex/blob/main/compiled-thesis.pdf)
 
 ---
 
