@@ -1,0 +1,298 @@
+\documentclass{mimosis}
+
+\usepackage{metalogo}
+\usepackage{etoolbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tabreturn additions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% warning fixes (thesis.log)
+\setlength{\footheight}{20.5pt}
+\setlength{\headheight}{20.5pt}
+\usepackage{scrhack}
+% \usepackage{lineno}\linenumbers % handy for debugging & reviews
+
+% footnote indentation
+\makeatletter
+\renewcommand\@makefntext[1]{%
+  \parindent 0pt%
+  \noindent
+  \hangindent=1.25em
+  \hb@xt@1em{\hss\@makefnmark\hspace{0.1em}}#1}
+\makeatother
+
+% additional packages
+\graphicspath{{./images/}}
+\usepackage[toc,page]{appendix}
+\usepackage[yyyymmdd]{datetime}\renewcommand{\dateseparator}{-}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{forest}\useforestlibrary{edges}
+\usepackage{listings}
+\lstset{
+  language   = Python,
+  basicstyle = \small\ttfamily,
+  aboveskip  = 1.5em, belowskip=1.5em, % margin
+  framesep   = 0.75em,                 % padding
+  frame      = lines,
+  framerule  = 0.5pt,
+  rulecolor  = \normalcolor
+}
+\usepackage{makeidx}\makeindex
+\usepackage{microtype}\microtypesetup{
+  activate={nocompatibility}, protrusion=false % warning fixes (thesis.log)
+}
+\usepackage{nameref}
+\usepackage{pagecolor}
+\usepackage{pgfgantt}
+\usepackage{pdfpages}
+%\usepackage{svg} % requires: pdflatex/latexmk -shell-escape
+\usepackage{tikz}
+\usepackage{xurl}
+
+% metadata box
+\usepackage{mdframed}
+\newmdenv[
+  topline           = false,
+  rightline         = false,
+  bottomline        = false,
+  leftline          = true,
+  linecolor         = black,
+  linewidth         = 0.5pt,
+  innertopmargin    = 0,
+  innerrightmargin  = 0,
+  innerbottommargin = 0,
+  innerleftmargin   = 10pt
+]{outputmeta}
+
+% todo-notes; notes in pale blue by default
+\usepackage{todonotes}
+\usepackage{xcolor}
+\definecolor{paleblue}{rgb}{0.7, 0.85, 1}
+\definecolor{ashgray}{rgb}{0.85, 0.85, 0.85}
+\definecolor{shallowblue}{HTML}{104DB0}
+\definecolor{deepblue}{HTML}{051B38}
+\presetkeys{todonotes}{
+backgroundcolor=paleblue, bordercolor=paleblue, linecolor=paleblue}{}
+\reversemarginpar
+\setlength{\marginparwidth}{3cm}
+\makeatletter
+\renewcommand{\todo}[2][]{\@todo[caption={#2}, #1]{
+  \parbox{\marginparwidth}{\renewcommand{\baselinestretch}{1.2}\small#2}
+}}
+\newcommand{\todoinline}[2][]{\@todo[caption={#2}, #1, inline]{#2}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% build
+% latexmk -r ./mimosis/mimosis-latexmkrc
+% clean
+% latexmk -r ./mimosis/mimosis-latexmkrc -c
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hyperlinks & bookmarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[%
+  colorlinks = true,
+  citecolor  = shallowblue,
+  linkcolor  = shallowblue,
+  urlcolor   = shallowblue,
+  unicode,
+  bookmarksnumbered,
+  bookmarksdepth     = 2,
+  bookmarksopen      = true,
+  bookmarksopenlevel = 0
+  ]{hyperref}   % tabreturn: number pdf outline
+\urlstyle{same} % tabreturn: added to make the urls match the text font
+\hypersetup{bookmarksdepth=2}  % tabreturn: pdf outline depth to \subsection
+
+\usepackage{bookmark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+  autocite     = plain,
+  backend      = biber,
+  doi          = true,
+  url          = true,
+  giveninits   = true,
+  hyperref     = true,
+  maxbibnames  = 99,
+  maxcitenames = 99,
+  sortcites    = true,
+  style        = numeric,            % optional depending on bibstyle/citestyle
+  bibstyle     = mimosis/acmnumeric, % tabreturn: custom .bbx file
+  citestyle    = mimosis/acmnumeric  % tabreturn: custom .cbx file
+]{biblatex}
+
+%\input{mimosis/mimosis-bibliography}
+% tabreturn: additional lines to swap out mimosis bibliography
+\DeclareNameAlias{author}{family-given}
+\newcommand{\bibliofont}{\normalfont}
+\addbibresource{thesis.bib} % be sure to create symlink from chapters
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifxetexorluatex
+  \usepackage{unicode-math}
+  \setmainfont{EB Garamond}
+  \setmathfont{Garamond Math}
+  % load some missing symbols from another font
+  \setmathfont{STIX Two Math}[%
+    range = {
+      \sharp,
+      \natural,
+      \flat,
+      \clubsuit,
+      \spadesuit,
+      \checkmark
+    }
+  ]
+  \setmonofont[Scale=MatchLowercase]{Source Code Pro}
+\else
+  \usepackage[lf]{ebgaramond}
+  \usepackage[oldstyle,scale=0.7]{sourcecodepro}
+  \singlespacing
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% acronyms & glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newacronym[description={Principal component analysis}]
+%{PCA}{PCA}{principal component analysis}
+%\newacronym[description={Topological data analysis}]
+%{TDA}{TDA}{topological data analysis}
+
+%\newglossaryentry{LaTeX}{%
+  %name        = {\LaTeX},
+  %description = {A document preparation system},
+  %sort        = {LaTeX},
+%}
+%\newglossaryentry{Real numbers}{%
+  %name        = {$\real$},
+  %description = {The set of real numbers},
+  %sort        = {Real numbers},
+%}
+
+%\makeindex
+%\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ordinals
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\@ifundefined{st}{%
+  \newcommand{\st}{\textsuperscript{\textup{st}}\xspace}
+}{}
+\@ifundefined{rd}{%
+  \newcommand{\rd}{\textsuperscript{\textup{rd}}\xspace}
+}{}
+\@ifundefined{nd}{%
+  \newcommand{\nd}{\textsuperscript{\textup{nd}}\xspace}
+}{}
+\makeatother
+
+\renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% incipit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\texttt{Enhancing Python Programming Education Through Creative Computing Environments}}
+\subtitle{Exploring and Developing New Python Tools for Visual Learning Contexts}
+\author{Tristan Bunn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% start
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\frontmatter{}
+  \pagenumbering{gobble} % no page numbers until needed
+  \include{frontmatter/title}
+  %\include{frontmatter/changelog}
+  \pagenumbering{roman}\setcounter{page}{1} % start roman numbering
+  \include{frontmatter/declaration_of_originality}
+  \include{frontmatter/authority_of_access}
+  \include{frontmatter/ethical_conduct_statement}
+  \include{frontmatter/abstract}
+  \include{frontmatter/acknowledgements}
+
+  \tableofcontents{}\addcontentsline{toc}{chapter}{Contents}
+  \listoffigures{}\addcontentsline{toc}{section}{List of Figures}
+  \listoftables{}\addcontentsline{toc}{section}{List of Tables}
+
+\mainmatter
+
+  %\part[A good part]{%
+    %A good part\\
+    %%
+    %\vspace{1cm}
+    %%
+    %\begin{minipage}[l]{\textwidth}
+    %%
+    %\textnormal{%
+      %\normalsize
+      %%
+      %\begin{singlespace*}
+        %\onehalfspacing
+        %%
+        %You can also use parts in order to partition your great work
+        %into larger `chunks'. This involves some manual adjustments in
+        %terms of the layout, though.
+      %\end{singlespace*}
+    %}
+    %\end{minipage}
+  %}
+
+  \include{chapters/chapter01-introduction}
+  \include{chapters/chapter02-literature-review}
+  \include{chapters/chapter03-software}
+  \include{chapters/chapter04-publications}
+  \include{chapters/chapter05-presentation-outputs}
+  \include{chapters/chapter06-creative-works}
+  \include{chapters/chapter07-conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bookmarksetup{startatroot}
+\backmatter
+
+  %\begingroup
+    %\let\clearpage\relax
+    %\glsaddall
+    %\printglossary[type=\acronymtype]
+    %\newpage
+    %\printglossary
+  %\endgroup
+
+  \printindex
+  \printbibliography
+
+  \input{appendices/appendices}
+  
+  % stop page labels/counter from here onward
+  \clearpage
+  \pagenumbering{gobble}
+  % ashgray page
+  \pagecolor{ashgray}\null\thispagestyle{empty}
+  \clearpage
+  % deepblue page + bookmark
+  \pagecolor{deepblue}\null\thispagestyle{empty}\pdfbookmark[0]{∎}{backcover}
+  \clearpage
+
+\end{document}

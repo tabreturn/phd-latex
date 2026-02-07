@@ -1,0 +1,182 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+This PhD study encompassed the development of new software and its empirical evaluation, the design of learning materials, and the production of creative works. Adopting a folio/publication format, the thesis charted the research journey through a curated folio of publications, presentations, and creative outputs unified by a cohesive narrative. These efforts primarily focused on novel Python tools and techniques to advance pedagogical practice and scholarly understanding of Python programming education concerning creative computing environments.
+
+The \nameref{chap:introduction} situated creative coding within the broader context of graphical programming education, starting with early environments such as Turtle Graphics and progressing to Processing and p5.js. It outlined Python's established multimedia ecosystem and framed three interrelated strands of investigation: \textbf{tools/software development}, \textbf{curricula \& documentation}, and \textbf{creative code artwork}. These co-evolved to produce new tools, materials, and techniques that lower barriers to entry, broaden participation, and enhance Python learning. The outcomes foster programming literacy, which enhances graduates' industry-relevant capabilities, particularly in disciplines at the intersection of creativity and technology, such as VFX, video games, VR, and interactive media.
+
+The research journey originated with Processing's Python Mode (Processing.py), which inspired the publication of the sole-authored book, \textit{\nameref{sec:no-starch}}. Published by the reputable No Starch Press, it formed a significant component of the folio. However, Jonathan Feinberg's subsequent discontinuation of the Processing.py project motivated inquiry into alternative approaches, leading to the development of a replacement solution: Thonny-py5mode, another key element of the folio. 
+
+Peer-reviewed articles published in Q1/Q2 journals examined both established and newly developed tools, techniques, and curricula for Python-based creative computing, incorporating findings from Thonny-py5mode user studies conducted as part of this research. A series of presentations at leading international conferences further disseminated and contextualised these contributions, underscoring the research's significance and credibility.
+
+This ``\nameref*{chap:conclusion}'' chapter summarises the thesis' key findings, contributions, and implications. It revisits the research objectives and questions, situating the results within broader scholarly and pedagogical discussions surrounding creative computing environments for Python education. The chapter concludes with a reflection on the PhD's strengths and limitations, followed by a discussion on directions for future research.
+
+\section{Revisiting the Research Objectives}
+
+A set of overarching \nameref{sec:research-objectives} (ROs) guided this study, defined to break down the research aims into specific, actionable, and measurable outcomes. The following subheadings address each objective in turn, outlining the original contributions this thesis makes to each domain.
+
+\renewcommand{\thesubsection}{RO\arabic{subsection}}
+
+\subsection{Tool Development}
+\label{ro-conc:tool-development}
+
+The \nameref{chap:software}, \nameref{chap:publications}, and \nameref{chap:presentation-outputs} chapters chronicle the PhD study's exploration and development of new Python-based creative computing tools/environments, with a principal focus on the conception and refinement of Thonny-py5mode: a bespoke plugin that integrates the py5 library into the Thonny IDE. Inspired by Processing's Python Mode, it lowers barriers to programming by providing an environment for exploring graphical output with Python 3 code. Specifically, it streamlines access by simplifying setup and providing a purpose-built workspace with assistive features.
+
+Through an extensive survey of existing tools, the MTAP article, \textit{\nameref{sec:mtap}}, highlighted the need for a new Python 3 successor to Processing's Python Mode. It detailed Thonny-py5mode's technical implementation and design rationale, demonstrating how it effectively integrates Thonny and py5 to provide a beginner-friendly environment. The JISE article, \textit{\nameref{sec:jise}}, applied the Task--Technology Fit framework to evaluate Thonny-py5mode and concluded that its design and functionality enhanced usability, engagement, and learning outcomes.
+
+Thonny-py5mode demonstrates sustained development and widespread adoption, affirming its effectiveness in educational contexts. Solo development began in 2021 and progressed through nine releases by mid-2024, after which multiple developers joined the project. In 2025, the py5 organisation assumed stewardship, cementing its status as an official Python creative coding environment. The project also received support from the Processing Foundation through its Google Summer of Code (GSoC) initiative. Distributed via GitHub and PyPI, Thonny-py5mode has surpassed 34,000 installations. Educational providers have incorporated it into curricula at institutions such as Massey University and Torrens University, as well as in Domestika's online course, \textit{Designing with Python}. For further detail, the \nameref{chap:software} chapter provides comprehensive coverage.
+
+Together, these elements demonstrate the pedagogical impact of the tools developed through this PhD, positioning them as both technical contributions and platforms for advancing Python education within creative computing. Thonny-py5mode now stands as a prominent and accessible successor to Processing's discontinued Python Mode, having matured into an actively maintained project that extends the py5 library, supported by comprehensive official documentation hosted at py5coding.org.
+
+\subsection{Educational Materials}
+\label{ro-conc:educational-materials}
+
+Early folio entries centre on Processing.py, notably \textit{\nameref{sec:no-starch}}, which synthesised extensive research, adaptation, and the development of new pedagogical techniques for Processing's Python Mode. As part of the book's development, the author presented components at major Python venues (\S\S~\ref{sec:processing.py-creative-coding-with-python}, \ref{sec:processing-python-mode-for-creative-coding-and-teaching}), affirming the quality and novelty of these contributions while enabling expert feedback and reflection. The book translated these insights into structured learning materials, informed by strategies documented across numerous works on Processing and the author's own classroom experience. Its publication by No Starch Press (est. 1994), together with a technical review by Paddy Gaunt (maintainer of pi3d), underscores the work's rigour. Indicators of reach include 2,492 direct sales as of Dec~2024, inclusion in two Humble Bundle collections that together sold more than 25,000 digital copies, and global distribution. Collectively, these outcomes demonstrate both pedagogical effectiveness and broad adoption and accessibility.
+
+The shift from Processing.py to the development of Thonny-py5mode necessitated new learning materials focused on the latter. Thonny-py5mode provides setup documentation on GitHub and PyPI, and once installed, a drop-down menu links to a py5 cheatsheet---a printable reference summarising key syntax, structures, and functions to support rapid learning and recall. The (PhD) author has licensed the cheatsheet design files as open-source, allowing educators to adapt and extend them. The Thonny-py5mode workspace also includes a link to the official py5 documentation, containing a set of tutorials developed as part of a joint Thonny-py5mode--py5 project accepted under the Processing Foundation's Google Summer of Code 2022 initiative; these materials essentially represent a Thonny-py5mode adaptation of \textit{\nameref{sec:no-starch}}, with additional sections that accommodate py5's ability to leverage CPython-3 libraries (\S\S~\ref{sec:documentation}, \ref{sec:thonny-+-py5-a-python-3-environment-for-processing}). 
+
+These educational materials collectively provide educators and learners with accessible, practical entry points that bridge abstract programming concepts with graphical and multimedia outcomes. As demonstrated in the \nameref{chap:literature-review}, such pedagogical methods make programming both approachable and meaningful for students in creative fields of study. Moreover, this material extends the pedagogical reach of Thonny-py5mode.
+
+\subsection{Creative Outputs}
+\label{ro-conc:creative-outputs}
+
+The \nameref{chap:creative-works} chapter documented a portfolio of artistic outputs that demonstrated the creative potential of the tools and techniques developed through this PhD research, predominantly employing Thonny-py5mode. Each output underwent peer or curatorial review, evidencing both creative and technical significance.
+
+Notably, the chapter positioned creative artefacts as outcomes of experimental tool development rather than traditional art practice, aligning with practice-led research methodologies in which making and reflection operate in continuous feedback (as described by Brown \& Sorensen and Paul). Rooted in open-source and hacker-culture principles, the creative process and subsequent tools development adopted iterative, community-informed, and agile methods.
+
+The works \textit{\nameref{sec:north}}, \textit{\nameref{sec:the-end-of-random-seed}}, \textit{\nameref{sec:south}}, and \textit{\nameref{sec:relics-u130c8}} all employed a two-axis pen plotter. Along with \textit{\nameref{sec:digital-aquatics}}, they collectively: (1) demonstrated the innovative application of new Python-based creative coding environments and techniques; (2) highlighted the artistic and technical achievements made possible through these tools; (3) inspired further exploration and experimentation within the creative coding community; and (4) contributed practical examples to academic discourse on advancing Python programming education through creative computing environments. These contributions are formally articulated in the \nameref{chap:presentation-outputs} (\S\S~\ref{sec:thonny-+-py5-a-python-3-environment-for-processing}--\ref{sec:generative-art-with-python-using-py5-and-bpy}) which detail how Thonny-py5mode enables generative, algorithmic drawing and SVG experimentation expressed through tangible plots.
+
+Together, these works advanced several of the research objectives by informing the development of Thonny-py5mode, which facilitates visual learning contexts, supports artistic exploration, and strengthens the link between computational thinking and creative expression.
+
+\subsection{Empirical Evaluation}
+\label{ro-conc:empirical-evaluation}
+
+Extensive experimentation, survey work, and analysis of related creative-coding environments and Python tools informed the design and development of Thonny-py5mode.
+
+To evaluate its effectiveness, the JISE article \textit{\nameref{sec:jise}} reported a quantitative study that employed an extended Task--Technology Fit (TTF) framework. This model incorporated \textit{personalised learning}, \textit{hedonic motivation}, and \textit{effort expectancy} to predict behavioural intention. The study analysed 143 valid responses from a 100-level university Python cohort following four weeks of Thonny-py5mode use and an assessment with six graphical tasks. Researchers collected data via a structured 5-point Likert survey refined through expert review and administered with ethics approval (TUA HREC application \#0394).
+
+Using a CFA/SEM pipeline (AMOS v26), the measurement model demonstrated strong reliability and convergent validity, with high factor loadings and composite reliabilities, and indices indicating good model fit. The structural model then tested nine hypotheses, finding support for eight. \textit{Task characteristics}, \textit{technology characteristics}, \textit{hedonic motivation}, and \textit{effort expectancy} each positively influenced perceived TTF, which in turn predicted adoption. However, personalisation did not improve task characteristics or TTF (showing a negative association), suggesting a need to embed adaptive elements more tightly into task scaffolding rather than at the interface layer.
+
+Collectively, and consistent with the broader literature (\S\S~\ref{sec:intro-creative-coding}--\ref{sec:intro-python}, \S\S~\ref{subsec:background}--\ref{subsec:discussion}), the results show that Thonny-py5mode enhances usability and reduces cognitive load, thereby increasing enjoyment, strengthening perceived fit, and supporting both learning outcomes and continued use. It achieves this through an integrated sketch runner, immediate graphical feedback, simplified debugging, and a low-friction setup.
+
+Methodologically, the work advances TTF by foregrounding motivational constructs alongside functional alignment within a creative-computing context. Practically, it provides evidence-based design priorities for Python IDEs in education, including: scaffolded, graphics-driven tasks; intuitive interfaces that minimise effort; and personalisation strategies that align with assessment structures. Overall, the study establishes both the scholarly contribution and applied value of Thonny-py5mode---positioning it as a robust successor to Processing's Python Mode and an effective environment for improving engagement and comprehension in introductory Python offerings.
+
+\subsection{Broader Dissemination}
+\label{ro-conc:broader-dissemination}
+
+The \nameref{chap:publications} and \nameref{chap:presentation-outputs} chapters documented the dissemination of this research through Q1 and Q2 journal articles (\S\S~\ref{sec:mtap}--\ref{sec:jise}), international conference presentations, and community workshops (\S\S~\ref{sec:processing.py-creative-coding-with-python}--\ref{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks}). 
+
+The journals \textit{MTAP} and \textit{JISE}, as well as established venues such as PyCon, Libre Graphics Meeting (LGM), and SIGGRAPH, employ rigorous peer review and curation processes that attest to the quality, originality, and technical contributions of these outputs. These channels not only validated the research's scholarly merit but also facilitated dialogue with global communities of educators, developers, and artists working at the intersection of Python and creative coding.
+
+Complementing these scholarly and professional channels, the \nameref{chap:creative-works} chapter demonstrated the practical and artistic applications of the tools and techniques developed through this PhD study (\S\S~\ref{sec:north}--\ref{sec:digital-aquatics}). These exhibitions, invited demonstrations, and published catalogues further extended the visibility of Thonny-py5mode, providing tangible evidence of its creative potential.
+
+Together, these dissemination activities---spanning academic publishing, open-source software releases, professional conferences, and artistic exhibitions---ensured that the research reached both scholarly and practitioner audiences. Collectively, the outputs have fostered the ongoing adoption of Thonny-py5mode and new techniques across university curricula, workshops, and online learning platforms, evidencing a real-world impact and inspiring further advancements in Python-based creative computing education and practice.
+
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\section{Readdressing the Research Questions}
+
+The preceding discussion connected specific contributions to each research objective; in this section, these elements integrate to address the central questions. The responses situate the PhD within the landscape of Python-based learning approaches that incorporate visual output, linking the technical outcomes of Thonny-py5mode and its surrounding ecosystem to broader implications for curriculum design, pedagogy, and creative practice.
+
+\begin{description}[labelwidth=2em, leftmargin=!, labelindent=0pt]
+\item[RQ:] \textbf{How can we enhance creative computing environments through new Python tools and practices to improve programming education in visual learning contexts?}
+
+The thesis addressed the research question through a combination of software innovation, empirical investigation, and creative experimentation. The development (\ref{ro-conc:tool-development}) and evaluation (\ref{ro-conc:empirical-evaluation}) of Thonny-py5mode demonstrated how new Python tools and practices can advance creative computing environments. The plugin's accessible, graphically oriented features bridged the gap between technical programming instruction and creative exploration, while supporting comprehension through visual representations of Python programming concepts (\ref{ro-conc:educational-materials}). The environment's low-friction setup and immediate visual feedback exemplify this advancement, building on motivational principles established in studies of Processing, p5.js, and similar software (\S\S~\ref{sec:jise},~\ref{subsec:prominent-text-based-creative-coding-environments-selection-criteria}). Integration into university curricula and professional courses, recognised through academic and professional dissemination (\ref{ro-conc:creative-outputs}, \ref{ro-conc:broader-dissemination}), provides evidence of both educational utility and community adoption. 
+
+Collectively, these outcomes demonstrate that creative computing contexts can meaningfully enhance engagement and learning in Python programming fundamentals settings, particularly for students from creative disciplines.
+\end{description}
+
+\noindent Three sub-questions further defined the thesis focus and research goals---
+
+\begin{description}[labelwidth=2em, leftmargin=!, labelindent=0pt]
+
+\item[SQ1:] \textbf{How can Python-based software, similar to Processing.py, be designed and developed to best support creative coding practices?}
+
+The design and evolution of Thonny-py5mode demonstrated how to extend Processing.py's pedagogical strengths to a Python 3 environment while maintaining accessibility and familiarity (\ref{ro-conc:tool-development}). By embedding py5 within Thonny, the research created a sustainable successor to Processing's Python Mode within a modern, beginner-friendly IDE (\S~\ref{sec:jise}). Developed through an iterative, open-source process, Thonny-py5mode aligns with best practices in participatory software design and educational tool research, with its development informed through practical experimentation and the creation of artwork (\ref{ro-conc:creative-outputs}). The project's adoption by the py5 organisation in 2025 (\S~\ref{sec:impact-&-recognition}) further validates its success and long-term viability within the creative coding ecosystem.
+
+\item[SQ2:] \textbf{How effective are the proposed tools and techniques in improving learning outcomes and student engagement?}  
+
+Empirical evaluation (\ref{ro-conc:empirical-evaluation}), conducted through a TTF study published in JISE (\S~\ref{sec:jise}), confirmed that Thonny-py5mode significantly enhances perceived task--technology fit, enjoyment, and intention to continue use. These findings empirically substantiate long-held assumptions in creative computing pedagogy---that immediate graphical feedback and reduced cognitive friction can improve both engagement and learning outcomes. The inclusion of \textit{hedonic motivation} and \textit{effort expectancy} within the extended TTF model provided new insight into the motivational dynamics of creative computing. While personalisation features did not directly strengthen fit in this study, this result highlights directions for future design (\S~\ref{subsec:discussion}).
+
+\item[SQ3:] \textbf{How can creative coding outputs and creations showcase the potential of the developed tools in real-world applications?}  
+
+The creative works (\ref{ro-conc:creative-outputs}) serve as both artefacts of artistic research and practical demonstrations of Thonny-py5mode's real-world capabilities, positioning creative outputs as integral to tool development and embodying practice-led research principles where making and reflection operate reciprocally. Through exhibitions, catalogues, and curatorial review (\ref{ro-conc:broader-dissemination}), these works demonstrated how Thonny-py5mode supports generative design, SVG-based workflows, and physical plotting, while integrating myriad Python libraries and opportunities for 3D exploration (\S\S~\ref{sec:generative-art-with-python-using-py5-and-bpy}--\ref{sec:blender-scripting-for-creative-coding-projects}). The resulting artefacts not only validated the expressive and technical potential of the tools, but also offered exemplars that bridge computational literacy and creative practice, inspiring learners, educators, and practitioners alike.
+
+\end{description}
+
+\section{Contribution to Knowledge}
+\label{sec:contribution-to-knowledge}
+
+This thesis makes \textbf{five original contributions to knowledge} in the field of Python programming education, particularly within creative computing contexts:
+
+\begin{enumerate}
+
+\item \textbf{Software Contribution}: Developed Thonny-py5mode, the first fully integrated Python~3 desktop environment for Processing-based creative coding. Through integration with py5, this innovation establishes a viable successor to Processing.py, lowering barriers to entry while supporting graphical and interactive programming.
+
+\item \textbf{Pedagogical Contribution}: Authored original, research-informed learning materials---including a sole-authored book and Thonny-py5mode tutorials---that translate creative coding principles into accessible, Python-based curricula. These resources provide educators and learners with practical frameworks for exploring programming through visual and creative contexts.
+
+\item \textbf{Empirical Contribution}: Applied and extended the Task--Technology Fit (TTF) framework to creative coding environments, generating new empirical insights into how IDE design influences motivation, usability, and learning outcomes in programming education.
+
+\item \textbf{Practice-Based Contribution}: Produced and exhibited original artworks that operationalise the tools developed through this research. These works serve as both artistic outputs and practical demonstrations of Thonny-py5mode's expressive and educational potential, embodying practice-led inquiry.
+
+\item \textbf{Dissemination Contribution}: Delivered a multi-modal dissemination of creative computing research spanning peer-reviewed journals, open-source software releases, international conferences, and artistic exhibitions---thereby linking scholarly impact with educational and community adoption.
+
+\end{enumerate}
+
+\section{Discussion and Future Directions}
+
+This thesis has demonstrated the potential of creative computing approaches in Python education, with a particular emphasis on graphical and creative coding techniques. Its contribution lies in integrating software development, pedagogy, and empirical study within a coherent narrative supported by a folio of peer-reviewed outputs.
+
+Nonetheless, it is important to acknowledge several limitations. The empirical evaluation of Thonny-py5mode primarily involved Information Technology students, selected mainly for their availability rather than for disciplinary diversity. Further validation with learners from creative and design-focused disciplines would help extend and strengthen the findings.
+
+The rapid emergence of LLM-powered tools such as ChatGPT and GitHub Copilot has already begun to reshape programming education, warranting further examination of their pedagogical impacts. Had these technologies been available at the outset, this PhD may have followed a markedly different trajectory. Nevertheless, its contributions remain novel, spanning new pedagogical strategies, software tools, and learning materials that can complement or integrate with emerging GenAI-supported teaching practices. Consequently, the topic merits rementioning before identifying directions for future research.
+
+\subsection{Generative AI}
+
+The presentation output, \textit{\nameref{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks}}, illustrated that while GenAI technologies can enhance novice programmers' productivity, they also tend to encourage superficial, prompt-dependent learning behaviours. In the current environment, educators remain concerned with ensuring authentic learning and assessment, especially as LLMs perform strongly on text-based CS1 tasks.
+
+Institutional responses to GenAI have varied widely. Some universities have adopted open and exploratory approaches that promote use for creative and professional development. In contrast, others have implemented restrictive measures, citing concerns over plagiarism, dependency, and the erosion of core coding competencies. Yet even in contexts where GenAI use is restricted, enforcement remains problematic---automated detection tools are unreliable, policy interpretation varies across assessments, and teaching staff often lack the resources to investigate suspicious work.
+
+That said, current GenAI systems exhibit persistent weaknesses in accurately completing visually defined problems, particularly tasks requiring geometric precision, diagrams, or animation. Trials conducted in this research (\S~\ref{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks}) suggest that Python-based graphical assessments using Thonny-py5mode can effectively resist GenAI automation. Nevertheless, it remains to be seen how durable this resistance will prove over time, and which specific design features assessment developers might further leverage to sustain robustness in this domain.
+
+\subsection{Future Research}
+
+Building on this thesis' insights and findings, and recognising the growing impact of GenAI technologies, future research might prioritise the following:
+
+\begin{enumerate}
+
+\item \textbf{GenAI-Resilient Thonny-py5mode Assessment Design}: Conduct a systematic benchmarking of iterative LLM prompting versus one-shot generation for visual programming tasks, and design instructor-facing tools to produce dynamically varied, student-specific assessment tasks.
+
+\item \textbf{A py5-Aligned Tutoring Companion}: Investigate approaches inspired by tools such as ShiffBot to design a retrieval-augmented generation (RAG) system that draws on py5 documentation and example repositories, enabling adaptive, context-aware tutoring and feedback mechanisms. Leveraging py5's integration with Jupyter Notebooks, coupled with the Anaconda Agent and strategic prompting, will help emulate this system (Figure \ref{fig:anaconda-ai-assistant-py5}), providing a rapid environment for experimentation and feasibility evaluation.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter07-conclusion/anaconda-ai-assistant-py5}
+\caption{py5 running in a Jupyter Notebook, with Anaconda Navigator's AI Assistant used to explain the workings of the py5 \texttt{background()} function. Screenshot by the author.}
+\label{fig:anaconda-ai-assistant-py5}
+\end{figure}
+
+\item \textbf{Longitudinal Evaluation}: Conduct multi-semester or multi-institutional studies to assess learning retention, creative self-efficacy, and sustained engagement when using Thonny-py5mode. Such work should also involve students who are more exclusively creative-disciplines-focussed, rather than predominantly IT cohorts.
+
+\end{enumerate}
+
+In addition to these research directions, it is important to address questions of open-source sustainability regarding Thonny-py5mode.
+
+\subsection{Sustainability}
+
+As with many open-source ecosystems, the durability of these interventions depends on sustainability. Both Thonny-py5mode and py5 offer substantial potential for extension but require a clear and realistic funding strategy. This might combine competitive grants, institutional partnerships through curricular adoption, and community sponsorship. Ensuring long-term maintenance, documentation, educator support, and release cadence is vital to sustaining these contributions and ensuring their continued impact~\cite{curto-millet_sustainability_2023, otto_increasing_2022, sonabend_fair-use4os_2024}.
+
+\section{Closing Statement}
+
+In closing, this PhD makes an original and sustained contribution to knowledge at the intersection of Python programming education, creative computing, and software design. It demonstrates how research-led tool development, empirical evaluation, and creative practice can together advance both pedagogical theory and artistic production. Through establishing Thonny-py5mode as a viable successor to Processing's Python Mode, the thesis delivers new creative coding solutions of clear scholarly and practical value.
+
+Presented in a predominantly folio format, the work captures the reflexive interplay between explorative making and reflection-informed software development, setting a precedent for future practice-led investigations in creative computing education. It extends frameworks such as Task--Technology Fit to creative coding contexts and provides open, accessible resources that continue to shape teaching, learning, and creative practice internationally.
+
+Overall, the research deepens understanding of how creative computing enhances engagement and learning in Python education, while leaving an enduring legacy of software, curricula, and artworks that embody this knowledge in practice.
+
+\vspace*{\fill}
+\begin{center}
+\includegraphics[width=3cm]{chapters/chapter07-conclusion/end} \\
+\textit{End}
+\end{center}
+\vspace*{\fill}

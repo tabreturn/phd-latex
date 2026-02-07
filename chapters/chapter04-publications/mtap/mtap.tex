@@ -1,0 +1,291 @@
+\subsection{Abstract}
+
+\textit{Processing} is a popular graphical library and IDE developed for electronic art and visual design communities, with a strong focus on teaching art, design, and creative technologies students computer programming fundamentals in a visual context. Processing provides a collection of special commands to draw, animate, and handle user input using Java. Users can enable Python Mode (also called Processing.py) for Processing in the IDE interface. This leverages Jython, a Java implementation of Python, to interface with Processing's Java core, providing a way to write Processing code using Python syntax. 
+
+This paper proposes that combining Processing and Python provides an ideal development environment for teaching creative programming fundamentals. Several new Processing-Python environments and tools have emerged, but no attempts to integrate one of the most promising, the \textit{py5} library created by Jim Schmitz, into a Processing-like-IDE experience. py5 offers features not available with Jython, such as compatibility with Python 3 and support for CPython libraries. This paper presents a new coding environment, Thonny-py5mode, developed as a software plugin for the Thonny IDE, which brings a convenient, beginner-friendly setup like that of Processing's Python Mode to users working with py5.
+
+\bigskip
+
+\noindent\textit{\textbf{CCS Concepts: Applied computing \texttt{→} Media arts; Interactive learning environments; Education.}} \textit{Additional Key Words and Phrases: Processing, py5, Python Mode, Processing.py, Python}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{chapters/chapter04-publications/mtap/figure-teaser}
+\caption{Running a py5 sketch using Thonny-py5mode. Screenshot by the author.}
+\label{fig:teaser}
+\end{figure}
+
+\subsection{Introduction}
+
+Processing is an open-source integrated development environment (IDE) popular for teaching non-programmers the fundamentals of computer programming in a visual context. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology. Tens of thousands of students, artists, designers, researchers, and hobbyists use Processing and its related projects\footnote{~\url{https://processing.org}} for learning, prototyping, and a diverse range of creative computing projects~\cite{noble_programming_2009}. 
+
+Alternative Processing programming libraries include p5.js (for JavaScript), JRubyArt (for Ruby), and even an effort to create a version for the R language~\cite{wikipedia_processing_2025}. Python Mode for Processing---which some people refer to as Processing.py---combines the Python programming language and Processing~\cite{parrish_getting_2016}, providing users with a Python alternative to Processing's Java syntax. Figure~\ref{fig:figure-processing-py-vs-processing-java} contrasts Processing's Java and Python modes, demonstrating how programmers interface with the same API, using the same IDE, with different syntax. In this instance, the resulting output is an animated square that moves from the left to the right of the display window (leaving a trail of visible frames in its wake).
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{chapters/chapter04-publications/mtap/figure-processing-py-vs-processing-java}
+\caption{Processing in its original Java mode (left) and Python mode (right). Screenshots by the author.}
+\label{fig:figure-processing-py-vs-processing-java}
+\end{figure}
+
+\subsubsection{Java and Python for Introductory Programming Lessons}
+
+Interestingly, reports from the IEEE (Institute of Electrical and Electronics Engineers) indicate that both Java and Python have been among the top-ten-list of programming languages in recent years~\cite{cass_top_2022}. While Processing-Java's success suggests it is a highly effective way to learn to program, the Java syntax may be less ideal than Python syntax---as this paper argues, particularly for visual design and art students. 
+
+There has been an ongoing debate about which language is best for novices and teaching programming~\cite{pears_survey_2007}. Studies highlight Python's strong and growing presence in introductory Computer Science curricula~\cite{guo_python_2014}, courses for other domains that employ programming~\cite{duda_teaching_2021, ling_can_2021, riedl_python_2015}, and other educational environments~\cite{tabet_alice_2016}. Python overtook Java as the most popular introductory teaching language at top U.S. Universities in 2014~\cite{guo_python_2014}. To return to Figure~\ref{fig:figure-processing-py-vs-processing-java}, Python offers a more shallow abstraction gradient. It does not require semi-colons to terminate each line and drops the braces in favour of prescribed indentation. An educator does not need to explain to students what Java's \texttt{void} does, which involves understanding how functions return data, something not typically covered in the first lesson of a novice programming course. Learning to code with Processing and Python also provides an entry to other domains of Python programming, including artificial intelligence, data-science and visualisation, game development, web development, desktop applications, and web scraping. Python includes many characteristic features for supporting learning (by abstracting away some more complex concepts), including small and clean syntax, dynamic typing, expressive semantics, immediate feedback, and object orientation~\cite{grandell_why_2006}.
+
+\subsubsection{Potential Advantages of Processing-Python over Processing-Java}
+
+Educators can leverage the advantages of Python described in the previous subsection by employing Python to write Processing code. 
+
+In 2008, Bälter and Dale~\cite{balter_enjoying_2010} experimented with an introductory programming course that combined Python, Processing, and Core Java. They opted to introduce coding fundamentals for the first four weeks using Python, shifted to two weeks of Processing-Java following that for its graphics capabilities, and then concluded with a final four weeks of Processing and Java followed by a four-week student-determined final project. The vast majority, 16 of the 26 students, chose Processing for their final projects, while four used text-based Java. In their conclusion, Bälter and Dale mention Nodebox (a Python-based Mac OS X Processing alternative) as an all-Python option for similar courses, which was still under development at the time. A few years later, Processing's Python Mode would combine all those technologies (Python, Processing, and Core Java) into a single IDE, effectively enabling such a course to employ Python throughout. 
+
+In 2013, Frederik Berlaen would redesign DrawBot for macOS, a Processing-inspired environment for creating two-dimensional graphics using Python code. DrawBot has proven itself as part of the curriculum within selected courses at the Royal Academy of Art in The Hague.\footnote{~\url{https://www.drawbot.com/\#education}} Several other Processing-like Python options have since appeared, reviewed in Section \ref{Tools Combining Processing and Python}. This proliferation of Python-based Processing-like environments, many led by people involved in education, points to an identified desire for teaching using Python creative coding environments. 
+
+The Python language should help novices writing Processing code to produce results (visual output in this case) more rapidly, heightening their sense of accomplishment. As Hsiao-Chi \textit{et al.} conclude in their multi-group study of students learning programming~\cite{ling_can_2021}, compared with students who learn Java, Python students are more likely to: reduce their maladaptive cognition; improve their self-efficacy and motivation to learn; feel a greater sense of learning achievement. Processing-Python solutions, therefore, provide an arguably more beginner-friendly and approachable (Python-based) experience than Processing-Java and, at the same time, offer many/all the same graphics and multimedia programming features~\cite{bunn_learn_2021}.
+
+After the release of Processing version 4 in August 2020, Ben Fry, co-creator of Processing, wrote on the potential of porting the entire project to Python\footnote{~\url{https://github.com/benfry/processing4/wiki/Processing-4}}, citing issues with Java, particularly Oracle's handling of the product. Fry labelled Python as ``terrific,'' although lacking readily available components for interactive graphics, and described the Python Mode (Jython) implementation as ``great''. However, he desired the ``NumPy [library] and all those other things that make Python wonderful''---a shortcoming addressed in py5. As the official py5 documentation describes~\cite{schmitz_welcome_2021}:
+
+\medskip
+
+\noindent\textit{``Processing.py [see Processing Python Mode] is the spiritual ancestor to and inspiration for py5. [It] is similar to Processing.py in that both use Python syntax but their implementations are very different. Processing.py and py5 do not share any code but py5 benefits from code in the Processing core libraries written to accommodate Processing.py.''}
+
+\medskip
+
+Compared with Processing, py5 also includes Python-style naming conventions, various Processing enhancements for named and shorthand hexadecimal colour values, NumPy methods for selecting and manipulating pixels, profiler functions, and OpenSimplex 2 noise. 
+
+\subsubsection{Processing Python Mode / Processing.py Limitations}
+
+Figure~\ref{fig:figure-processing-py-workings} illustrates at a very high level how Processing Python Mode passes code from the editor to Jython so that Java may interpret it. However, Processing.py's Jython implementation has its limitations: (a) it is source-compatible with Python 2.7 (not 3+), which the Python Software foundation officially sunset\footnote{~\url{https://www.python.org/doc/sunset-python-2}} on January 1, 2020; (b) it does not support CPython libraries, such as NumPy for handling complex matrix operations or Pymunk for simulating 2D physics. 
+
+\begin{figure}[htbp]
+\includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-processing-py-workings}
+\caption{Processing Python Mode's Jython implementation. Diagram by the author.}
+\label{fig:figure-processing-py-workings}
+\end{figure}
+
+This paper presents a new Processing-inspired development environment, Thonny-py5mode, which supports Python 3 and CPython libraries (via py5) that the author (Bunn) developed as a software plugin for the Thonny IDE.
+
+\subsection{The Thonny-py5mode Plugin}
+\label{sec:the-thonny-py5mode-plugin}
+
+Thonny is a beginner-oriented IDE for Python programming, including an embedded CPython (3.x) interpreter, features for explaining variable scope, and a GUI for managing Python packages. The Thonny-py5mode plugin installs JRE and configures Thonny for use with py5. It adds assistive Processing-like features to the Thonny editor, including syntax-highlighting and hinting for py5 functions and keywords, a colour mixer, menu items for converting code between Processing.py and py5, a py5 quick reference, and a Processing-IDE-inspired colour scheme. It provides a much-needed successor to the Processing IDE's Python Mode coding experience, transforming Thonny into a creative computing environment by adding features that employ Processing's core libraries to generate interactive visual output via py5.
+
+py5 provides module, class, imported, and static modes, and the Thonny-py5mode plugin can switch how it runs code to support the mode the user wishes to employ. For example, static mode is the simplest way to start writing code as it does not require any \texttt{import} lines or even \texttt{setup()} and \texttt{draw()} blocks. In static mode, drawing a square requires nothing more than a single line with a \texttt{square()} function (and the appropriate three arguments for x-coordinate, y-coordinate, and extent). 
+
+The py5 and Thonny-py5mode communities are overlapping groups of people, and ongoing discussion between those developers and users informs new features for both projects. On the other hand, work on the Processing Python Mode / Processing.py project has largely stalled, and the project has sought (unsuccessfully) a new leader for some time~\cite{feinburg_python_2023}. 
+
+The Thonny-py5mode plugin removes the complexity beginner programmers may face setting up a working py5 environment (installing Python, setting up a Java Runtime Environment, configuring a suitable code editor, and so on). Effectively, it emulates the successful approach adopted in Processing's Python Mode. Namely, a simple-to-activate mode for an existing IDE that conveniently transforms it into a Python environment for creative computing. Thonny-py5mode makes it easy for beginners to start with py5, also serving as an immediately familiar alternative for anybody familiar with the Processing IDE (especially its Python Mode).
+
+Figure~\ref{fig:figure-thonny-py5mode-workings} depicts the Thonny interface with the plugin installed as part of a diagram that approximately contrasts the workings of py5 (which employs JPype over Jython) against those of Processing's Python Mode (Figure~\ref{fig:figure-processing-py-workings}). Note that the code editors may look the same or similar because the Thonny IDE has its Processing-style theme active that Thonny-py5mode applies.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-thonny-py5mode-workings}
+  \caption{The Thonny IDE with Thonny-py5mode activated. py5 uses JPype to interface between Python 3 and Processing's Java libraries. Diagram by the author.}
+  \label{fig:figure-thonny-py5mode-workings}
+\end{figure}
+
+The Thonny IDE includes a graphic interface for managing Python packages (Figure~\ref{fig:figure-pymunk}) to make it easy for users to install additional packages such as Pymunk for incorporating 2D physics in simulations programmed with py5. This interface avoids users having to use a command-line interface for managing Python packages.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-pymunk}
+  \caption{Installing Pymunk via the Thonny package manager. Screenshot by the author.}
+  \label{fig:figure-pymunk}
+\end{figure}
+
+\subsection{Tools Combining Processing and Python} \label{Tools Combining Processing and Python}
+
+The introduction section mentions that several new Processing-Python environments and tools have emerged as Python Mode alternatives. This section reviews those, providing technical insight into their differences, and discussing the advantages and disadvantages of each approach. It also reiterates and highlights the benefits that Thonny-py5mode provides as a new Python-based creative programming environment for teachers, learners or beginners, and creative coders.
+
+In a systematic review of different Python-based programming options for design and architectural education, Villares and de Carvalho Moreira~\cite{villares_python_2017} survey 43 environments/tools, ``of which 32 at least [are] superficially investigated, [and] at least 20\% (7 of 32) have substantial educational aims.'' The study highlights Python's strong and growing presence in introductory computer science curricula, creative computing courses, and other educational settings. Python is well-suited to novice programmers, and Processing provides a proven environment for teaching textual programming, especially to art, design, and other `visually-oriented' students~\cite{greenberg_processing_2016, reas_processing_2006, reas_processing_2014}. Processing Python Mode may, therefore, seem like an ideal for teaching creative programming, but its Jython component has limitations. 
+
+\subsubsection{Web-Browser-Based Options}
+
+Villares provides a table (Table \ref{tbl:table-processing+python}) of different Processing + Python software that has emerged in recent years. The bottom four entries in Table \ref{tbl:table-processing+python} are web-browser-based. Three of those, pyp5js (depicted in Figure~\ref{fig:figure-pyp5js}), Proceso, and BrythonIDE, combine p5.js (JavaScript) and Python using Pyodide, Transcrypt, or Brython; the other web-browser-based approach, employed in SkulptIDE and trinket.io, utilises ProcessingJS (JavaScript), but development on ProcessingJS ceased a while before 2018.\footnote{~\url{https://github.com/processing-js/processing-js}}
+
+\begin{table}[!htbp]
+  \centering
+  \rotatebox{90}{
+    \begin{minipage}{0.96\textheight}
+      \centering
+      \fontsize{9.7pt}{11pt}\selectfont{}
+      \renewcommand{\arraystretch}{1.5}
+      \begin{tabular}{
+        >{\raggedright\arraybackslash}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.11\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.11\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.11\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.195\linewidth-2\tabcolsep}
+        >{\raggedright\arraybackslash}p{\dimexpr 0.195\linewidth-2\tabcolsep}
+      }
+        \hline
+        \textbf{Name} & \textbf{Processing features} & \textbf{Based on (and Python ver.)} & \textbf{Python std. library} & \textbf{Libraries ecosystem} & \textbf{Main features} & \textbf{Main limitations} \\
+        \hline
+        Processing Python Mode (the "reference implementation" for comparison) &
+        Processing 3 Java &
+        Jython (Python 2) &
+        Complete &
+        Java and Processing Java &
+        Available inside Processing IDE; highly Processing-3-compatible &
+        Processing 4 incompatible; no web sharing; no modern Python 3 libs; needs new maintainer \\
+        \hline
+        py5 &
+        Processing Java graphics via JPype &
+        Python 3 &
+        Complete &
+        Python and Processing Java &
+        Truly Python-3-compatible library support; Jupyter notebooks support; core capabilities of Processing 4 Java &
+        Snake\_case names; experimental; some Processing Java libraries may not work \\
+        \hline
+        p5py &
+        New implementation based on OpenGL (incomplete), and will add Skia back-end &
+        Python 3 &
+        Complete &
+        Python only &
+        Truly Python-compatible; no Java/JVM dependency &
+        Snake\_case names; experimental; still incomplete; no access to Processing Java libraries \\
+        \hline
+        pyp5js (Pyodide or Transcrypt mode) &
+        p5.js &
+        Python 3 via Pyodide or Transcrypt &
+        Complete &
+        Python, JavaScript and p5.js &
+        Web-ready sketches and editor; highly p5.js-compatible; Pyodide is highly Python-compatible &
+        Experimental; still incomplete; p5.js features (as opposed to Processing Java/Python modes) \\
+        \hline
+        Proceso &
+        p5.js &
+        Python 3 via Pyodide &
+        Complete &
+        Python, JavaScript and p5.js &
+        Browser-based sketches; highly p5.js compatible; Python-compatible; names similar to py5 &
+        p5.js features (as opposed to Processing Java/Python modes) \\
+        \hline
+        SkulptIDE and trinket.io &
+        ProcessingJS &
+        Skulpt (Python 2, but migrating to 3) &
+        Partial &
+        Unknown, possibly JavaScript &
+        Appealing and refined web IDE; browser-based sketches &
+        ProcessingJS is defunct; not extensible \\
+        \hline
+        BrythonIDE and p5py.com &
+        p5.js &
+        Brython (Python 3) &
+        Fairly complete &
+        JavaScript and p5.js &
+        Browser IDE; browser-based sketches; highly p5.js-compatible &
+        p5.js features (as opposed to Processing Java/Python modes) \\
+        \hline
+      \end{tabular}
+      \caption{Processing + Python tools table. Adapted from Villares~\cite{villares_resources_2022}.}
+      \label{tbl:table-processing+python}
+    \end{minipage}
+  }
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{chapters/chapter04-publications/mtap/figure-pyp5js}
+  \captionsetup{width=0.8\textwidth}
+  \caption{Running a p5.js--Python sketch in a web browser using pyp5js. Screenshot by the author.}
+  \label{fig:figure-pyp5js}
+\end{figure}
+
+Browser-based solutions have the advantage of running on any platform with a modern web browser. These solutions offer the quickest means to start writing and executing code and are helpful in many situations where downloading additional software can be problematic. However, these cannot utilise the rich ecosystem of Processing-Java libraries because none interface with Java in any way. While the p5.js project offers a robust collection of libraries, other Python libraries from the Python Package Index (PyPI) may be unavailable or could prove challenging for beginners to set up.\footnote{~Refer to Brython, Pyodide, and Transcrypt official documentation for package availability and limitations} 
+
+py5 also supports a browser-based coding environment through Jupyter Notebooks, an open-source web application popular among scientists and researchers~\cite{granger_jupyter_2021}. While web-browser-based solutions are preferable in several situations, and Jupyter Notebooks brings a host of valuable features, this paper focuses on a Python 3 alternative for a Processing-Java \textbf{desktop} IDE.
+
+\subsubsection{Comparing Thonny-py5mode and Processing (and similar) Desktop IDEs}
+
+Villares' table \ref{tbl:table-processing+python} lists a single solution (Processing Python Mode) using a desktop (opposed to browser-based) IDE. With some relatively simple to involved configuration effort, users can employ a general-purpose desktop IDE (such as Visual Studio Code, Geany, or similar) for Processing, py5, p5py, or pyp5js. However, Thonny-py5mode aims to provide a multi-platform desktop IDE experience for beginners with little to no configuration required. Moreover, it includes many features specific to py5 that a user could not access in a more general-purpose IDE. 
+
+Drawbot, Nodebox, and Shoebot are pure Python alternatives to the Processing IDE absent from Villares' table of different Processing + Python environments/tools. None leverage the Processing API. Drawbot and Nodebox provide ready-configured/bespoke desktop IDEs, but those support Apple Mac platforms exclusively. Shoebot is a multi-platform port/rewrite of Nodebox, which also features a bespoke IDE~. Shoebot does not provide the extensive features of the Thonny-py5mode plugin, including syntax highlighting and hinting for functions and keywords, a colour mixer, menu items for converting code from Processing.py scripts, and a package manager for installing other Python packages. The Shoebot installation process is also more involved, requiring users to install several dependencies. Shoebot started in 2007 and transitioned from Python version 2 to 3; it is a capable coding environment, particularly for vector graphics, and remains an interesting open-source project to watch.
+
+The p5py project (Figure~\ref{fig:figure-p5py}) has made good progress on developing a native Python 3 port of the Processing API. However, a few core individuals currently driving the p5py project must effectively recreate the entire Processing API from scratch in Python. py5, instead, leverages the mature Processing-Java codebase via JPype, actively developed by a large community of programmers. p5py has no desktop IDE plugin like Thonny-py5mode, or Jupyter Notebooks kernels, and users must install GLFW (a multi-platform OpenGL library) separately. However, p5py is useful for anybody seeking a pure-Python library to programme simulations and interactive art, accumulating 700 stars\footnote{~\url{https://github.com/p5py/p5}} on GitHub to date.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{chapters/chapter04-publications/mtap/figure-p5py}
+  \captionsetup{width=0.8\textwidth}
+  \caption{Writing p5py code in a general-purpose code editor (not a bespoke IDE or plugin). Screenshot by the author.}
+  \label{fig:figure-p5py}
+\end{figure}
+
+Neither py5 nor p5py provides a Processing kind of IDE experience. That is, a bundled code editor with features specifically to complement working with their libraries. Hence, the opportunity to create a Processing Python Mode / Processing.py successor by way of a Thonny IDE plugin.
+
+\subsection{thonny-py5-mode Examples}
+
+Accomplished creative coders and beginners alike have employed the Thonny-py5mode environment for programming generative artworks. Figure~\ref{fig:figure-aquatics} presents an adaptation of Lieven Menschaert's NodeBox script, Aquatics, programmed using Thonny-py5mode. This spawns a creature with a random fill colour, shape (defined by something named the superformula), and no fewer than three eyes. There is a 70 percent chance that hair will grow along the creature's edges, which can be swayed by the force of a randomly directed current.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-aquatics}
+  \caption{Artwork inspired by Lieven Menschaert's NodeBox script \textit{Aquatics}, programmed using Thonny-py5mode. Artwork by the author.}
+  \label{fig:figure-aquatics}
+\end{figure}
+
+2-Axis pen plotters provide another fun way for students or artists to experiment with generative output using ink and paper. Again, the Thonny package manager makes it convenient to install the powerful Python library, vpype---a ``Swiss-Army-knife'' for working with vector graphics for plotters~\cite{beyeler_vpype_2022}. Using vpype, the programmer can perform some post-processing on py5-generated SVG files to optimise paths for pen plotting. Figure~\ref{fig:figure-plot} shows a Thonny-py5mode program that generates SVG files that the creator will plot using different colour pens.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-plot}
+  \caption{Programming generative (multi-pen) plotter art in the Thonny-py5mode environment. Screenshot by the author.}
+  \label{fig:figure-plot}
+\end{figure}
+
+A wide variety of other projects might employ Thonny-py5mode, including for visual art and design work, video games, installation artworks and projections, sound art, prototypes, and other creative applications. Reviewing different results created using Processing, OpenFrameworks, and OPENRNDR offers inspiration for what is possible. 
+
+\subsection{Thonny-py5mode in the Classroom}
+
+At Massey University's College of Creative Arts in New Zealand, educators adapted a course that used Processing's Python Mode to one using Thonny-py5mode for 2022. This required revising the course learning materials, which also served as part of the py5 project's efforts to develop tutorial documentation. The Processing Foundation co-funded Zelle Marcovicci for the documentation work, mentored by Jim Schmitz and Tristan Bunn. Materials went `live' on the official \href{https://py5coding.org}{py5coding.org} website later in 2022~\cite{processing_foundation_google_2022}. To date, there is no comparative study to assess the 2022 cohort's experience and abilities against those of the previous cohorts who used Processing's Python Mode. Figure~\ref{fig:figure-penno-avatars} is an example of one student's submission at the mid-point of the course, after roughly 5 × 2-hour training workshops using Thonny-py5mode. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{chapters/chapter04-publications/mtap/figure-penno-avatars}
+  \caption{Abstract avatars created by student Toby Penno. Shared with permission.}
+  \label{fig:figure-penno-avatars}
+\end{figure}
+
+A cursory review of the 2022 assignments indicates that the work is at least as good as the previous year's. With some tweaking, the Python Mode materials adapted appropriately for Thonny-py5mode. This switch also enabled a few improvements to the curriculum. For instance, Pymunk replaced pypybox2d for physics, providing improved performance due to its C bindings and more complete and up-to-date documentation than pypybox2d. Access to NumPy was helpful for anything that involved matrices, and several py5 functions incorporate NumPy for manipulating arrays of pixels. The \texttt{py5Vector} class works seamlessly with NumPy arrays.
+
+Educator, researcher and visual artist Alexandre Villares has employed Thonny-py5mode in secondary and tertiary, face-face and online settings (synchronous and asynchronous) in Brazil, and for the online Brazilian-Portuguese language offering \textit{Designing with Python: Programming for a Visual Context} on the online learning platform Domestika. The Domestika course has seen 1320 student enrolments to date with positive student feedback~\cite{villares_online_2022}.
+
+\subsection{Future Work and Thonny-py5mode Development}
+
+In the near future, we aim to conduct and report on Thonny-py5mode user studies, creative outputs, and technical achievements toward a Python 3 development environment for teaching computer programming in a visual context. 
+
+Thonny-py5mode is under active development again in 2023. The plugin is closely aligned with the py5 project, responding to its user feedback, new features, and developments. GitHub hosts the Thonny-py5-mode code repository. Jim Schmitz leads the py5 project, and Bunn leads Thonny-py5mode development; both related projects rely on GitHub for source control, its built-in \textit{Issues} feature for issue tracking, and \textit{Discussions} for collaborative communication around the project. Both projects host releases on PyPI (The Python Package Index). py5 developments effectively operate upstream of Thonny-py5mode; Thonny-py5mode dependencies are specific, but there are plans to `unpin' this so that new versions of py5 update independently of the Thonny-py5mode plugin version. Users can update the Thonny-py5mode plugin via the Thonny package manager, which tracks and retrieves packages in PyPI. There is documentation for installing the Thonny-py5mode plugin on PyPI and GitHub, also linked in the py5 documentation.
+
+\subsection{Project Development Priorities}
+
+There is a discussion among the developers of py5 and Thonny-py5mode regarding potential support for live coding, which would enable users to alter py5 code while it is running. This feature may prove helpful in teaching and as software for users looking to VJ, which involves the real-time creation and manipulation of visuals, often synchronised with music, for live performances using software, hardware, and generative techniques~\cite{purvis_cjing_2019}. Specific priority goals for the Thonny-py5mode project moving forward are to:
+
+\begin{itemize}
+  \item package a `portable' version of Thonny-py5mode that includes the plugin pre-bundled, which could additionally run off of a flash drive;
+  \item carry out ongoing bug fixes (reported via GitHub \textit{Issues}) and other minor enhancements;
+  \item to more actively position py5/Thonny-py5mode as a compelling option for educators to teach students about Python and creative coding.
+\end{itemize}
+
+Lower priority goals include: 
+
+\begin{itemize}
+  \item GitHub \textit{Actions} to publish packages (and other useful actions);
+  \item a pyp5js-powered exporter (to export Thonny-py5mode scripts for JavaScript/Web);
+  \item providing a feature for downloading bundles of py5 examples (from online repositories such as GitHub) to browse and run on the user's device.
+\end{itemize}
+
+The Thonny IDE also presents some interesting opportunities beyond what the Processing IDE might manage. For example, it is easy to move into using Pygame Zero (for creating basic games) by simply enabling the relevant plugin via a Thonny menu. Blender scripting offers a way to explore more advanced 3D content than Processing's 3D capabilities can offer. Using Python to interface with Blender's powerful render engine, one can output creations in high-resolution image and video formats that employ particle systems, rigid-body/fluid/cloth dynamics, metaballs, and volumetrics, among other graphically intensive techniques~\cite{bunn_blender_2023}. To accomplish this in Thonny, perhaps one could add a menu item using the plugin architecture, which in turn sends scripts to Blender running in `headless' mode (so that it renders an image without opening the Blender application). The significance of discussing these two examples is to illustrate how the Thonny IDE can provide a suite of creative computing features that employ different libraries (including Processing core libraries via py5) using a plugin approach. In contrast, this is potentially more difficult to accomplish in a more focused IDE like that of Processing.
+
+\subsection{Conclusion}
+
+Thonny-py5mode combines a popular beginner Python IDE, Thonny, and the most promising successor to the Processing.py project, py5---which does not otherwise include a Processing-like IDE experience. The plugin offers a capable and approachable integrated development environment to complement py5. Like Python Mode in the Processing IDE, installing it is an easy enough process for a beginner. One can also package this setup into a portable application for easy distribution, including everything pre-configured. Several educational environments currently employ Thonny-py5mode for teaching. Researchers, developers, and users seeking to get involved with the project can refer to Appendix for the relevant online resources. 
+
+\subsection*{Conflict of Interest}
+
+The authors declare that they have no conflict of interest. 
+
+\subsection*{Data Availability}
+
+Data sharing not applicable to this article as no datasets were generated or analyzed during the current study.

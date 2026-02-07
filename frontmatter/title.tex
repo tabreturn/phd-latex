@@ -1,0 +1,53 @@
+\pdfbookmark[0]{Title Page}{cover}
+\newgeometry{left=2.5cm} % centering fix (for twoside)
+
+\begin{titlepage}
+  \pagecolor{deepblue} % whole page background
+  \color{ashgray}      % set all text to white
+  
+  \vspace*{2.5cm}
+  \makeatletter
+  \begin{center}
+    \setstretch{2.5}
+    \begin{Huge}
+      \@title
+    \end{Huge}\\[0.8cm]
+    %
+    \setstretch{1.8}
+    \parbox{8cm}{
+      \centering
+      \begin{Large}
+        \@subtitle
+      \end{Large}\\[0.6cm]
+    }\\
+    %
+    \emph{by}\\
+    \textbf{\@author}
+    %
+    \vfill
+    \emph{under the supervision of}\\
+    Dr Aaron Bere\\
+    Dr Michelle Douglas
+    \vfill
+    A document submitted in partial fulfillment of the requirements for the degree of\\
+    \textsc{Doctor of Philosophy}\\
+    at\\
+    %\textsc{Torrens University Australia}\\
+    \bigskip
+    \includegraphics[width=3.5cm]{frontmatter/torrens-university-australia-logo}\\
+    \monthname\space\the\year
+  \end{center}
+  \makeatother
+\end{titlepage}
+
+% reset page background + text color
+\nopagecolor
+\color{black}
+\restoregeometry % centering fix
+
+% ashgray page
+\pagecolor{ashgray}\null\thispagestyle{empty}
+\clearpage
+\nopagecolor % reset back to white for following pages
+
+\cleardoublepage

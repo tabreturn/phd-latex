@@ -1,0 +1,206 @@
+\chapter{Software}
+\label{chap:software}
+
+This chapter focuses on the Thonny-py5mode plugin, developed as a central component of this research to enhance Python programming education through creative computing environments. It outlines the plugin's key features, development process, and supporting documentation, including funding and formal recognition. The MTAP article, \textit{\nameref{sec:mtap}}, complements this chapter by detailing Thonny-py5mode's technical implementation and design rationale, while the \textit{\nameref{sec:jise}} study examines its impact on students' learning experience. Additionally, several outputs in the \nameref{chap:presentation-outputs} and \nameref{chap:creative-works} chapters examine Thonny-py5mode's broader contributions to the research aims, tracing its development journey and demonstrating practical applications across teaching, learning, and creative practice.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/thonny-py5mode-system-fractal}
+\caption{Screenshot of Thonny-py5mode in use, rendering an L-system fractal. Screenshot by the author.}
+\label{fig:thonny-py5mode-system-fractal}
+\end{figure}
+
+\textbf{Thonny} is a beginner-friendly Python IDE developed at the University of Tartu to support programming education. It offers an intuitive interface with a clean editor layout, prioritising simplicity for newcomers. Some key features include a built-in debugger, integrated shell, and streamlined installation process owing to its bundled Python interpreter. Thonny is free, open-source software available for Linux, macOS, and Windows~\cite{annamaa_thonny_2024}. 
+
+\textbf{Thonny-py5mode} builds on Thonny's plugin architecture by integrating the py5 library, which brings Processing's programming capabilities into Python~\cite{schmitz_welcome_2021}. The plugin name follows Thonny's prescribed convention, combining the required ``thonny-'' prefix with a reference to ``py5''. Thonny-py5mode serves as a contemporary successor to the Processing IDE's original Python Mode, but offers a Python 3-compatible workflow that supports the complete CPython ecosystem.
+
+The following code demonstrates a basic Thonny-py5mode script (a py5 ``sketch''), with Figure~\ref{fig:py5-sketch} showing the output (annotated to indicate how the arguments influence the appearance).
+
+\begin{lstlisting} 
+# setup
+size(500, 500)           # canvas size
+background('#FFFFFF')    # white background colour
+cx = width / 2           # canvas horizontal centre
+cy = height / 2          # canvas vertical centre
+stroke_weight(5)         # set outline to 5 pixels wide
+
+# draw rectangle
+stroke('#FF0000')        # set outline to red
+fill('#00FF00')          # set fill to green
+rect(100, 50, 120, 340)  # draw rectangle
+
+# draw circle
+no_fill()                # set fill to none
+stroke('#0000FF')        # set outline to blue
+circle(cx, cy, 200)      # draw circle
+\end{lstlisting}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{chapters/chapter03-software/py5-sketch}
+\captionsetup{width=0.5\textwidth}
+\caption{Annotated py5 sketch. By the author.}
+\label{fig:py5-sketch}
+\end{figure}
+
+Aligned with the goals of both Processing and Thonny, Thonny-py5mode facilitates easy entry into creative coding through a simplified setup process. It enables students---particularly those from creative disciplines with limited programming experience---to engage with code through the creation of visual, interactive, and multimedia outputs. The plugin installs a Java Runtime Environment (JRE) and adapts Thonny for py5, delivering a supportive user experience through features including syntax highlighting and autocompletion for py5 code, integrated buttons and shortcuts for running sketches, a colour mixer tool, direct links to reference materials, and a Processing-inspired editor theme.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Development Process}
+
+Development of the Thonny-py5mode plugin began in August 2021 with the creation of a GitHub repository, following several months of preliminary experimentation. This early work, informed by research into Processing-like Python environments, alternative code editors, and the then-recent stable release of py5, suggested that combining py5 with the Thonny editor could provide a suitable successor to Processing's discontinued Python Mode (Processing.py).
+
+Thonny-py5mode's design objectives and user experience intentionally mirror the Processing IDE, which has demonstrated effectiveness in education through its approachable, pedagogically informed workspace~\cite{greenberg_creative_2012, processing_foundation_look_2022, reas_modern_2018, stinson_processing_2021}. Instead of introducing a new interface, Thonny-py5mode adapts this paradigm to the Thonny environment, combining novice-friendly support and a familiar setting for any Processing users transitioning to Python.
+
+The Thonny-py5mode project relies on GitHub for version control, issue tracking, and community discussion. It distributes releases via PyPI, from which the Thonny package manager retrieves plugins. Installation instructions are available on both the GitHub and PyPI project pages, and also referenced in the official py5 documentation. Because py5 functions as an upstream dependency, Thonny-py5mode initially specified strict version requirements, but later adopted an `unpinned' approach, thereby allowing py5 updates to proceed independently of the plugin version.
+
+As of writing, Thonny-py5mode development remains active, with nearly 300 commits on GitHub, four major releases, and contributions from five developers. The initial design, implementation, and all releases up to January 2022 were completed solely by Tristan Bunn (thesis author). After a development hiatus between July 2022 and March 2023, progress resumed with increasing involvement from members of the py5 and Thonny communities.
+
+Bunn first publicly introduced Thonny-py5mode in a presentation at CC Fest in August 2021 (see \textit{\nameref{sec:thonny-+-py5-a-python-3-environment-for-processing}}). Since then, Thonny-py5mode has continued to evolve in close coordination with the py5 project, incorporating user feedback and supporting new py5 features. In July 2025, Bunn (GitHub username: tabreturn) formally transferred ownership of the Thonny-py5mode repository to the py5 organisation (from \url{https://github.com/tabreturn/thonny-py5mode} to \url{https://github.com/py5coding/thonny-py5mode}), along with the associated PyPI project: \url{https://pypi.org/project/thonny-py5mode}. Moving forward, Thonny-py5mode is officially maintained under py5 and recommended as ``the best [py5] setup for beginners.''\footnote{~\url{https://py5coding.org/content/install.html\#install-py5}}
+
+\subsection{Release History}
+
+The plugin's development progressed iteratively between August 2021 and June 2024, spanning nine releases during that time, with each aimed at enhancing functionality, stability, and user experience. Initial versions established distribution readiness (e.g., PyPI publication, Windows compatibility), while subsequent updates added integrated JDK support, dynamic sketch paths, and theming options. From 2022 onward, development focused on compatibility with Thonny 4, packaging refinements, and user-experience features, including autocomplete and colour-picking tools. To streamline the setup process, releases during this period introduced features such as progress indicators and enhanced setup logs. Later releases prioritised documentation quality, refreshed visuals, and alignment with evolving py5 requirements, culminating in a stable and polished tool by mid-2024.
+
+Community feedback shaped this trajectory, helping to optimise the plugin for both educators and learners and enabling smoother integration of py5 within Thonny across Linux, macOS, and Windows platforms. 
+
+For readers interested in granular details, such as incremental fixes or ongoing enhancements, the complete commit history on GitHub provides a record of steady progress, marked by phases of concentrated activity and periods of slower development (notably during 2023). Collectively, the releases demonstrate a responsive and sustained commitment to providing a reliable and accessible environment for creative coding in Python.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Features}
+
+This section documents the principal features of Thonny-py5mode. One may divide these into two categories: (1) bespoke functionality specifically developed for the plugin, described here; and (2) existing Thonny features that complement the execution of py5 sketches within Thonny-py5mode, discussed in the \textit{\nameref{sec:mtap}} article and the \textit{\nameref{sec:thonny-+-py5-a-python-3-environment-for-processing}} presentation output.
+
+Following installation and activation, the plugin introduces a dedicated \textit{py5} menu (Figure \ref{fig:thonny-py5mode-menu}), placed within the Thonny menu bar.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/thonny-py5mode-menu}
+\caption{Thonny-py5mode activited in Thonny, showing the py5 menu. Screenshot by the author.}
+\label{fig:thonny-py5mode-menu}
+\end{figure}
+
+From the \textit{py5} menu, users may toggle between \textit{Imported mode}---which removes the need for explicit \texttt{import} statements or \texttt{py5} prefixes---and the module/class mode\footnote{~The five py5 modes: \url{https://py5coding.org/content/py5_modes.html}}. In Imported mode, they can also write Static mode sketches, omitting \texttt{setup()} and \texttt{draw()} functions when animation or interactivity is unnecessary. Other menu options include \textit{Apply recommended py5 settings}, which applies a Processing-inspired blue-ish colour scheme to the IDE, among other tweaks. The \textit{Color selector} item opens a mixer window (Figure~\ref{fig:thonny-py5mode-system-colour-mixer}) that can be positioned beside the editor for repeated use while writing code. The menu also provides direct links to the \textit{py5 reference} (official documentation) and a \textit{py5 cheatsheet} (a two-page PDF, Figure~\ref{fig:py5-cheatsheet}, intended for download or printing). Selecting \textit{Show sketch folder} opens the current working directory in the system's default file manager, while \textit{About Thonny-py5mode} displays the plugin metadata (including version number, license, and credits).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter03-software/thonny-py5mode-system-colour-mixer}
+\captionsetup{width=0.8\textwidth}
+\caption{Thonny-py5mode colour mixer. Screenshot by the author.}
+\label{fig:thonny-py5mode-system-colour-mixer}
+\end{figure}
+
+When Thonny-py5mode is enabled, users may also activate autocompletion for py5 commands (Figure \ref{fig:thonny-py5mode-autocomplete}). By default, the plugin applies highlighting to py5 commands and keywords, thereby enhancing code readability and reducing the likelihood of syntactic error.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter03-software/thonny-py5mode-autocomplete}
+\captionsetup{width=0.8\textwidth}
+\caption{Thonny-py5mode autocomplete. Screenshot by the author.}
+\label{fig:thonny-py5mode-autocomplete}
+\end{figure}
+
+Beyond these core functions, Thonny-py5mode introduces several usability refinements designed to enhance the programming experience. The sketch window, for instance, now remembers its previous position between executions rather than defaulting to the display's top-left corner on every run. Version 0.4.6a0 improved the installer process, adding progress indicators, user-facing notifications, and detailed event logging. Additionally, full cross-platform compatibility ensures consistent behaviour across Linux, macOS, and Windows.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Documentation}
+\label{sec:documentation}
+
+Thonny-py5mode provides setup/installation documentation hosted on both its GitHub and PyPI project pages. As described above, the py5 menu links to two other documentation efforts: (1) a py5 cheatsheet, and (2) the official py5 library documentation.
+
+\subsection{py5 Cheatsheet}
+
+A `cheatsheet' is a compact reference that distils key syntactic and functional elements of a programming language or library into a concise format, thereby documenting essential concepts, commands, and techniques to support rapid recall~\cite{suh_cheat_2023}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/py5-cheatsheet}
+\caption{Downloadable/printable py5 PDF cheatsheet. Designed by the author.}
+\label{fig:py5-cheatsheet}
+\end{figure}
+
+The py5 cheatsheet (Figure \ref{fig:py5-cheatsheet}) provides a quick reference for py5, the Python-based implementation of Processing integrated with Thonny through Thonny-py5mode. It presents core syntactic elements and functional constructs for developing sketches, including program structure (static versus animated scaffolds), colour specification with fills and strokes, two-dimensional primitives, methods for creating complex shapes, and Python commenting conventions. Additional sections address typography, mathematical operators, randomisation, system constants, variables, and standard Python control flow. Several topics include a concise, multiline code sample that supports recall rather than extended explanation. The cheatsheet functions as both a pedagogical and practical aid for creative coding. It offers particular value for beginners and those transitioning from other Processing environments (e.g., Java- or JavaScript-based) to Thonny-py5mode.
+
+Reflecting the open-source ethos of both Thonny-py5mode and py5 (and Processing), the author created the cheatsheet with Scribus\footnote{~Scribus is free, open-source DTP software for designing documents and print-ready PDFs: \url{https://scribus.net}} and Inkscape, using open-source fonts (DejaVu Sans, Enriqueta, and Source Code Pro). A GitHub repository hosts the source files at \url{https://github.com/tabreturn/processing.py-cheat-sheet}.
+
+\subsection{py5 Official Documentation}
+
+As noted earlier, the Thonny-py5mode and py5 projects have been closely aligned since their inception, with py5 having recently assumed stewardship of Thonny-py5mode. In 2022, the Processing Foundation accepted a combined Thonny-py5mode--py5 documentation proposal as part of their Google Summer of Code (GSoC) involvement.
+
+This GSoC programme, funded by Google, supports open-source by pairing contributors with real projects and volunteer mentors. Participant stipends vary by location and project size, and offer flexible commitment levels (e.g., ~175-hour ``medium'' or ~350-hour ``large'' projects, depending on the year). Contributors work remotely, typically over the Northern Hemisphere summer. Upon successful final evaluation, they receive their stipend and formal recognition for their work.
+
+Under this initiative, the leaders of Thonny-py5mode and py5---the thesis author, Tristan Bunn, and py5 project lead, Jim Schmitz---secured funding to mentor Zelle Marcovicci in developing a comprehensive set of tutorial materials introducing beginners to Python programming with Thonny-py5mode. Adapted from the book \textit{\nameref{sec:no-starch}} and expanded with new sections showcasing CPython capabilities, these materials now form the \textit{Tutorials} section of the official py5 documentation (Figure~\ref{fig:py5coding-documentation-website}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/py5coding-documentation-website}
+\caption{py5 official documentation: \textit{Tutorials} section entry on PyMunk integration for 2D physics. Screenshot by the author. Source:~\cite{schmitz_welcome_2021}.}
+\label{fig:py5coding-documentation-website}
+\end{figure}
+
+The Processing Foundation published the official project announcement (July 11, 2022) on their Medium account: \url{https://medium.com/processing-foundation/announcing-google-summer-of-code-2022-projects-and-a-few-more-77043ab4d0b4}. The GSoC 2022 programme wrap-up post (October 18, 2022) is also available there: \url{https://medium.com/processing-foundation/google-summer-of-code-2022-wrap-up-post-cb64caa840f0}.
+
+As the wrap-up post concludes---
+
+\begin{quote}
+This project was not just to adapt, write, and rewrite some documentation, but to utilize it in teaching and to see what organically developed in the work of [Zelle's] students. In this way py5 has been an enormous success, and the 100-level students using it to learn visual coding have responded incredibly well. The most wonderful part about contributing to open-source projects like this is seeing your contributions make some kind of impact, and the response even from within the small py5 community has been very heartening. Thanks to frequent communication and support from both of her mentors, everything has gone smoothly and Zelle is hoping to continue contributing tutorials and snippets of interesting code to the py5 documentation site even after GSoC 2022 has wrapped up.
+\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Impact \& Recognition}
+\label{sec:impact-&-recognition}
+
+As of writing (August 2025), there are approximately 34,000 recorded downloads and installations of Thonny-py5mode, as recorded in PyPI analytics data\footnote{~\url{https://clickpy.clickhouse.com/dashboard/thonny-py5mode}} Both Massey University (New Zealand) and Torrens University (Australia) have integrated the software into introductory Python courses. In addition, several educators participating in online forums have reported using the environment in their classes. However, no empirical study has yet established the breadth of this adoption or the extent to which the plugin is embedded in formal curricula.
+
+Notably, Thonny-py5mode underpins the online course \textit{Designing with Python: Programming for a Visual Context} (Figure \ref{fig:domestika}), offered through Domestika: a platform dedicated to creative professionals sharing their expertise through professionally produced courses.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/domestika}
+\caption{\textit{Designing with Python: Programming for a Visual Context}, hosted on Domestika. Screenshot by the author. Source:~\cite{villares_online_2022}.}
+\label{fig:domestika}
+\end{figure}
+
+The Domestika course is designed and delivered by Alexandre Villares, a prominent figure in the Python--Processing community. It introduces programming as a creative medium for artists and designers. Using Thonny-py5mode, Villares teaches foundational Python concepts, including loops, conditionals, functions, and data structures, while demonstrating their application in generating visual output and task automation. Learners are encouraged to experiment with geometric patterns, abstraction, and iterative ``baby steps'' development. He further situates this practice within the broader collaborative creative coding community, framing programming not only as a technical competency but also as an expressive medium for artistic exploration.
+
+At the time of writing, over 6,000 students have enrolled in the course, which has received consistently positive evaluations from 55 reviewers~\cite{villares_online_2022}. It is offered with audio in Portuguese, English, French, and Italian, and includes subtitles in additional languages, thereby enhancing its accessibility to an international audience.
+
+Villares maintains an extensive archive of daily sketches employing Thonny-py5mode, which collectively demonstrate its capabilities for iterative, exploratory, and visually oriented coding practices. This archive functions as a living resource, illustrating the potential of Python-based creative coding tools, tracing the shift from Processing.py to Thonny-py5mode/py5, and documenting the evolving affordances of these environments. His practice underscores Python's dual role: both as a technical framework for developing and understanding programming concepts, and as a medium for creative expression. The complete archive, including source code for each sketch, is publicly accessible at \url{https://abav.lugaralgum.com/sketch-a-day}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Limitations and Future Work}
+
+Three main factors currently constrain Thonny-py5mode's development. From these, we identify three concrete directions for further research and development---
+
+\textbf{First}, installation requires a two-step process: users must install Thonny and \textit{then} add Thonny-py5mode via Thonny's plugin manager. A standalone distribution pre-packaging both components, and capable of running fully self-contained, is technically feasible; this might run directly from a USB flash drive without requiring internet access (to complete the plugin manager step). This goal requires further packaging work to ensure cross-platform compatibility and reliable performance across diverse personal and institutional computing environments.
+
+\textbf{Second}, the broader dissemination of py5 coding techniques and sample scripts remains underdeveloped. Processing's web gallery of short, prototypical programs that explore coding basics offers a good model for inspiration. Web-export functionality via pyp5js will enable curated, browsable collections of py5 example sketches. As an early proof of concept, the author's 2021 project, pyde.org (Figure \ref{fig:pyde-org}), demonstrates this potential. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter03-software/pyde-org}
+\caption{\textit{pyde.org}: short, prototypical programs exploring the basics of programming with Processing.py. Designed and developed by the author.}
+\label{fig:pyde-org}
+\end{figure}
+
+pyde.org (\url{http://pyde.org}) is built with Jinja2 for templating, a modified Pygments lexer for syntax highlighting, and pyp5js for transpiling Processing.py to p5.js. Consequently, it is limited to features common to both Processing.py and p5.js---regardless, this overlap is sufficient to convey most foundational and many visually engaging concepts. The New Zealand Open Source Awards\footnote{~\url{https://nzosa.org.nz/previous-nzosa-winners/nzosa-awards-2021}} selected the project as a finalist in 2021. Implementing a Thonny-py5mode version primarily requires adapting the transpiler for py5 code, a task unlikely to prove overly complex. 
+
+\textbf{Third}, although well-suited for introducing Python through visual learning contexts, Thonny-py5mode currently lacks support for dynamic, real-time (see REPL) script execution. Future work should explore live-coding capabilities to enhance classroom engagement and broaden creative applications, including contexts such as VJ performance.
+
+In addition to these primary goals, continued attention to bug fixes, accessibility improvements, and code refinements remains essential. Furthermore, lower-priority but promising directions include automating distribution via GitHub to reduce manual release overhead.
+
+\section{Chapter Summary}
+
+This chapter outlined the development, features, and impact of Thonny-py5mode, positioning it as both a technical contribution and a platform for Python education through creative computing. It aspires to succeed Processing's discontinued Python Mode, and it has matured into an actively maintained project that extends Thonny and py5, with documentation that further underscores its commitment to accessibility and pedagogical clarity.
+
+The \nameref{chap:presentation-outputs} chapter explores pathways into Pygame, Blender scripting, and pen-plotter art, highlighting opportunities to extend Thonny-py5mode beyond py5's scope by leveraging Python's ecosystem to integrate additional 2D, 3D, and interactive media workflows within a single beginner-friendly IDE.

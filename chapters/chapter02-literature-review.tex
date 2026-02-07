@@ -1,0 +1,403 @@
+\chapter{Literature Review}
+\label{chap:literature-review}
+
+This chapter critically examines literature concerning creative coding software to position this thesis within the broader academic discourse. The insights drawn from this review will inform opportunities to enhance programming education through the development of new Python-based tools and environments tailored to visual learning contexts.
+
+Figure~\ref{fig:literature-review-conceptual-map} illustrates how this literature review integrates within the broader thesis structure. The left column lists the five research objectives outlined in the ``\nameref*{chap:introduction}'' chapter. \textbf{\hyperref[ro:tool-development]{Tool Development}} maps directly to section~\textbf{\ref{sec:creative-coding-software}} of the \textit{Literature Review} (middle column), which in turn informs the \textit{Outputs chapters} on the right. The remaining \textit{Research Objectives} directly link with the \textit{Outputs chapters}, with \textbf{Broader Dissemination} encompassing all three.
+
+\begin{figure}[htbp]
+\centering
+\medskip
+\includegraphics[width=1.0\textwidth]{chapters/chapter02-literature-review/literature-review-conceptual-map}
+\smallskip
+\caption{Literature review integration into the broader thesis. Diagram by the author.}
+\label{fig:literature-review-conceptual-map}
+\end{figure}
+
+One should not view the blue paths between the columns of Figure~\ref{fig:literature-review-conceptual-map} as flowing from left to right; rather, the connections between \textbf{\ref*{sec:creative-coding-software} \nameref*{sec:creative-coding-software}} and its adjacent nodes are bidirectional, each informing and shaping the other. \hyperref[ro:educational-materials]{Educational Materials}, \hyperref[ro:creative-outputs]{Creative Outputs}, \hyperref[ro:empirical-evaluation]{Empirical Evaluation}, and \hyperref[ro:broader-dissemination]{Broader Dissemination} do not feature dedicated sections here.
+
+\textbf{Due to the folio-based structure of the thesis, this chapter is deliberately concise}, with much of the literature review material integrated into the various outputs presented in later chapters---particularly within the \nameref{chap:publications} chapter (as part of the journal articles), the \nameref{chap:presentation-outputs}, and, to a lesser extent, the \nameref{chap:creative-works} chapter.
+
+In summary, this literature review surveys the current landscape of creative computing tools relevant to this study, highlighting opportunities for advancing Python programming education through creative coding environments.
+
+\subsection*{A Note on Python Pedagogy}
+
+Creative coding literature offers a mix of theoretical and practice-led perspectives, but proportionately little of it focuses on Python. Unsurprisingly, there is a predominance of studies and curricula that draw on environments such as Processing, p5.js, or Scratch, owing to their design intent and popularity in arts and creative contexts. It is therefore important to situate this project within the broader context of Python pedagogy research, which demonstrates that Python is both widely adopted and well suited as an introductory programming language~\cite{duda_teaching_2021, pears_survey_2007, riedl_python_2015}.
+
+Numerous empirical studies and pedagogical reviews attest to Python's effective role in introductory programming education, albeit often within CS contexts. For instance, a study in Taiwan compared students learning to code using Python with their peers learning Java; the former group exhibited significantly improved learning motivation, self-efficacy, and programming performance, and also showed fewer maladaptive cognitions (e.g., avoidance or frustration)~\cite{ling_can_2021}. 
+
+Researchers have employed Python-based teaching to explore new learning tools, confirming its applications in pedagogical innovation. Examples include PyKinetic, which utilises short Python exercise sessions delivered via smartphones to improve coding skills~\cite{fabic_evaluation_2019}. Using Online Python Tutor, a web-based coding and visualisation tool, educators and students can write scripts directly in a web browser, trace program execution both forwards and backwards, examine the runtime state of data structures, and share their visualisations on the web~\cite{guo_python_2014}. 
+
+Comparative research on block-based versus text-based modalities, as well as recent studies on block-to-text transitions, further informs Python pathways for learners with visual programming experience~\cite{ryu_hybrid-based_2025}.
+
+As described in Section \ref{sec:intro-python} of the \nameref{chap:introduction}, broader reviews of programming pedagogy highlight Python's clear syntax, readability, and extensive standard library as key enablers of learning. In addition to supporting introductory contexts, Eteng \textit{et al.} advocate the benefits of Python in resource-constrained settings~\cite{eteng_review_2022}. In established institutions and programmes, widely used textbooks and open resources further underscore Python's effectiveness and versatility in instructional and curricular design. Severance's \textit{Python for Everybody}, Downey's \textit{Think Python}, and Zelle's \textit{Python Programming} each emphasise different pedagogical priorities: interactive notebooks, data-driven problems, and problem-solving foundations, respectively~\cite{center_for_open_education_python_2025, center_for_open_education_think_2025, zelle_python_2024}. Among other resources, these texts demonstrate Python's broad applicability to various programming domains and teaching styles. 
+
+These aspects justify the need for Python-specific pedagogies, motivating the software choices adopted in this PhD. This chapter elects to avoid a dedicated section on Python pedagogy, as this topic is addressed in the \textit{\nameref{sec:mtap}} article, which also includes an analysis of exclusively Python-based creative coding environments. The reader will find the article reproduced in full in the ``\nameref*{chap:publications}'' chapter. Nevertheless, Python references appear throughout this chapter when discussing relevant examples, research, and pedagogical perspectives.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% creative coding software
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Creative Coding Software}
+\label{sec:creative-coding-software}
+
+This section explores various environments and tools specifically designed for creative coding, assessing their features, educational applications, and limitations. It primarily aims to identify key characteristics of Python- and non-Python-based environments that can contribute to and inform the development of a new Python-focused creative coding solution, Thonny-py5mode.
+
+\subsection{Defining Environments and Tools}
+\label{subsubsec:defining-environments-and-tools}
+
+Although the terms \textit{environment} and \textit{tool} are often used interchangeably in creative coding discourse, this section adopts a more precise distinction for analytical clarity. While a universally standardised definition appears lacking, several scholarly works across human--computer interaction, media art, and computing education implicitly differentiate between the two. For instance, Reas and Fry contrast the Processing IDE with its underlying Java library, illustrating the distinction between an integrated workspace (environment) and reusable code components (tools)~\cite{reas_processing_2014}. As Kelleher and Pausch outline in their taxonomy, an environment typically provides an integrated interface that combines code editing, execution, and visual feedback within a single workspace, often designed to lower barriers for novices. In contrast, tools are narrower in scope, typically facilitating specific tasks within or alongside such environments~\cite{kelleher_lowering_2005}.
+
+However, the distinction between an environment and a tool is often nuanced. For example, Python Mode for the Processing IDE: while technically a plugin (see tool), it transforms the host IDE into something resembling a distinct (albeit related) environment, blurring the conceptual line between the two categories.
+
+This section focuses on environments---or tools that behave like environments, such as Python Mode for the Processing IDE---designed to provide a unified, creative-coding-oriented workspace centered around a specific language, framework, or set of libraries.
+
+Importantly, this PhD research does not entirely exclude other ``tools.'' Notably, the \nameref{chap:presentation-outputs} chapter considers several, particularly libraries that integrate effectively with Python-based creative coding workflows but do not function through augmenting any existing editor or IDE.
+
+\subsection{Introduction to Creative Coding Environments}
+
+A close link has existed between code and creative work for decades, with computer programming playing a crucial role in shaping computational aesthetics. One can trace this relationship back to the 1960s when pioneers such as Vera Molnar, Frieder Nake, and Georg Nees (Figure~\ref{fig:schotter}) began using algorithmic methods to create art, demonstrating how textual code---primarily using languages like Fortran, ALGOL, and custom plotting systems---might serve as a tool of creative expression for generating dynamic patterns, compositions, and abstract visuals~\cite{nake_construction_2012, pearson_generative_2011}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter02-literature-review/schotter}
+\captionsetup{width=0.8\textwidth}
+\caption{\textbf{Schotter (Gravel Stones),} 1968, by Georg Nees. Plotter drawing in ink on vellum, 11.25 × 8 in., Inventory ID: Nees-1968-01. Rotated 90° counterclockwise. Image source:~\cite{nees_schotter_1968}.}
+\label{fig:schotter}
+\end{figure}
+
+In 1975, MIT's \textit{Visible Language Workshop}, led by Muriel Cooper, would investigate how computational methods could revolutionise typography, layout, and publication design. In the late 1990s, MIT's \textit{Aesthetics + Computation Group}, headed by John Maeda, would start on work that eventually led to the Processing IDE, building upon foundations laid by Cooper. When Maeda joined MIT's \textit{Media Lab} in 1996, he continued to explore how textual programming could drive artistic and design-oriented practices. This lineage of computational creativity attracted designers and artists eager to push the boundaries of what text-based code could generate visually. Among them were Ben Fry and Casey Reas, two research assistants in Maeda's group. Inspired by Maeda's pioneering creative coding environment, Design By Numbers (DBN), Fry and Reas examined the accessibility of programming for students in creative fields, questioning how computational languages might be adapted to better serve artists and designers. For instance, could writing code become a direct and intuitive part of the creative process?~\cite{reas_processing_2014, stinson_processing_2021}
+
+Fry and Reas' efforts would result in Processing (Figure~\ref{fig:processing-version-comparison}), a creative coding environment released in the early 2000s, designed to bridge the gap between programming and visual art.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter02-literature-review/processing-version-comparison}
+\caption{Left: alpha version of Processing (then spelled ``Proce55ing''); right: Processing 4.0.1, released in 2022. Image from the Processing Foundation. Source:~\cite{processing_foundation_look_2022}.}
+\label{fig:processing-version-comparison}
+\end{figure}
+
+Processing provided an immediate and interactive way to write simplified Java code that generated visuals, much like the early algorithmic art experiments of the 1960s but with modern accessibility. Unlike traditional programming environments that required extensive setup, Processing's minimal execution model---where users could type a few lines of code and instantly see a visual output---resonated with a sketching mindset common in the arts~\cite{processing_foundation_overview_2022}.
+
+Processing has inspired and influenced other textual creative coding environments, playing a pivotal role in programming education that equips artists, designers, and educators with powerful tools to explore interactive visualisations, generative design, and multimedia computation~\cite{levin_code_2021}. This includes OpenFrameworks (2005), Cinder (2010), and p5.js (2013), which all offer a structured yet flexible approach to creative computing and learning programming concepts.
+
+Unlike node-based or block-based programming environments such as Max/MSP or Scratch, text-based creative coding environments require learners to explicitly structure logic and engage with computational thinking through written code. While node- and block-based environments make programming more accessible to non-technical users, creating compelling projects using those systems often still requires an understanding of core programming principles such as variables, control structures, object-orientation, debugging, and workflow management~\cite{hirzel_low-code_2023}. Many beginners successfully transition from environments like Scratch to text-based coding with proper scaffolding; Processing can assist in this transition by bridging textual algorithmic logic with visual output while fostering syntax comprehension and creative exploration~\cite{rashid_make_2016}. Moreover, text-based creative coding environments designed to lower the barrier to entry can help students progress toward more complex concepts, developing skills that align with many real-world programming practices~\cite{ruf_scratch_2014}.
+
+\subsection{Prominent Text-Based Creative Coding Environments}
+
+This subsection adopts a mixed-method approach that combines a community-curated resource with academic literature. The goal is to triangulate \textbf{prominent text-based creative coding environments oriented to generating graphical output} using both grassroots and academic peer reviewed indicators.
+
+\subsubsection{Scope}
+
+This investigation narrows its focus to contemporary text-based environments that support graphical output, a subset particularly relevant to creative coding practices and this PhD research. However, these are challenging to catalogue. Many are niche, experimental, or in the early stages of development, often labelled alpha or beta; some exist only as components within broader platforms. These factors can complicate identifying, evaluating, or treating them as standalone entities. A more fundamental complication is perhaps definitional: for instance, at what point does a plugin or extension warrant recognition as a distinct environment (rather than a supporting tool)? Similarly, how should one assess sufficient ``maturity''? Through sustained development, user adoption, documentation, responsiveness to issues, or some combination thereof? 
+
+Several factors, including community involvement, accessibility, and underlying technology frameworks, influence the ongoing development of text-based creative coding environments~\cite{angert_spellburst_2023}. The dynamic and evolving nature of the field reflects a landscape lacking clear boundaries, where environments and tools overlap, adapt, and serve different artistic goals and skill levels. Some environments (exemplified by the REPL type) prioritise real-time interaction and immediate visual feedback; others foreground generative processes, algorithmic composition, or evolutionary-type experimentation~\cite{knochel_if_2015}.
+
+This investigation excludes tools that provide only algorithmic or computational functionality without significantly influencing the coding experience---like mathematics or physics libraries. Instead, it highlights environments better described as ``IDEs,'' ``lightweight IDEs,'' or in some cases, ``code editors''. That is to say: cohesive workspaces designed for creative coding, typically anchored to a specific language, framework, or library ecosystem.
+
+\subsubsection{Process}
+
+Rather than attempting an exhaustive survey, this section aims to identify the most ``prominent'' environments for text-based creative coding focused on graphical output. One might establish those using metrics based on historical impact, widespread use, technical innovation, and/or influence on modern creative coding practices. However, this returns to the challenge of discovering and cataloguing them all, compounded by the difficulty of sourcing reliable data to support `prominence' metrics. 
+
+\textbf{Academic database searches (ACM, IEEE Xplore, and Google Scholar) yield few comprehensive lists, robust datasets, or systematic/comparative studies to support such analysis.} Moreover, academic literature concerning creative coding environments remains relatively limited in both scope and depth. This scarcity appears primarily attributable to the field's origins in art, design, and media practice. Unlike computer-science research, dissemination frequently occurs through channels such as workshops, exhibitions, and community platforms rather than peer reviewed publications~\cite{lorusso_learn_2023}. The work of Chibalashvili \textit{et al.} provides one of the few relevant studies~\cite{mcnutt_study_2023, nielsen_awesome_2024, terroso_programming_2022}, offering a table of ``the most widespread platforms, environments, and languages of creative programming,'' categorised into: \textbf{text-based} (DBN, Processing, p5.js, OpenFrameworks, SuperCollider); \textbf{visual} (Cables, Max/MSP/Jitter, Pure Data, vvvv, Nannou); and \textbf{hybrid} (OPENRNDR, TouchDesigner)~\cite{chibalashvili_creative_2023}. However, the \textbf{text-based} category is evidently limited, listing only four entries. It includes DBN, a precursor to Processing, as well as SuperCollider, which primarily focuses on audio synthesis (and is, therefore, not directly relevant to this study).
+
+Given the aforementioned challenges, the elected method integrates a community-curated list of creative coding resources---the \textit{Awesome Creative Coding} GitHub repository (Figure~\ref{fig:awesome-creative-coding})---with official documentation and academic sources, such as the work of Chibalashvili \textit{et al.}, to evaluate the relevance and significance of each list entry. 
+
+\begin{figure}[htb]%[!htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter02-literature-review/awesome-creative-coding}
+\caption{\textit{Awesome Creative Coding} GitHub repository by Terkel Gjervig. Screenshot by the author. Source:~\cite{gjervig_awesome_2025}.}
+\label{fig:awesome-creative-coding}
+\end{figure}
+
+This triangulated approach assesses both scholarly relevance and practical adoption, aiming to provide a sufficiently reliable basis to inform the design and feature set of a new Python-based creative coding environment: Thonny-py5mode.
+
+Drawing on a community-maintained and categorised resource leverages the concept of a \textit{folksonomy}: a user-generated classification system that emerges from grassroots participation, as opposed to one imposed solely by researchers or formal institutions~\cite{gendarmi_community-driven_2006}. In this context, the folksonomy represents a collaboratively maintained list of creative coding tools curated by an online community of enthusiasts. Folksonomies typically (but not always) rely on tag-based approaches, like the Flickr system for tagging photos. However, an \textit{Awesome Creative Coding} contributor does not explicitly employ tags; instead, the repository functions analogously by organising entries into a thematic taxonomy of lists and sub-lists shaped through collective input and community consensus. This format follows the ``awesome list'' convention widely used on GitHub, where contributors maintain high-quality lists on specific topics~\cite{maurer_popular_2024, sorhus_awesome_2021}.
+
+It is acknowledged that community-curated sources often lack the funding and formal review processes underpinning traditional academic sources---typically deemed authoritative due to peer review, structured validation, and institutional credibility~\cite{ohio_state_university_library_choosing_2018}. However, \textit{Awesome Creative Coding} is particularly valuable here, as it reflects bottom-up curation by practitioner communities where scholarly classification seemingly lags behind practice. To reconcile these differing strengths, this investigation employs a critical evaluation framework, the CRAAP Test (Currency, Relevance, Authority, Accuracy, and Purpose)~\cite{klopfer_evaluating_2004}, to validate the reliability of \textit{Awesome Creative Coding}.
+
+\subsubsection{Sources}
+
+With a framework in place, the following points detail the four principal sources employed to derive a list of most prominent text-based creative coding tools:
+
+\begin{itemize}
+\item \textbf{Awesome Creative Coding}: A curated repository hosted on GitHub, available at \url{https://github.com/terkelg/awesome-creative-coding}, which presents a ``carefully curated list of awesome creative coding resources primarily for beginners/intermediates.'' As of February 2025, the repository has garnered 13.4k stars---a measure of approval within the open-source community---and contributions from 82 collaborators. First published in November 2016, it remains actively maintained, with approximately 15 commits in 2024 alone. No comparably comprehensive or up-to-date resource was identified in academic databases, positioning this list as a valuable, community-driven reference point. Repository updates are subject to peer feedback and approval via GitHub pull requests, further reinforcing the credibility of the curation process.
+
+A CRAAP evaluation confirms the repository's reliability. It demonstrates strong \textit{currency}, with over 400 commits reflecting ongoing maintenance and responsiveness to developments in the field. It offers highly \textit{relevant} content focused on tools and libraries for generative art, data visualisation, and interaction design---key domains within creative coding. Regarding \textit{authority}: Terkel Gjervig, a Brooklyn-based creative technologist with a portfolio of digital projects, provides the ultimate oversight of the repository. Its popularity, evidenced by its high star count and widespread community engagement, enhances its credibility. \textit{Accuracy} is supported through direct links to original sources, enabling independent verification. The repository's \textit{purpose} is educational and non-commercial, clearly aimed at supporting practitioners and learners within the creative coding community.
+
+\item \textbf{ACM Digital Library}: An authoritative academic database accessible at \url{https://dl.acm.org}, maintained by the Association for Computing Machinery (ACM), and serving as a vital resource for researchers, practitioners, and students in its field. It hosts a wide range of peer reviewed publications across computing disciplines. This includes significant research relevant to creative computing, including generative art, real-time graphics, human--computer interaction (HCI), and algorithmic design. Key contributions are often published through ACM's special interest groups such as \textit{SIGGRAPH} (covering graphics and interactive techniques) and \textit{SIGCHI} (HCI and user experience), both of which intersect with creative coding practices.
+
+\item \textbf{IEEE Xplore}: Another critical academic repository, available at \url{https://xploreqa.ieee.org}, maintained by the Institute of Electrical and Electronics Engineers (IEEE), and serving as a vital resource for researchers, professionals, and students worldwide. It encompasses extensive literature across engineering and computer science. Areas relevant to creative coding include programming education, generative systems, HCI, and real-time visual computing. Noteworthy journals include: \textit{TVCG} (IEEE Transactions on Visualization and Computer Graphics), which covers real-time rendering and data-driven design; and \textit{CG\&A} (IEEE Computer Graphics and Applications), which ``bridges the theory and practice of computer graphics topics, including modelling, rendering, animation, (data) visualisation, HCI/user interfaces, novel applications, hardware architectures, haptics, and virtual- and augmented-reality systems.''
+
+\item \textbf{Google Scholar}: A freely accessible search engine for scholarly literature, available at \url{https://scholar.google.com}, which aggregates academic publications across disciplines, including conference proceedings, journal articles, theses, and technical reports. It is beneficial for locating grey literature and tracking citations across institutional boundaries~\cite{haddaway_role_2015}. Although it is less curated than traditional academic databases, Google Scholar indexes a broad range of interdisciplinary sources often not included elsewhere. In this context, it provides a supplementary resource to verify the academic relevance of \textit{Awesome Creative Coding} entries not indexed in ACM or IEEE databases.
+\end{itemize}
+
+The process began with extracting relevant creative coding entries from the \textit{Awesome Creative Coding} repository that met the definition of a text-based coding ``environment'' rather than a ``tool,'' as defined earlier under \nameref{subsubsec:defining-environments-and-tools}. These entries were then cross-referenced with official documentation (through direct links to original sources) and academic literature from the ACM Digital Library and IEEE Xplore to verify their relevance and usage. Google Scholar served as a supplementary source to ensure broader coverage. 
+
+\subsubsection{Selection}
+\label{subsec:prominent-text-based-creative-coding-environments-selection-criteria}
+
+For inclusion in the final table of prominent text-based creative coding environments (Table~\ref{tbl:prominent-text-based-creative-coding-environments}), an \textit{Awesome Creative Coding} entry was required to meet all the following criteria:
+
+\begin{enumerate}
+\item enable writing and executing creative code within a unified workspace that supports continued project work (across several coding sessions);
+\item support writing code that generates graphical output (as opposed to audio or other non-visual forms);
+\item use a primarily text-based programming interface;
+\item show evidence of active development or an engaged user community; and
+\item demonstrate relevance in academic publications or grey literature.
+\end{enumerate}
+
+Broadly scoped platforms were excluded, such as CodePen when combined with p5.js, or NEORT with HTML5 Canvas. These platforms function primarily as general-purpose coding playgrounds that provide convenient access to libraries and APIs. The mere ability to import creative coding libraries does not constitute a dedicated environment with structured tooling or workflows specifically tailored to creative coding.
+
+\subsubsection{Results}
+
+Table~\ref{tbl:prominent-text-based-creative-coding-environments} presents a finalised, alphabetically ordered list of prominent text-based creative coding environments that support graphical output, derived according to the selection criteria and method outlined above.
+
+\begin{table}[!htbp]
+  \centering
+  \fontsize{9.75pt}{10pt}\selectfont{}
+  \renewcommand{\arraystretch}{2.4}
+  \begin{tabular}{
+    >{\raggedright\arraybackslash}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.35\linewidth-2\tabcolsep}
+  }
+    \hline
+    \textbf{Environment} &
+    \textbf{Platform} &
+    \textbf{Language} &
+    \textbf{License} &
+    \textbf{Description} \\
+    \hline
+    DrawBot &
+    macOS &
+    Python &
+    Open-source &
+    Education-oriented, 2D graphics programming environment \\
+    \hline
+    Hydra &
+    Web-browser &
+    JavaScript &
+    Open-source &
+    Live-coding environment for real-time visual synthesis \\
+    \hline
+    OpenProcessing &
+    Web-browser &
+    JavaScript &
+    Propietary editor &
+    Online platform for sharing and exploring creative coding, especially with p5.js \\
+    \hline
+    P5LIVE &
+    Web-browser &
+    JavaScript &
+    Open-source &
+    Live-coding platform for collaborative p5.js visuals \\
+    \hline
+    p5.js Editor &
+    Web-browser &
+    JavaScript &
+    Open-source &
+    Platform for writing, running, and sharing p5.js sketches \\
+    \hline
+    Processing &
+    Linux, macOS, Windows &
+    Java &
+    Open-source &
+    Creative coding environment for visuals, interaction, and media art \\
+    \hline
+    py5 (Jupyter Notebooks) &
+    Linux, macOS, Windows &
+    Python &
+    Open-source &
+    Library that brings Processing creative coding features to the Python 3 ecosystem \\
+    \hline
+    ShaderGif &
+    Web-browser &
+    JavaScript (for Canvas \& P5.js) &
+    Open-source &
+    Platform for coding and exporting generative GIFs using GLSL1/2, JavaScript Canvas, and P5.js \\
+    \hline
+    Shelly &
+    Web-browser &
+    Bespoke Turtle language &
+    Closed-source, free &
+    Turtle graphics environment for learning coding using simple drawing commands \\
+    \hline
+    Shoebot &
+    Linux, macOS, Windows &
+    Python &
+    Open-source &
+    Environment for creating generative vector graphics and animations with code \\
+    \hline
+    Turtletoy &
+    Web-browser &
+    JavaScript &
+    Closed-source, free &
+    Platform for generative line art using minimalist Turtle graphics \\
+    \hline
+    tixy.land &
+    Web-browser &
+    JavaScript &
+    Open-source &
+    Minimalist platform for animating a 16×16 grid using short expressions limited to 32 characters \\
+    \hline
+  \end{tabular}
+  \caption{Prominent text-based creative coding environments that support graphical output, alphabetically ordered. Derived from \textit{Awesome Creative Coding}.}
+  \label{tbl:prominent-text-based-creative-coding-environments}
+\end{table}
+
+However, some exclusions from this table warrant further explanation---namely, game engines, (limited) web playgrounds, and shader tools.
+
+\subsubsection{Exclusions: Game Engines}
+
+Game engines can offer powerful platforms for creative computing, particularly in contexts involving real-time interaction and 3D graphics, including immersive media. Engines such as Unity and Godot provide advanced rendering pipelines, physics systems, animation tools, and cross-platform deployment~\cite{barczak_comparative_2020, bradfield_godot_2023}. These features can significantly extend creative possibilities beyond lightweight environments like Processing or p5.js~\cite{braun_xr_2023, ng_collaborative_2023}. For instance, the eTextbook \textit{Generative Unity} demonstrates Unity's creative coding capabilities~\cite{gieselmann_generative_2019}; CETI (Creative and Emergent Technology Institute)\footnote{~\url{https://ceti.institute}} has run workshops on \textit{Creative Coding with Game Engines}. 
+
+While game engines can be complex, there are more accessible options for beginners. For instance, for Python, there is Pygame. The best-selling book\footnote{~\url{https://www.amazon.com.au/Python-Crash-Course-Eric-Matthes/dp/1718502702}} \textit{Python Crash Course} introduces Pygame through a simple alien shooter, and \textit{Creative Coding in Python} recommends it as a lightweight 2D game library for further exploration~\cite{matthes_python_2023, vaidyanathan_creative_2019}.
+
+A companion table, Table~\ref{tbl:prominent-text-based-creative-coding-environments-game-engines}, presents entries classified as \textit{game engines}, derived using the same source and method as Table~\ref{tbl:prominent-text-based-creative-coding-environments}. As \textit{Awesome Creative Coding} includes no explicit ``game engine'' category, these entries were drawn from its different lists and sub-lists.
+
+\begin{table}[!htbp]
+  \centering
+  \fontsize{9.75pt}{13pt}\selectfont{}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{
+    >{\raggedright\arraybackslash}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.15\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.35\linewidth-2\tabcolsep}
+  }
+    \hline
+    \textbf{Environment} & \textbf{Platform} & \textbf{Language} & \textbf{License} & \textbf{Description} \\
+    \hline
+    Babylon.js & Web-browser & JavaScript & Open-source & 
+    Complete framework for building 3D games with HTML5 and WebGL/WebGPU; includes a robust playground feature \\
+    \hline
+    Godot & Linux, macOS, Windows & GDScript, C\# & Open-source & 
+    2D and 3D development; valued for its lightweight design, scene-based architecture, and flexible scripting with GDScript or C\# \\
+    \hline
+    Phaser Editor & Desktop, Web-browser & JavaScript, TypeScript & Open-source; desktop version at no cost & 
+    2D game framework; supports visual scene editing and asset management using Phaser editor; limited built-in code panel suitable for previews and small edits \\
+    \hline
+    PlayCanvas & Web-browser & JavaScript & Open-source & 
+    Collaborative 3D game engine using JavaScript and WebGL; well-suited to projects involving real-time rendering and browser-based deployment \\
+    \hline
+    TIC-80 & Linux, macOS, Windows, Web-browser & Lua, JavaScript, Python, and more & Open-source (non-pro version) & 
+    `Fantasy computer' for making, playing, and sharing tiny pixel-art games (similar to PICO-8 or Pyxel) \\
+    \hline
+    three.js & Web-browser & JavaScript & Open-source & 
+    3D graphics using WebGL, suited to immersive web experiences; web platform includes an editor with scripting functionality (like a game engine) \\
+    \hline
+    Unreal Engine & Linux, macOS, Windows & C++, Blueprints & Partially open-source; free to use & 
+    High-fidelity 3D engine used in games, simulations, and virtual production; supports creative computing through visual and textual coding \\
+    \hline
+    Unity & Linux, macOS, Windows & C\# & Proprietary; free version available & 
+    Robust 2D/3D rendering, physics, and scripting tools; creative coding applications for installations, real-time multimedia work, and XR \\
+    \hline
+  \end{tabular}
+  \caption{\textit{Awesome Creative Coding} entries most appropriately classified as \text{game engines}, excluded from the final table (Table~\ref{tbl:prominent-text-based-creative-coding-environments})}
+  \label{tbl:prominent-text-based-creative-coding-environments-game-engines}
+\end{table}
+
+Table~\ref{tbl:prominent-text-based-creative-coding-environments-game-engines} includes one entry never listed on \textit{Awesome Creative Coding}: Unreal Engine. This appeared to be a notable omission, and further investigation confirmed its relevance and significance within creative computing practice. Unreal Engine supports advanced real-time rendering with applications for generative art, immersive media, and multimedia installations. Its interoperability with creative tools such as TouchDesigner and Houdini facilitates procedural workflows beyond conventional game development~\cite{shannon_unreal_2017}. Additionally, Unreal Engine is found adopted in creative computing curricula. For instance, Parsons School of Design---ranked fourth globally for Art \& Design in the QS World University Rankings 2023---offers a creative coding course that explicitly incorporates Unreal Engine (CRN: 2748), alongside another creative coding course focusing on Unity (CRN: 11556).
+
+While game engines are clearly relevant in creative coding contexts involving advanced interactivity or rich media integration, they are often ill-suited to lightweight, improvisational, or beginner-programmer workflows. Environments such as Unity and Unreal Engine typically impose rigid architectural patterns, demand powerful workstations, and require extensive setup and large installer downloads. Their sprawling IDEs and workspace complexity stand in contrast to the immediacy and simplicity prioritised in environments like Processing~\cite{chover_game_2020, sobota_role_2023}. Even comparatively lightweight engines like Godot (Figure~\ref{fig:godot-editor}) present steeper learning curves and higher system demands than Processing. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter02-literature-review/godot-editor}
+\caption{The Godot editor (version 4.2) with the Script Editor active. The interface features a broad range of panels and tools, in contrast to the minimalistic Processing IDE. Screenshot by the author.}
+\label{fig:godot-editor}
+\end{figure}
+
+Such factors can hinder accessibility, especially in educational contexts focusing is on foundational programming concepts and low-barrier entry points. Consequently, this study treats these game engines as beyond the scope of text-based creative coding environments suitable to inform the design and development of Thonny-py5mode.
+
+\subsubsection{Exclusions: Limited Web Playgrounds}
+
+Table~\ref{tbl:prominent-text-based-creative-coding-environments-web-playgrounds} offers another companion table to Table~\ref{tbl:prominent-text-based-creative-coding-environments}, listing web-based `playgrounds' with limited capabilities, extracted from \textit{Awesome Creative Coding}, that did not meet the criterion of providing ``a unified workspace that supports continued
+project work (across several coding sessions),'' among other criteria. As with the game engine entries, \textit{Awesome Creative Coding} includes no dedicated sub-list or category for web playgrounds; instead, Table~\ref{tbl:prominent-text-based-creative-coding-environments-web-playgrounds} identifies relevant entries across multiple groupings.
+
+\begin{table}[htbp]
+  \centering
+  \fontsize{9.75pt}{10pt}\selectfont{}
+  \renewcommand{\arraystretch}{2}
+  \begin{tabular}{
+    >{\raggedright\arraybackslash}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+    >{\raggedright\arraybackslash}p{\dimexpr 0.4\linewidth-2\tabcolsep}
+  }
+    \hline
+    \textbf{Environment} & \textbf{Language} & \textbf{License} & \textbf{Description} \\
+    \hline
+    css-doodle & CSS, JavaScript & Open-source & 
+    Web component for generative art using CSS; includes embedded (CodePen-powered) editable demos \\
+    \hline
+    Fabric.js & JavaScript & Open-source & 
+    Canvas library and SVG-to-canvas parser; includes (broken?) editor for demo scripts \\
+    \hline
+    GraphicsJS & JavaScript & Open-source & 
+    Lightweight JavaScript library for SVG/VML graphics and animation; playground powered by AnyChart; rendering base for AnyChart libraries \\
+    \hline
+    Maker.js & JavaScript & Open-source & 
+    Parametric line drawing for SVG, CNC and laser cutting; website includes editor for demo scripts \\
+    \hline
+    Paper.js & JavaScript & Open-source & 
+    `Swiss army knife' of vector graphics scripting; website includes a ``Sketch'' area \\
+    \hline
+    Pixi.js & JavaScript & Open-source & 
+    Fast 2D rendering engine using WebGL with a Canvas fallback; website includes ``Playground'' area \\
+    \hline
+    Pts.js & JavaScript (developed in TypeScript) & Open-source & 
+    Library for creative coding and data visualisation; features an online editor for real-time exploration \\
+    \hline
+  \end{tabular}
+  \caption{Limited web-based `playground' entries listed on \textit{Awesome Creative Coding} but excluded from the final table (Table~\ref{tbl:prominent-text-based-creative-coding-environments}) due to their constrained functionality}
+  \label{tbl:prominent-text-based-creative-coding-environments-web-playgrounds}
+\end{table}
+
+Broadly, the playgrounds listed in Table~\ref{tbl:prominent-text-based-creative-coding-environments-web-playgrounds} offer editable code samples to demonstrate a specific library's features. For instance, \url{http://paperjs.org} hosts the official documentation for Paper.js, branded as the ``Swiss Army Knife of Vector Graphics Scripting.'' One can browse the ``Examples'' section of this website showcasing the library's capabilities using live code, or experiment in the ``Sketch'' section using a \textit{limited} set of editing features. In contrast, fully-fledged web environments like p5.js offer more comprehensive workspaces, including features for saving and loading scripts, importing assets, and managing and storing projects over time.
+
+\subsubsection{Exclusions: Shader Tools}
+
+Another category excluded from Table \ref{tbl:prominent-text-based-creative-coding-environments} comprises \textit{Awesome Creative Coding} shader entries, namely: Cyos, Fragment, GLSL Sandbox, GlslEditor, ISF, KodLife, Shader Park, ShaderTool, Shadertoy, Shdr Editor, Vertexshaderart, and all the shader tutorials (under the \textit{Awesome Creative Coding > Learning Resources > Interactive} sub-list), some of which feature limited web playgrounds.
+
+Shaders are specialised programs that run on the GPU (Graphics Processing Unit) and are designed for massively parallel processing, typically to compute the colour, position, or appearance of pixels and vertices in real-time graphics. Unlike general-purpose programming languages---such as Python or JavaScript---which run on the CPU and execute instructions sequentially, shaders operate independently for each pixel or vertex. This makes them ideal for tasks such as rendering, lighting, and visual effects. Shader code is typically written in C-like languages such as GLSL or HLSL, which prioritise performance but operate under strict constraints, with no file I/O, minimal global state, and an emphasis on vectorised mathematics~\cite{gordon_computer_2021}. These limitations can pose significant challenges for beginners attempting to grasp foundational programming concepts, such as control flow and variable scope. Moreover, shaders demand considerable mathematical fluency, particularly in areas such as trigonometry and vector algebra, which present additional barriers for novices, especially those from creative or non-technical backgrounds~\cite{halladay_practical_2019, talton_teaching_2007}.
+
+By contrast, environments such as p5.js and py5 utilise general-purpose programming languages that follow a sequential execution model, providing clearer scaffolding for debugging, feedback, and structured learning; this makes them more accessible for introductory programming education. Notably, both Processing and p5.js include built-in support for shader experimentation, allowing more advanced learners to explore GPU-based techniques within a familiar and supportive creative coding environment~\cite{p5js_contributors_p5js_2024, processing_foundation_shader_2024}
+
+\subsubsection{Insights}
+
+The environments listed in Table~\ref{tbl:prominent-text-based-creative-coding-environments} reflect a cross-section of tools that exemplify current text-based creative coding practices, while emphasising graphical output. Despite differences in platform, language, and licensing models, these environments share key characteristics: they offer integrated workspaces for coding and rendering visuals, support iterative or even live experimentation, and are shaped by active user communities.
+
+A notable trend in Table \ref{tbl:prominent-text-based-creative-coding-environments} is the predominance of web-based environments, such as the p5.js Editor, P5LIVE, Hydra, and Turtletoy. These platforms are accessible via a browser, require no installation, and often support live coding or near real-time visual feedback---all features that align well with educational and improvisational use cases. Specifically, their ease of access and immediacy are well-suited to workshops, classrooms, or casual experimentation~\cite{skoric_exploring_2021, singh_empowering_2024}. Additionally, they tend to adopt open-source licenses, reinforcing their role within the broader collaborative and publicly-engaged creative coding ethos.
+
+Table \ref{tbl:prominent-text-based-creative-coding-environments} also includes Python-based environments such as py5 (in Jupyter Notebooks), DrawBot, and Shoebot. These reflect a dominant current in creative coding: integrating expressive visual output with general-purpose programming languages widely used in education and research~\cite{bunn_towards_2024}. py5, for instance, brings Processing functionality to Python and benefits from Python's extensive ecosystem of scientific, markup (see SVG) manipulation, web scraping, and data analysis libraries. Similarly, DrawBot offers an education-focused, macOS-native environment for vector-based 2D graphics, while Shoebot revives the spirit of NodeBox in a cross-platform context. These environments can all support pedagogical clarity (through graphical output) in academic contexts where Python is favoured.
+
+Some entries highlight minimalist or domain-specific approaches to creative coding. Shelly, with its bespoke Turtle-like language, and tixy.land, with its grid-based expression syntax aimed at ``code golf''\footnote{~Code golf is a type of (often competitive) recreational programming where the objective is to solve a problem in the fewest number of characters or bytes of source code possible}, strip down the coding environment to focus on constrained yet expressive interaction. Learning settings may employ such environments to encourage creativity through constraint-driven practices~\cite{bartoli_playing_2014, van_der_zee_about_2019}. For instance, \#tweetcarts (Figure~\ref{fig:tweetcart}) exemplify this principle. The inclusion of these environments reflects a broader interest in solutions that foster creativity through simplicity and limitation rather than feature-richness~\cite{moreno_fringe_2024}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter02-literature-review/tweetcart}
+\captionsetup{width=0.8\textwidth}
+\caption{A \#tweetcart is a tiny code-generated image, animation, or game---typically written in a fantasy console like PICO-8---and written to fit within the character limit of a tweet (originally 140, now 280 characters). Screenshot from Michał Rostocki's website. Source:~\cite{rostocki_pico-8_2021}.}
+\label{fig:tweetcart}
+\end{figure}
+
+In summary, Table~\ref{tbl:prominent-text-based-creative-coding-environments} highlights a diverse range of lightweight, purpose-built environments for creative coding. These are distinct from monolithic software (like game engines) or general-purpose IDEs, and span structured editors like Processing to ephemeral live-coding tools like Hydra, reflecting the field's varied interaction models. JavaScript's dominance, particularly in browser-based tools, underscores its central role in generative and interactive media. However, Python also features prominently, and the \nameref{chap:presentation-outputs} chapter explores Python's integration into browser environments.
+
+This investigation provided a curated, academically grounded foundation for identifying the types of environments that align with the objectives of this research. In this instance, the development focus is a Python-based, beginner-friendly creative coding platform: Thonny-py5mode. Including long-established environments (like Processing) and newer experimental ones (like tixy.land) ensures that the survey captures the field's historical depth and ongoing innovation. Table~\ref{tbl:prominent-text-based-creative-coding-environments} foregrounds tools that balance simplicity, accessibility, and visual output, helping situate Thonny-py5mode within a lineage of environments designed for technical execution, artistic inquiry, and pedagogical engagement.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% chapter summary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Chapter Summary}
+
+This chapter has examined key literature on creative coding software, identifying gaps and opportunities for enhancing Python programming education through creative computing. It established that effective creative coding environments strike a balance between simplicity and expressive capability, supporting both foundational programming concepts and encouraging creative exploration. This underscores opportunities for Thonny-py5mode to address within this domain.
+
+An analysis of prominent text-based creative coding environments revealed an absence of Python-3-based solutions that combine pedagogical clarity with the immediacy and functionalities of tools such as Processing. The \textit{\nameref{sec:mtap}} article explores this area in greater depth.
+
+These insights inform the research contributions presented in subsequent chapters. Notably, this chapter alone does not encompass the PhD's entire literature review; instead, the thesis interweaves substantial scholarship components throughout the folio output chapters.

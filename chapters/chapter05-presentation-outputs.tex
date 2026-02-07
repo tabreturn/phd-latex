@@ -1,0 +1,988 @@
+\chapter{Presentation Outputs}
+\label{chap:presentation-outputs}
+
+This chapter documents a series of presentation outputs delivered at prominent academic and professional conferences. Together with the outputs in Chapters \ref{chap:publications} (\nameref{chap:publications}) and \ref{chap:creative-works} (\nameref{chap:creative-works}), they constitute this PhD folio.
+
+These presentations address the central themes of this thesis: Python tools for visual learning contexts, associated educational materials, and creative coding techniques. Each event offered a valuable opportunity to support the \hyperref[ro:broader-dissemination]{Broader Dissemination} of the research findings, share innovative approaches, and engage with both academic and creative computing communities. 
+
+Figure~\ref{fig:gantt-presentation-outputs} presents a timeline illustrating how the preparation and delivery of each presentation contributed iteratively to the development of the PhD research. Notably, it excludes the final presentation output, documented in Section~\ref{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks}, which explores the application of Thonny-py5mode in mitigating the misuse of generative AI in introductory Python courses. Kiwi PyCon~2025 has accepted a proposal for the conference, scheduled to take place after the anticipated submission of this thesis for examination. It would otherwise appear as a distant outlier on the Figure~\ref{fig:gantt-presentation-outputs} timeline, visually distorting the chart. Hence its omission. Nevertheless, it represents a significant, albeit late, strand of enquiry within the PhD.
+
+\begin{figure}[!htbp]
+  \centering
+  %\rotatebox{90}{ % for landscape orientation
+  \hspace*{-7mm}\resizebox{1.06\textwidth}{!}{
+    \begin{ganttchart}[
+      hgrid,
+      vgrid = {*{11}{white}, dotted}, % source of (U+002C) thesis.log warning
+      x unit = 7pt, % month width
+      y unit title = 0.7cm,
+      y unit chart = 0.7cm,
+      canvas/.append style={draw=none},
+      title/.append style={draw=none},
+      time slot format = isodate,
+      time slot unit = month,
+      title height = 1,
+    ]{2019-01-01}{2022-12-31}
+    \gantttitlecalendar{year} \\ % display years (only)
+
+    \ganttbar[bar/.append style={fill=purple!60, draw=none}]
+    {Research and experiment with Processing.py}{2019-05-01}{2019-08-30} \\
+    \ganttbar[bar/.append style={fill=purple!60, draw=none}]
+    {Develop Processing.py programming tasks}{2019-07-01}{2021-02-28} \\
+    \ganttmilestone[milestone/.append style={fill=purple!60, draw=none}]
+    {\ref{sec:processing.py-creative-coding-with-python}. Kiwi PyCon X (2021)}
+    {2019-08-23} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=green!60, draw=none}]
+    {Explore/adapt Java-Processing coding techniques}{2019-09-01}{2020-05-30} \\
+    \ganttbar[bar/.append style={fill=green!60, draw=none}]
+    {Develop refined set of advanced Processing.py tasks}{2019-10-01}{2021-02-30} \\
+    \ganttmilestone[milestone/.append style={fill=green!60, draw=none}]
+    {\ref{sec:processing-python-mode-for-creative-coding-and-teaching}. Libre Graphics Meeting 2020}
+    {2020-05-27} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=red!60, draw=none}]
+    {Research web-based Python environments}{2020-06-30}{2022-08-01} \\
+    \ganttbar[bar/.append style={fill=red!60, draw=none}]
+    {Design a Processing-Python cheat sheet}{2020-12-30}{2021-01-30} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=red!60, draw=none}]
+    {\ref{sec:creative-coding-with-python-and-processing}. CC Fest 2021}
+    {2021-01-24} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+    
+    \ganttbar[bar/.append style={fill=blue!60, draw=none}]
+    {Research novel data visualisations}{2020-05-30}{2021-02-01} \\
+    \ganttbar[bar/.append style={fill=blue!60, draw=none}]
+    {Experiment with p5/p5py data visualisation}{2020-11-01}{2021-02-01} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=blue!60, draw=none}]
+    {\ref{sec:novel-visualisations-with-python-and-p5}. Outlier 2021}
+    {2021-02-04} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=orange!60, draw=none}]
+    {Research and experiment with py5}{2020-12-01}{2022-01-30} \\
+    \ganttbar[bar/.append style={fill=orange!60, draw=none}]
+    {Experiment with py5 + code editor combos}{2021-02-30}{2021-05-30} \\
+    \ganttbar[bar/.append style={fill=orange!60, draw=none}]
+    {Devise a working Thonny + py5 proof-of-concept}{2021-06-01}{2021-08-30} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=orange!60, draw=none}]
+    {\ref{sec:thonny-+-py5-a-python-3-environment-for-processing}. CC Fest: Processing Community Day (2021)}
+    {2021-08-22} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=violet!60, draw=none}]
+    {Begin Thonny-py5mode development and releases}{2021-09-01}{2022-12-30} \\
+    \ganttbar[bar/.append style={fill=violet!60, draw=none}]
+    {Research and experiment with py5 generative SVG}{2021-10-01}{2022-03-30} \\
+    \ganttbar[bar/.append style={fill=violet!60, draw=none}]
+    {Research and experiment with bpy for SVG}{2021-11-01}{2022-08-30} \\
+    \ganttbar[bar/.append style={fill=violet!60, draw=none}]
+    {Create pen plotter art}{2021-11-01}{2022-03-30} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=violet!60, draw=none}]
+    {\ref{sec:generate-svg-for-pen-plotters-using-python}. Virtual CC Fest 2022}
+    {2022-01-30} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=cyan!60, draw=none}]
+    {Compile an overview of Processing-Python tools}{2022-02-01}{2022-08-08} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=cyan!60, draw=none}]
+    {\ref{sec:demystifying-the-python-processing-landscape-an-overview-of-tools-combining-python-and-processing}. ACM SIGGRAPH 2022}
+    {2022-08-08} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=brown!60, draw=none}]
+    {Explore headless Blender rendering}{2021-12-01}{2022-12-06} \\
+    \ganttbar[bar/.append style={fill=brown!60, draw=none}]
+    {Devise an SVG previewer proof-of-concept}{2022-03-01}{2022-08-19} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=brown!60, draw=none}]
+    {\ref{sec:generative-art-with-python-using-py5-and-bpy}. PyCon XI (2022)}
+    {2022-08-19} \\
+
+    \ganttbar[bar/.append style={fill=white, draw=none, yscale=2.35}]{}{2019-01-01}{2022-12-31} \\
+
+    \ganttbar[bar/.append style={fill=gray!60, draw=none}]
+    {Develop a ~1.5hr Blender scripting course}{2022-08-19}{2022-12-06} \\
+    \ganttmilestone[name=Mile.1, milestone/.append style={fill=gray!60, draw=none}]
+    {\ref{sec:blender-scripting-for-creative-coding-projects}. SIGGRAPH Asia 2022}
+    {2022-12-06}
+
+    \end{ganttchart}
+  }
+  \medskip
+  \caption{Chronological overview of presentation outputs contributing to this PhD study's research, software development, and folio}
+  \label{fig:gantt-presentation-outputs}
+  %}
+\end{figure}
+
+This chapter organises the outputs chronologically (ending with most recent), with each section structured around the following points to highlight the presentation's relevance, contributions, and integration into the overarching research narrative:
+
+\begin{enumerate}
+  \item \textbf{Presentation Abstract}: A presentation summary describing the topic and highlighting aspects such as the session's content focus, target audience, and key objectives. Generally, a short abstract quoted directly or appropriately adapted from the conference programme or proposal.
+  \item \textbf{Conference/Event Overview}: A brief description of the conference, including its focus and audience, revealing its relevance to Python creative computing and/or education.
+  \item \textbf{Content \& Method}: A detailed description of the presentation's content, including the educational tools, techniques, and creative computing environments discussed. Where relevant, this describes any methods, experimentation, and research for developing the session content.
+  \item \textbf{Audience Engagement \& Feedback}: A brief account of the audience response, including any relevant questions, comments, and constructive feedback received during and after the presentation.
+  \item \textbf{Reflections \& Implications}: An analysis of how the presentation research and preparation, and subsequent audience feedback, informed the direction and progression of the PhD study.
+\end{enumerate}
+
+As the presentations varied in scope, impact, and audience engagement, the length and depth of documentation for each likewise differ.
+
+It is pertinent to add that these conferences and events invite speakers through a robust selection process, which involves consideration by a panel of expert reviewers, ensuring that the selected presentations are of high quality and contribute meaningfully to the field. Each proposal is subject to evaluation criteria, including originality, relevance, potential impact, and novelty/innovation. This rigour underscores the significance and credibility of the outputs documented within this chapter.
+
+The preparatory work for each presentation entailed research into extant literature. As with the \nameref{chap:publications} and \nameref{chap:creative-works} chapters, the content of this chapter further supplements that of the \nameref{chap:literature-review}. The reader will find citations in the respective \textit{Content \& Method} and \textit{Reflections \& Implications} of each section.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% presentation outputs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage % formatting fix
+\section{Processing.py---Creative Coding with Python}
+\label{sec:processing.py-creative-coding-with-python}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: Kiwi PyCon X (2019) \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Wellington, New Zealand: Rutherford House \\
+\textbf{Start/Finish Dates}: 23 August 2019 -- 25 August 2019 \\
+\textbf{URL}: \url{https://kiwipycon.nz} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:kiwi-pycon-x-2019}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+Kiwi PyCon is an annual conference dedicated to Python programming and its applications, serving as New Zealand's national Python conference. Organised by the New Zealand Python User Group (NZPUG), it is part of a global network of PyCon\footnote{~\url{https://en.wikipedia.org/wiki/Python_Conference}} conferences aimed at facilitating collaboration and knowledge exchange among Python users worldwide.
+
+The event provides a space for Python enthusiasts, developers, educators, researchers, and industry professionals to share ideas and discuss emerging trends in Python programming. While primarily focused on the New Zealand Python community, Kiwi PyCon also draws international speakers and participants, offering local and global perspectives.
+
+The conference features a variety of topics, including software development, data science, machine learning, web development, programming education, and creative computing. As part of the PyCon movement, Kiwi PyCon reflects a shared commitment to supporting and growing the Python community.
+
+\subsection{Presentation Abstract}
+
+\textit{Processing is a programming language and integrated development environment that caters to the electronic arts, new media art, and visual design communities. Initially released in 2001, Processing featured a Java-based syntax, but 2014 saw the release of an additional Python mode: Processing.py.}
+
+\textit{This session begins with some context, namely the creative coding scene, then moves into a series of programming tasks using Processing.py within the Processing IDE, investigating topics like graphics, randomness, noise, animation, and interactivity. All this should make for a fresh and inspiring session; something that will appeal to novices and creatives but also offers something for experts.}
+
+\subsection{Content \& Method}
+
+The session focused on Processing's Python mode (Processing.py) as a tool to provide designers, artists, and aspiring coders with an accessible and visual way to learn Python programming, highlighting inspiring projects and examining an early iteration of a programming fundamentals curriculum built around Processing.py. It introduced the creative coding landscape beginning at the \textit{demoscene}, a subculture originating in the 1980s focused on creating real-time multimedia demos to showcase programming and artistic skills~\cite{polgar_freax_2008} (Figure~\ref{fig:wab.com}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter05-presentation-outputs/wab.com}
+\caption{\textit{WAB.com (We Are Back)} is a CODEF-powered platform featuring remakes of cracktros and other retro demoscene productions. Screenshot from the website of Antoine Santo. Source:~\cite{santo_wabcom_2024}.}
+\label{fig:wab.com}
+\end{figure}
+
+The session was initially planned for a 45-minute timeslot and then adapted to a 2-hour workshop at the request of the event organisers. It covered four major areas, with point 4 (\textit{Programming Tasks}) consuming around half the allocated slot:
+
+\begin{enumerate}
+
+\item \textbf{An Introduction to Creative Coding}: A concise historical overview of the demoscene, highlighting its influence on the evolution of creative coding. This included discussions on Flash, which supported a smaller yet comparable creative scene in the late 1990s, focused on developing interactive and animated web-based ``demos'' using Macromedia Flash~\cite{jankowski_new_2000}. Additionally, the introduction featured a curated selection of inspiring works created with Processing and Python, showcasing the distinctive opportunities offered by Processing.py.
+
+\item \textbf{Processing}: Exploring the history of the software, this section highlighted its impact as a transformative tool for creative coding~\cite{chibalashvili_creative_2023}; it also examined alternative environments to Processing along with concise code examples that illustrated the syntax and capabilities of Processing.py, providing a practical glimpse into its creative potential.
+
+\item \textbf{A Proposed Processing.py-Based Programming Fundamentals Curriculum}: Outlining the early iterations of a course designed for students with little to no prior programming experience, tailored to those in creative or related fields of study. This draft curriculum suggested topics and tasks aimed at guiding students in developing foundational programming skills through engaging and practical creative coding exercises.
+
+\item \textbf{Programming Tasks}: Building on the previous point, this largest segment delved into a variety of practical coding examples designed to create and manipulate visual elements, utilise randomness and noise for procedurally generated graphics, and incorporate animation and interactivity. These tasks aimed at developing an understanding of the Processing paradigm by applying its Python Mode to both creative and practical contexts, bridging theoretical concepts with hands-on exploration.
+
+\end{enumerate}
+
+The research that supported the development of the session content integrates into the \nameref{chap:literature-review} chapter and is further reflected in the outputs of the \nameref{chap:publications} and \nameref{chap:creative-works} chapters.
+
+\subsection{Audience Engagement \& Feedback}
+
+The session, attended by 26 people, attracted a significant number of Visual Effects (VFX) professionals, largely due to the prominence of Wētā FX\footnote{~Wētā FX is a world-renowned visual effects company headquartered in Wellington, NZ (\url{https://www.wetafx.co.nz})} in Wellington, New Zealand. The workshop format offered ample opportunities for discussion, and more than a traditional talk or lecture might typically allow.
+
+The historical context of the \textit{demoscene} and Flash struck a chord with many attendees, evoking nostalgic memories of the creative pursuits that initially sparked their journeys into the industry. 
+
+The discussion of randomness, noise, and algorithms for simulations resonated as well, reflecting foundational techniques in VFX workflows, albeit presented in a more simplified and stripped-back form aimed at educational contexts.
+
+While it was evident that Processing.py lacks the scalability, power, and integration capabilities required for complex, industry-standard VFX scripting tools, some attendees commented that it might harbour potential as a resource for rapid prototyping and visualising mathematical concepts. This lightweight approach could offer VFX professionals a quick and creative means to explore ideas and techniques relevant to their work, providing a bridge between artistic experimentation and technical execution.
+
+\subsection{Reflections \& Implications}
+
+While I, the PhD candidate, had been active in related domains for several years prior, the inquiry into the specific combination of Python and Processing begins here. This presentation effectively marks the starting point of the PhD research journey, shaping the direction it would ultimately take: the exploration and development of new Python tools for visual learning contexts.
+
+The session's \textit{Programming Tasks} content would lay the early foundations for publishing the book \textit{\nameref{sec:no-starch}} (No Starch Press).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Processing Python Mode for Creative Coding and Teaching}
+\label{sec:processing-python-mode-for-creative-coding-and-teaching}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: Libre Graphics Meeting 2020 \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Rennes, France (moved online for COVID-19) \\
+\textbf{Start/Finish Dates}: 27 May 2020 -- 29 May 2020 \\
+\textbf{URL}: \url{https://libregraphicsmeeting.org/2020/en/program.html} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:libre-graphics-meeting-2020}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+The Libre Graphics Meeting (LGM) is an annual international symposium that brings together developers, researchers, artists, and designers to advance and apply open-source software in creative and technical fields. This interdisciplinary event serves as a platform for sharing innovative research, exploring methodologies, and fostering collaboration across areas such as graphic design, animation, 3D modelling, typography, and computational art.
+
+The programme includes academic presentations, technical workshops, and collaborative sessions, emphasising the role of open-source tools in expanding access to creative expression, promoting sustainable design, and democratising technology. By centring on community-driven innovation and open knowledge, LGM critically examines and advances the intersections of technology, creativity, and collaboration.
+
+\subsection{Presentation Abstract}
+
+\textit{Processing Python Mode (also known as Processing.py) provides designers, artists, and aspiring coders with an accessible and visual way to learn Python programming. This presentation introduces the software, creative coding scene, inspiring projects, and a programming fundamentals curriculum based on Processing.py.}
+
+\subsection{Content \& Method}
+
+This presentation represented a significant evolution of the PyCon X session (see Section \ref{sec:processing.py-creative-coding-with-python}), expanding upon its foundational concepts to deliver a more in-depth exploration of creative coding with Processing.py. The refined scope incorporated a broader range of topics, deliberately moving away from practical, code-along activities to examine advanced techniques at a higher level and the technical dimensions of Processing.py. Unlike its predecessor, this session adopted a 50-minute talk format, rather than a workshop format.
+
+This provided an opportunity to present further curriculum development and ongoing research, including exploring (hitherto undocumented) Processing.py-compatible ways to construct user interfaces and implement 2D physics. These solutions incorporated ControlP5 for GUI elements and pypybox2d for physics simulation, both of which can operate within Processing.py's Jython limitations~\cite{lauer_optionally_2019, schlegel_controlp5_2015}.
+
+The topics encompassed an exploration of more advanced computational art techniques, including animated trigonometry and matrix-based geometric transformations, generative design through algorithmic randomness, bespoke data visualisation techniques, vertex-based curve generation, and kernel-based image processing methods. Figure~\ref{fig:processing.py-tabreturn.github.io-master} displays a selection of code samples to accompany the presentation, provided for attendees as a resource archived at \url{https://github.com/tabreturn/processing.py-tabreturn.github.io}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/processing.py-tabreturn.github.io-master}
+\caption{A selection of code samples prepared by the author for the Libre Graphics Meeting 2020 presentation. Images generated the author. Source:~\cite{tabreturn_processingpy_2020}.}
+\label{fig:processing.py-tabreturn.github.io-master}
+\end{figure}
+
+The research that supported the development of the session content integrates into the \nameref{chap:literature-review} chapter and is further reflected in the outputs presented in the \nameref{chap:publications} and \nameref{chap:creative-works} chapters.
+
+\subsection{Audience Engagement \& Feedback}
+
+Like many similar events during the early stages of the COVID-19 pandemic, the Libre Graphics Meeting 2020 had abruptly transitioned to an online format. The sudden shift to virtual conferencing likely resulted in limited audience engagement and interaction, perhaps attributable to participants' and organisers' unfamiliarity with digital conference platforms and the new challenges of remote collaborative video experiences. The presentation feedback, albeit scant, was encouraging.
+
+\subsection{Reflections \& Implications}
+
+The repository of code samples produced in the lead-up to and shared at the event marked significant progress in developing novel creative coding techniques for Processing.py, contributing to new learning approaches, many of which were subsequently refined and integrated into the comprehensive text, \textit{\nameref{sec:no-starch}} (No Starch Press).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Creative Coding with Python \& Processing}
+\label{sec:creative-coding-with-python-and-processing}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: CC Fest 2021 \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: New York, USA: NYU Tisch (online) \\
+\textbf{Start/Finish Dates}: 24 January 2021 \\
+\textbf{URL}: \url{https://ccfest.rocks} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:cc-fest-2021}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+CC Fest (Creative Coding Fest) is a free, inclusive event that celebrates creative coding in all its forms. It brings together a diverse community of participants, from students and artists to hobbyists, educators, technologists, and anyone curious about the field. Alongside talks, the event offers opportunities to engage in hands-on activities such as crafting digital art, creating animations and games, exploring AI, working with hardware, and more. 
+
+CC Fest has been held in various locations, including New York, Los Angeles, and San Francisco, and has offered both in-person and virtual experiences.
+
+\subsection{Presentation Abstract}
+
+\textit{This talk introduces creative coding techniques using a new, browser-based creative coding environment: \textit{Computiful}. Computiful enables users to program interactive digital art for the Web using the Python programming language. The session includes a review of different Python programming environments for creative coding and their history and development.}
+
+\subsection{Content \& Method}
+
+Computiful, developed by Nick McIntyre, was an online code editor based on the p5.js web editor\footnote{~\url{https://editor.p5js.org}} adapted to run Python code. It used the Brython\footnote{~\url{https://brython.info}} interpreter to execute Python directly in a web browser by translating it into JavaScript, allowing seamless integration with p5.js.
+
+A key modification in Computiful was the reorientation of the p5.js/Processing coordinate system to align with the top-right quadrant of the Cartesian plane (``Quadrant I''). This adjustment, aimed at improving intuition for math students, makes y-values increase upwards (from the bottom) rather than downwards (from the top)---unlike traditional Processing environments where y-values increase downward (from the top). These changes, along with other refinements, supported the teaching and learning of mathematical concepts through coding. Computiful has since transformed into the Strive Editor (Figure~\ref{fig:code.strivemath.com}). 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/code.strivemath.com}
+\captionsetup{width=0.8\textwidth}
+\caption{The Strive Editor uses a coordinate system where origin (0, 0) is positioned at the bottom left of the display pane (rather than top left); y-values increase \textit{upwards}, and x-values increase to the right. Screenshot by the author. Source:~\cite{strive_math_editor_2025}.}
+\label{fig:code.strivemath.com}
+\end{figure}
+
+Strive, an EdTech company, leverages Processing-based environments to teach mathematics, science, and other subjects through writing code~\cite{strive_math_editor_2025}. Nick McIntyre, Tamir Shklaz, and Maxim Schoemaker maintain the project source code on GitHub at \url{https://github.com/StriveMath/p5-python-web}.
+
+The talk provided an overview of the Processing ecosystem, explaining its variants, leading into web-based implementations and a Computiful introduction. The demonstration section of the session reviewed building an amoeba simulation, covering key concepts like object-oriented programming using Computiful. A GitHub repository link for all participants provided access to the complete code samples and other resources, including a cheatsheet (designed as part of the session's preparation) for those transitioning from Java/JavaScript to Python. These materials can be found archived at \url{https://github.com/tabreturn/cc-fest-computiful}.
+
+\subsection{Audience Engagement \& Feedback}
+
+The session concluded with an invitation for the audience to explore the topic further and ask questions. However, most feedback occurred at the beginning of the talk when the speaker asked participants several questions to gauge their familiarity with different tools. Of around 60 attendees: approximately six indicated (by raising a virtual hand) that they had used the original Java-based Processing; around ten had experience with p5.js; and a larger portion (about 15) had some background in Python. However, this quick survey aimed to tailor the talk's content to the audience's experience rather than to gather quantitative data.
+
+\subsection{Reflections \& Implications}
+
+Python code typically cannot run directly in a web browser. However, Computiful enabled the execution of Python sketches by leveraging a combination of p5.js and Brython. Later, the Strive Editor replaced Brython with Skulpt. Within the context of this PhD, these developments initiated research into potential web-based solutions aimed at Processing-like Python learning environments. 
+
+The traditional Python interpreter, or \textit{reference} implementation (commonly known as CPython), runs like traditional computer software---i.e., on systems where users must manually download, install, and configure it~\cite{python_software_foundation_alternative_2024}. In contrast, both Brython and Skulpt allow Python code to execute directly in web browsers, providing several advantages typical of browser-based solutions~\cite{graham_programming_2019, quentel_brython_2024}. These include eliminating the need for setup or installation, ensuring cross-platform compatibility, enabling more instant/beginner-friendly access, and facilitating seamless integration with online (learning?) platforms and tools~\cite{ater_building_2017}. However, Brython and Skulpt come with certain disadvantages when compared to CPython, such as:
+
+\begin{itemize}
+
+\item \textbf{Performance Overhead}: Both Brython and Skulpt are slower than standard Python because they must convert Python code into JavaScript for execution; this introduces additional performance overhead~\cite{quentel_brython_2024-1}. However, some experimentation demonstrated that this limitation is not a significant concern for beginner-level- and other projects that are not computationally intensive.
+
+\item \textbf{Limited Library Support}: Neither Brython nor Skulpt fully supports the Python standard library, and particularly libraries depending on C extensions, such as NumPy, pandas, or TensorFlow. Additionally, these environments cannot execute Python code that relies on native system-level libraries or features~\cite{graham_programming_2019, quentel_brython_2024}.
+
+\item \textbf{Browser Restrictions}: As Brython and Skulpt run within a web browser, their use is restricted to web-based applications; this limits their ability to access system-level resources or hardware features (with which CPython can interact), such as file system access, network operations, or local hardware interfacing~\cite{papadopoulos_master_2018}.
+
+\item \textbf{Debugging Challenges}: Brython and Skulpt can make debugging more challenging than with standard Python. Transpiling Python to JavaScript adds an extra layer of complexity, making it harder to track and resolve errors. However, one can argue that something like Processing.py presents relatable issues using Jython to compile Python code to Java bytecode~\cite{juneau_definitive_2009}.
+
+\end{itemize}
+
+The research that supported the development of the presentation and the subsequent insights into browser-based solutions, such as Computiful, Brython, and Skulpt, contributed considerably to the publication of the MTAP (Q1-ranked) journal article, \textit{\nameref{sec:mtap}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Novel Visualisations with Python and p5}
+\label{sec:novel-visualisations-with-python-and-p5}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: Outlier 2021 \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Online \\
+\textbf{Start/Finish Dates}: 04 February 2021 -- 07 February 2021 \\
+\textbf{URL}: \url{https://www.outlierconf.com} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:dvs-outlier}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+Outlier is a data visualisation conference organised by the Data Visualization Society (DVS) to provide a platform for the `data viz' community to exchange knowledge and ideas. The conference emphasises advancing technical practices and critically examining the norms of data visualisation to explore new possibilities within the discipline. It brings together a diverse group of professionals, including designers, academics, and business intelligence developers, who contribute to the field through varied approaches and techniques. In addition to organising the conference, the DVS publishes \textit{Nightingale}, a journal dedicated to sharing high-quality articles and ideas that advance knowledge and practice.
+
+Outlier 2021, initially planned as an in-person event but moved online due to COVID-19, attracted nearly 1000 participants worldwide~\cite{judeikyte_outlier_2022}. 
+
+\subsection{Presentation Abstract}
+
+\textit{Python data visualisation libraries---like Matplotlib, Bokeh, Plotly, and others---provide a broad range of chart types. But what if you're looking to visualise data in more unique or creative ways? This is a brief overview of p5: a high-level drawing library to help you quickly create novel visualisations, simulations, and interactive art using Python.}
+
+\subsection{Content \& Method}
+
+This lightning talk explored innovative approaches to creating unique visualisations using Python and p5 (also known as p5py), a library that brings the Processing programming paradigm to \textit{native Python} environments~\cite{pal_release_2020}. Unlike tools such as Computiful and Processing.py, which rely on mechanisms to convert Python code for execution in JavaScript or Java, p5 operates directly within Python, ensuring seamless integration with the Python ecosystem.
+
+Traditional Python data visualisation libraries like Matplotlib, Seaborn, and Plotly have proven highly effective for producing standard plots and charts~\cite{mckinney_python_2022}. However, crafting more unique, expressive, and creative visualisations can require alternative approaches~\cite{bohnacker_generative_2012, fry_visualizing_2007}. Notable examples include Frederick Brodbeck's \textit{Cinemetrics}\footnote{~\url{http://cinemetrics.fredericbrodbeck.de/old.html}}---a project that visualises films as colour-coded ``fingerprints''---and 3Blue1Brown's compelling COVID-19 spread simulations\footnote{~\url{https://www.youtube.com/watch?v=gxAaO2rsdIs}} using dynamic graphics to communicate complex concepts in an accessible, engaging way.
+Such projects highlight the power of visualisation that transcends conventional charting methods to tell rich, nuanced stories.
+
+Combining Processing's intuitive creative coding model with Python's versatility and readability, p5 can empower users to develop generative data visualisations and real-time simulations, with features to explore data interactively. This fusion opens possibilities for artists and scientists alike, enabling the creation of dynamic and bespoke visualisations that can inspire and inform audiences beyond traditional data representation techniques. 
+
+The talk showcased p5's capabilities through several bespoke examples, including visualising the frequency of letters in a given passage of text (Figure~\ref{fig:generative-gestaltung-p31301}), illustrating p5's potential as a versatile alternative to traditional Python plotting libraries.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/generative-gestaltung-p31301}
+\caption{An interactive p5.js sketch by the author, presented at Outlier 2021, designed to visualise the frequency of letters in a given passage of text. As the mouse pointer moves from left to right, the characters transition from continuous text to grouped lines. Adapted from an example by Benedikt Groß \textit{et al.} in \textit{Generative Gestaltung}. Source:~\cite{gros_generative_2018}.}
+\label{fig:generative-gestaltung-p31301}
+\end{figure}
+
+\subsection{Audience Engagement \& Feedback}
+
+Outlier's \textit{Lightning Talk} format does not accommodate engagement during the session time.
+
+\subsection{Reflections \& Implications}
+
+The presentation underscored the potential of Processing-inspired environments, such as p5, to enable novel approaches to data visualisation. Several experimental p5 code samples developed for the talk demonstrated that this paradigm applies well to crafting unique, dynamic visualisations. Moreover, it presents opportunities to employ data-driven techniques in creative coding, providing ways for learners and practitioners to explore various data file formats (including CSV, JSON, and XML)~\cite{mcgregor_practical_2021}.
+
+Preparing the talk and accompanying code samples provided valuable insights into the strengths and trade-offs of native Python libraries compared to their (Brython, Jython, Skulpt) alternatives. Notably, as a native library, p5 benefits from its:
+
+\begin{itemize}
+
+\item \textbf{Seamless Integration with CPython}: Offering access to a full range of features expected in native Python, including support for widely used, high-performance libraries---particularly those with C extensions.
+
+\item \textbf{Direct Execution of Python Code}: Eliminating the need for translation layers required by alternatives like Processing.py or Computiful, thereby reducing complexity and potential performance bottlenecks~\cite{savrun-yeniceri_efficient_2014}.
+
+\item \textbf{Potential for Broader Adoption}: Driven by its integration into standard package management tools, and convenient availability to CPython's existing user base, which includes educators, researchers, and practitioners~\cite{cass_top_2022}.
+
+\end{itemize}
+
+However, p5 also present challenges, specifically:
+
+\begin{itemize}
+
+\item \textbf{Lacking Adoption and Stability}: As p5 is still evolving, it has yet to reach a level of development and adoption comparable to Processing and p5.js, which are highly mature environments with extensive feature sets, stable performance, active developer communities, and significant user followings~\cite{pal_release_2020}.
+
+\item \textbf{Setup Complexity}: Python-based Processing tools, such as p5, often require users to install additional dependencies (e.g., GLFW) and manage virtual environments for package installation; this stands in contrast to the streamlined, `turnkey' experience Processing.py and Strive offer, which provide immediate usability with minimal configuration, enabling users to focus on creative coding with minimal setup process.
+
+\end{itemize}
+
+The research that supported the development of this presentation and the resulting insights into native Python Processing-inspired solutions, such as p5, DrawBot, and Shoebot, contributed considerably to the publication of the MTAP (Q1-ranked) journal article, \textit{\nameref{sec:mtap}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Thonny + py5: A Python 3 Environment for Processing}
+\label{sec:thonny-+-py5-a-python-3-environment-for-processing}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: CC Fest: Processing Community Day (2021) \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Online \\
+\textbf{Start/Finish Dates}: 22 August 2021 \\
+\textbf{URL}: \url{https://processingfoundation.org/advocacy/pcd-2021} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:2021-processing-community-day}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+A special edition of CC Fest held to coincide with \textit{Processing Community Day (PCD) 2021}, marking the 20th anniversary of Processing. This celebration highlighted the intersection of technology and creativity, bringing artists, educators, technologists, and enthusiasts together to share projects and explore new tools, techniques, and ideas. Through online presentations, virtual meetups, collaborative artworks, and hands-on coding challenges, the event showcased the pivotal role of Processing and creative coding in fostering accessible, inclusive, and innovative practices over the past two decades.
+
+\subsection{Presentation Abstract}
+
+\textit{This session delves into the integration of py5---a Python adaptation of Processing built on its core libraries---with Thonny, a user-friendly Python IDE designed for beginners. The outcome is a portable, self-contained IDE that replicates the simplicity and functionality of the Processing Development Environment (PDE), creating an accessible and easily distributable platform for creative coding enthusiasts and learners. The presentation highlights py5's capabilities, including support for Static, Module, and Imported programming modes, while demonstrating how Thonny can be customised to emulate a PDE-like experience.}
+
+\subsection{Content \& Method}
+
+The presentation provided an overview of creative coding using Python and Processing, with a focus on transitioning from Processing.py to py5 using Thonny-py5mode, exploring workflows, technical differences, and practical demonstrations of the tools.
+
+Processing traditionally uses Java as its foundation for running sketches. Processing's Python Mode (Processing.py) integrates Python by leveraging Jython, a tool that translates Python 2.7 code into Java-compatible bytecode~\cite{juneau_definitive_2009}. However, this approach has limitations, including a lack of Python 3 support and the inability to use popular C-extension libraries like NumPy. 
+
+py5, introduced as a ``spiritual successor'' to Processing.py, addresses these limitations by replacing Jython with JPype. This change enables support for Python 3 and seamless integration with C-extension libraries~\cite{menard_jpype_2018}. The aim of py5 is not just to replicate and extend Processing.py, but to integrate Processing's capabilities into the broader Python ecosystem while maintaining its creative programming focus~\cite{schmitz_welcome_2021}.
+
+The session demonstrated setting up Thonny, a beginner-friendly Python IDE, configured with the Thonny-py5mode plugin; this setup (Figure~\ref{fig:thonny-py5-mode-particles}) allows users to run py5 sketches in an environment tailored for education and creative coding. There was also a brief demonstration using py5 with Jupyter Notebooks, providing a flexible, browser-based alternative for writing and running sketches.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/thonny-py5-mode-particles}
+\captionsetup{width=0.8\textwidth}
+\caption{The Thonny IDE with the Thonny-py5mode plugin activated, running an animated particle sketch. Plugin and screenshot by the author.}
+\label{fig:thonny-py5-mode-particles}
+\end{figure}
+
+The session also showcased the debugging capabilities of Thonny-py5mode, using Python's PDB\footnote{~\url{https://docs.python.org/3/library/pdb.html}} debugger to step through code execution interactively, and Thonny's ``Plotter'' (Figure~\ref{fig:thonny-py5-mode-plotter}) feature to visualise real-time data output, such as waveforms.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/thonny-py5-mode-plotter}
+\caption{Running a py5 sketch to draw a circle, while plotting the x- and y-coordinates as sine and cosine waves using Thonny's \textit{Plotter} feature. Screenshot by the author.}
+\label{fig:thonny-py5-mode-plotter}
+\end{figure}
+
+The presentation concluded with exploring additional features, such as how Thonny-py5mode customises Thonny's themes and syntax highlighting for a more Processing-like experience, and guidance on managing Python packages within Thonny. Participants were directed to a GitHub repository containing examples, setup instructions, and links to learning materials, still archived at \url{https://github.com/tabreturn/cc-fest-py5}.
+
+\subsection{Audience Engagement \& Feedback}
+
+Audience engagement primarily focused on technical questions related to the code demonstrations.
+
+\subsection{Reflections \& Implications}
+
+This presentation marked the first public introduction of the Thonny-py5mode plugin to a gathering of experts and users, following months of development informed by research into Processing-like Python solutions. 
+
+Experimentation with various code editors and the (then) recent stable release of py5, revealed that combining py5 with the Thonny editor could offer a promising successor to Processing's Python Mode (Processing.py). This led to the creation of the Thonny-py5mode plugin, providing a new Python 3 environment designed to enhance programming education through creative computing. As a central component of this PhD study, its development is detailed in Chapter \ref{chap:software} (\nameref{chap:software}).
+
+In addition to Python 3 support, py5 offers many compelling features, including its five modes\footnote{~\url{http://py5coding.org/content/py5_modes.html}}, three of which the presentation highlighted:
+\begin{itemize}
+
+\item \textbf{Static Mode}: Like Processing's \textit{Static Mode}, this allows users to create graphic output with as little as a single line of code. For example, the following code draws a circle in the centre of the display window: 
+
+\begin{lstlisting} 
+circle(width/2, height/2, 10) 
+\end{lstlisting}
+
+\item \textbf{Imported Mode}: This mode enables users to create animated and interactive output by adding a \texttt{draw()} and (optionally) \texttt{setup()} function. For instance, to draw circles at the position of the mouse cursor: 
+
+\begin{lstlisting} 
+def draw(): 
+    circle(mouse_x, mouse_y, 10)
+\end{lstlisting}
+
+\item \textbf{Module Mode}: Offering a more traditional Python experience, requiring an \texttt{import} statement and accessing py5 features via a \texttt{py5} prefix. Below is a \textit{Module Mode} adaptation of the \textit{Imported Mode} example: 
+
+\begin{lstlisting} 
+import py5
+
+def draw(): 
+    py5.circle(py5.mouse_x, py5.mouse_y, 10)
+
+py5.run_sketch() 
+\end{lstlisting}
+
+\end{itemize}
+
+The presentation also emphasised py5's ability to extend Processing's functionality through integration with C-extension Python libraries, including tasks involving:
+
+\begin{itemize}
+
+\item \textbf{NumPy Integration}: By demonstration of direct manipulation of pixel data in sketches, specifically using the py5 \texttt{np\_pixels[]} feature\footnote{~\url{https://py5coding.org/reference/sketch_np_pixels.html}}, a NumPy array containing the values for all the pixels in the display window. 
+
+\item \textbf{Pymunk Integration}: Using an example combining py5 drawing functions to render Pymunk physics simulations, such as 2D falling and bouncing objects.
+
+\end{itemize}
+
+The exploration of various Python--Processing environments and libraries, including py5, provided valuable insights that shaped the direction, design, and development of Thonny-py5mode. These findings, along with research on learner experiences using Thonny-py5mode, are documented in Q1/Q2 journal articles in the \nameref{chap:publications} chapter of this thesis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Generate SVG for Pen Plotters using Python}
+\label{sec:generate-svg-for-pen-plotters-using-python}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: Virtual CC Fest 2022 \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Online \\
+\textbf{Start/Finish Dates}: 30 January 2022 \\
+\textbf{URL}: \url{https://ccfest.rocks} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:cc-fest-2022}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+As described previously (see Section \ref{sec:thonny-+-py5-a-python-3-environment-for-processing}. \nameref{sec:thonny-+-py5-a-python-3-environment-for-processing}), CC Fest is a free, inclusive event that celebrates creative coding in all its forms. It brings together a diverse community of participants, from students and artists to hobbyists, educators, technologists, and anyone curious about the field.
+
+\subsection{Presentation Abstract}
+ 
+\textit{This session explores the intersection of creative coding, vector graphics, and modern plotting technologies. It begins with an overview of plotters and their resurgence in digital art, then moves on to the fundamentals of programmatically generating vector art using Python, introducing the technical and artistic potential of py5, Blender scripting (bpy) for 3D line-graphics, and Inkscape to manipulate SVG-based generative art for pen plotters. Attendees will learn techniques for optimising plotting workflows with Python libraries like \textit{vpype}, and handling SVGs through programmatic layer management. This session provides code-along examples and resources for beginners and seasoned creators alike.}
+
+\subsection{Content \& Method}
+
+A pen plotter is a mechanical device akin to a robotic arm with a pen, used for drawing vector-based art and design work. The session's introductory segment discussed the revival of vintage plotters, DIY plotter projects, and modern pen plotters with a specific focus on the Axidraw range manufactured by Evil Mad Scientist~\cite{evil_mad_scientist_laboratories_axidraw_2023}. These are simple, modern, and relatively inexpensive devices that can hold most types of pens, markers, and even brushes (Figure~\ref{fig:axidraw-v3}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter05-presentation-outputs/axidraw-v3.jpg}
+\caption{The most popular AxiDraw model, the V3, which can accommodate an A4-size plotting area. Image from Evil Mad Scientist. Source:~\cite{evil_mad_scientist_laboratories_axidraw_2023}.}
+\label{fig:axidraw-v3}
+\end{figure}
+
+Vector graphics are defined mathematically, ensuring they are resolution-independent and maintain smooth, sharp edges regardless of size. In contrast, raster graphics are composed of a fixed grid of pixels and become visibly pixelated or blurry when enlarged~\cite{burrough_digital_2009}. SVG is a vector graphic file format containing human-readable code based on the XML standard, with tags and attributes to describe different shapes and properties~\cite{eisenberg_svg_2014}. Most artists and designers rely on tools with graphic interfaces (like Adobe Illustrator, Affinity Designer, or Inkscape) to create SVG graphics. A more technical alternative involves generating SVGs programmatically using languages like Python. 
+
+While hand-coding logos and illustrations is almost always less practical than using software with a graphic interface to draw them, generating SVG markup with Python (or similar programming languages) opens up unique possibilities. It allows for the automation of repetitive tasks, ensures precise control over coordinates, and facilitates the creation of generative or data-driven visuals~\cite{rathert_knowledge_2005, latini_web_2005}. Creatives can delve into algorithmic and procedural vector graphic art, leveraging mathematical principles, randomness, and rules-based logic to produce intricate patterns and dynamic compositions~\cite{pearson_generative_2011}.
+
+Preparation for the session involved extensive research and hands-on experimentation with py5, Thonny-py5mode, and an \textit{AxiDraw V3/A3} pen plotter. Based on insights, the session showcased novel Python-based generative art techniques, including employing py5's \texttt{beginRecord()} and \texttt{endRecord()} methods to create layered SVG files.
+
+Layered SVG files are particularly useful for plots requiring different colours and line styles, as one can assign a different layer to each `pen,' thereby simplifying the process of switching drawing implements. Axidraw plotters integrate a `print driver' within Inkscape, and the session demonstrated how to enable, disable, or combine SVG layers in Inkscape and other techniques for streamlined plotting workflows. 
+
+Figure~\ref{fig:comparing-graphic-and-plotter-output} compares a procedurally generated SVG and its plotter output for a multi-pen, layered SVG plot. This is one of several experiments using a combination of Thonny-pymode and Inkscape.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/comparing-graphic-and-plotter-output}
+\caption{Comparison of a Python-generated SVG graphic (left) and its plotted result (right). Screenshot and artwork by the author.}
+\label{fig:comparing-graphic-and-plotter-output}
+\end{figure}
+
+The session also demonstrated techniques employing \textit{vpype}, a \textit{``Swiss-Army-knife command-line tool for plotter vector graphics''}~\cite{beyeler_vpype_2022}. However, rather than operating this via the command line, the code samples integrated vpype into the same py5 script to generate the graphic, helping to better organise and streamline the process of outputting ready-optimised SVG files. Several vpype examples helped highlight some key features, including:
+
+\begin{itemize}
+
+\item \textbf{Path Optimisation}: Simplifying paths to improve plot efficiency, including line-merging and related commands that can `prune' overlapping paths and closely positioned points by merging them where possible.
+
+\item \textbf{Plotting Optimisation}: To sort the order of paths for efficient plotting, including a \textit{Travelling Salesman Problem (TSP)} solver to minimise pen-up travel distance; and visualisation features to provide a preview of the vector graphic with an overlay of the plotter's path for verification.
+
+\item \textbf{Occluded Line Removal}: The \textit{occult}\footnote{~\url{https://github.com/LoicGoulefert/occult}} plugin from Loic Goulefert to remove lines `occulted' by polygons; this refers to lines or segments of a polygon that should be hidden or obscured by other elements within the same drawing. In other words, occult can `cover' parts of shapes that otherwise `show through' others (Figure~\ref{fig:svg-occult}). The order of paths is important, as occult will consider the last geometry in an SVG file to be `on top' of all other geometries.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{chapters/chapter05-presentation-outputs/svg-occult}
+\captionsetup{width=0.7\textwidth}
+\caption{An overlapping square and circle (left), and the same drawing after applying occult (right). SVG generated by the author.}
+\label{fig:svg-occult}
+\end{figure}
+
+\end{itemize}
+
+Blender is a free and open-source 3D creation software suite that supports the entire 3D production pipeline. It also features a comprehensive Python scripting API (bpy) to customise workflows and extend Blender's functionality. This allows one to programmatically manipulate objects, materials, and animations, enabling automation of repetitive tasks, the creation of custom tools or add-ons, and procedural content generation~\cite{acampora_python_2023}. 
+
+Furthermore, Blender can render SVG files using its edge- and line-based non-photorealistic (NPR) rendering engine, Freestyle~\cite{blender_documentation_team_freestyle_2024}. When combining the bpy library (to generate 3D forms) and Freestyle, one can utilise Python to create aesthetically compelling and visually intriguing results. Figure~\ref{fig:svg-blender-plot} showcases one of many bpy SVG experiments, exploring the creation of complex structures blending cones and metaballs.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{chapters/chapter05-presentation-outputs/svg-blender-plot}
+\captionsetup{width=0.7\textwidth}
+\caption{An SVG sphere comprising cones and metaballs, procedurally generated using the \texttt{bpy} API. Generated by the author.}
+\label{fig:svg-blender-plot}
+\end{figure}
+
+The session covered setting up Blender scenes for SVG output. In such applications, vpype proves particularly useful for optimising the Freestyle SVG renderings, as these can include many overlapping and disconnected lines, as well as excessive points that would otherwise dramatically slow the plotting process.
+
+A GitHub repository was made available to attendees, offering helpful resources, including task files designed to guide users through various techniques for generating plottable SVG files using Thonny-py5mode. It also featured links to a curated collection of useful plotter utilities and inspiring artworks from the plotter art community. The repository is archived at \url{https://github.com/tabreturn/cc-fest-plotter}.
+
+\subsection{Audience Engagement \& Feedback}
+
+This CC Fest proved exceptionally popular, with organisers capping registrations at 750 attendees days before the event. However, it is not clear exactly how many people attended this talk. Platform analytics were opaque, timing was tight, and participant feedback was minimal, consisting primarily of a few technical queries.
+
+The GitHub repository received 26 stars (effectively a ``favourite'' or ``like'' for open-source projects) following the event, suggesting that significantly more than 26 people viewed the talk. In previous CC Fest sessions, similar repositories typically received about one star per five attendees.
+
+\subsection{Reflections \& Implications}
+
+This presentation showcased the ongoing development and refinement of Thonny-py5mode, representing continued research into innovative creative coding techniques and the tool's potential for enhancing Python programming education within creative computing contexts.
+
+Pen plotters can offer unique, hands-on learning opportunities by introducing students to modern automation and digital fabrication concepts. The tangible outputs of their work can provide an added layer of satisfaction, fostering deeper engagement and enhancing the educational experience~\cite{bircher_numerically_2022, karthik_development_2017}.
+
+By utilising Thonny-py5mode for plotting applications, students can explore creative coding concepts by generating SVG files. This process introduces XML markup and exposes them to real-world challenges in translating digital designs into physical art. Unlike virtual environments, pen plotters bring inherent variability due to factors such as paper imperfections, pen inconsistencies, and adjustments to plotter speed, all of which can affect line quality and accuracy in the final output.
+
+Several of the artworks in the \nameref{chap:creative-works} chapter incorporate pen plotters, leveraging the techniques shared in this session to produce compelling results.
+
+The Blender Python (bpy) scripting aspects explored in this session inspired further research into Blender as a creative coding tool, culminating in a more comprehensive presentation on the topic at SIGGRAPH Asia 2022: \textit{\nameref{sec:blender-scripting-for-creative-coding-projects}}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section[Demystifying the Python--Processing Landscape]{Demystifying the Python--Processing Landscape: An Overview of Tools Combining Python and Processing}
+\label{sec:demystifying-the-python-processing-landscape-an-overview-of-tools-combining-python-and-processing}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: ACM SIGGRAPH 2022 \\
+\textbf{Author(s)}: Bunn, T., and Carrasco, T. \\
+\textbf{Statement of Authorship}: See Appendix \ref{appendix:statement-of-authorship-siggraph} \\
+\textbf{Venue}: Vancouver, Canada \& Virtual\\
+\textbf{Start/Finish Dates}: 08 August 2022 -- 11 August 2022 \\
+\textbf{URL}: \url{https://dl.acm.org/doi/10.1145/3532836.3536231} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:acm-siggraph-2022}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+SIGGRAPH is a premier annual conference and exhibition focused on computer graphics and interactive techniques, drawing a global audience of researchers, artists, developers, and industry leaders. It is hosted in North America and serves as a central platform for showcasing advancements in 3D animation, visual effects, virtual reality, and other creative technologies. The event includes technical papers, workshops, keynote presentations, and exhibits from leading studios and institutions, offering a comprehensive view of the industry's latest developments and future directions. In 2022, ACM SIGGRAPH Vancouver drew over 11,700 attendees~\cite{wikipedia_siggraph_2025}.
+
+\subsection{Presentation Abstract}
+
+\textit{Processing, launched in the early 2000s, combines Java with an integrated development environment (the PDE) for creative coding. 2010 saw the introduction of Processing's Python Mode, offering a way to write Python syntax in the PDE. However, this relies on Jython, which is restricted to Python 2.7 and lacks compatibility with many CPython libraries. Other options have since emerged to address these limitations and provide Python 3 support; among those, p5 provides a native Processing port, while py5 leverages JPype to interface with Processing's core libraries.}
+
+\textit{This talk explores the often confusing landscape of Python--Processing tools, covering their history, development, and differences. It provides detailed comparisons and weighs the advantages and disadvantages of various solutions, offering insights into the possible future of Python--Processing environments. In addition, the presenter will provide practical guidance on selecting the most suitable tools for beginners, educators, and experienced programmers eager to employ Python as a medium for creative coding.}
+
+\subsection{Content \& Method}
+
+This presentation largely represented a summary of all the research, development, and experimentation that informed the previous presentations detailed in this chapter. 
+
+The talk explored Python-based tools inspired by the Processing paradigm, targeting artists, educators, and programmers interested in creative coding. It highlighted tools like Processing.py (Python Mode), pyp5js, p5py, and py5, emphasising their features, distinctions, and applications. For instance, pyp5js\footnote{~\url{https://berinhard.github.io/pyp5js}} supports Processing-like Python programming for the web, while py5 integrates deeply with the CPython ecosystem.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/siggraph-programme-image}
+\captionsetup{width=0.8\textwidth}
+\caption{Digital image created to represent the talk, displayed in the ACM SIGGRAPH 2022 event programme. Image by the author.}
+\label{fig:siggraph-programme-image}
+\end{figure}
+
+By way of practical examples, the talk demonstrated static and interactive sketches in Java, contrasting these with implementations in Processing.py, py5, and other environments, also covering features like animation, interactivity, and the integration of libraries with C extensions (NumPy and Pymunk). The use of py5 in Thonny (using the Thonny-py5mode plugin) and its Jupyter Notebook support highlighted the opportunities for learning and teaching Python fundamentals within a creative coding context.
+
+The session concluded with resources for further exploration, including links to GitHub repositories, cheat sheets, and useful forums. The supporting materials are archived in the ACM digital library at \url{https://dl.acm.org/doi/10.1145/3532836.3536231}.
+
+\subsection{Audience Engagement \& Feedback}
+
+The presentation was delivered in a pre-recorded format. During the subsequent live Q\&A session, the presenter, Bunn, addressed several technical questions and engaged in discussions with the audience, which (perhaps unsurprisingly) included several creative coding enthusiasts. 
+
+One attendee suggested that others share their Python projects at \textit{SPARKS}\footnote{~\url{https://dac.siggraph.org/sparks-overview}} events. These are monthly gatherings featuring a series of 5- to 10-minute lightning talks followed by discussions centred on the month's topic, hosted by ACM SIGGRAPH DAC. The mission of the DAC (Digital Arts Committee) is to foster year-round engagement and dialogue within the digital, electronic, computational, and media arts. The committee strives to facilitate dynamic scholarship and creative programming within the ACM SIGGRAPH organisation, aiming to promote collaboration between artists and the broader computer graphics and interactive techniques communities~\cite{acm_siggraph_dac_community_2022}.
+
+\subsection{Reflections \& Implications}
+
+The event represented the most prominent platform to date for showcasing the research, software development, and experimental work conducted for this PhD to a global audience, serving as the culmination of those efforts. Subsequently, the researcher attended several \textit{SPARKS} gatherings, which offered valuable inspiration and insights that shaped some of the outputs in the \nameref{chap:creative-works} chapter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Generative Art with Python (using py5 and bpy)}
+\label{sec:generative-art-with-python-using-py5-and-bpy}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: PyCon XI (2022) \\
+\textbf{Author(s)}: Bunn, T., and Carrasco, T. \\
+\textbf{Statement of Authorship}: See Appendix \ref{appendix:statement-of-authorship-pyconxi} \\
+\textbf{Venue}: Christchurch, New Zealand: The Arts Centre Te Matatiki Toi Ora \\
+\textbf{Start/Finish Dates}: 19 August 2022 -- 21 August 2022 \\
+\textbf{URL}: \url{https://kiwipycon.nz} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:kiwi-pycon-xi}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+As described previously (see Section \ref{sec:processing.py-creative-coding-with-python}. \nameref{sec:processing.py-creative-coding-with-python}), Kiwi PyCon is an annual conference dedicated to Python programming and its applications, serving as New Zealand's national Python conference.
+
+\subsection{Presentation Abstract}
+
+\textit{This talk will introduce Python as a tool for generative art, which entails creating artistic multimedia output using computer code. Think: writing Python code that makes visual art, usually with some randomness thrown in for cool and unpredictable results. The presentation focuses primarily on two Python libraries: \textit{py5} for 2D visuals and Blender's \texttt{bpy} module for 3D. It includes an overview of generating artworks for NFTs, pen plotters, and other creative output using a new creative coding environment, \textit{Thonny-py5mode}.}
+
+\subsection{Content \& Method}
+
+The presentation content represented the ongoing progress of this PhD study's investigation into innovative Python tools for visual learning contexts, Python-based creative coding techniques, and the development of the Thonny-py5mode plugin. 
+
+To provide relevant context, the presentation highlighted various techniques employed by creators on \textit{fx(hash)}\footnote{~\url{https://www.fxhash.xyz}}, illustrating how similar methods could be emulated or adapted using Thonny-py5mode. fx(hash) serves as a platform and ecosystem for creating, collecting, and trading generative NFT art, leveraging the Tezos blockchain for its operations~\cite{tezos_foundation_tezos_2024}. During this period, the art world's engagement with NFTs peaked notably. In March 2021, digital artist Beeple's work, \textit{Everydays: The First 5000 Days}, sold for \$69 million at Christie's, marking a significant moment in digital art history~\cite{kastrenakes_beeple_2021}. This event solidified NFTs as a legitimate and potentially profitable art market segment, while prominent NFT generative art collections like \textit{Bored Ape Yacht Club} and \textit{CryptoPunks} gained substantial popularity~\cite{busolli_nft_2023}.
+
+In preparation for the event, this research focused on exploring new methods for previewing output that do not rely on the traditional py5/Processing sketch window. This entailed presenting a solution that utilises a web browser to preview SVG files generated using Python scripts, enabling users to take advantage of built-in developer tools for navigating XML-based structures (Figure~\ref{fig:svg-markup-browser}). This setup automatically reloads the preview whenever the image is regenerated, triggered by rerunning the script within Thonny-py5mode.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/svg-markup-browser}
+\caption{Using the Firefox web developer panel to explore SVG markup generated with Thonny-py5mode. Screenshot by the author.}
+\label{fig:svg-markup-browser}
+\end{figure}
+
+For Blender Python (bpy) scripts, the proposed approach leveraged Blender's \textit{headless} mode to generate 3D outputs directly. This eliminates the need to launch the full Blender interface, instead using Blender's Python interpreter to run scripts from within Thonny. Practical examples showed how the resulting images could automatically reload in a preview window (see Figure~\ref{fig:bpy-headless}). This workflow incorporated the \texttt{fake-bpy-module}: a set of mock Blender Python API modules that enable code completion and syntax highlighting in editors like Thonny.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/bpy-headless}
+\caption{Generating a Blender render directly from Thonny, without having to launch the Blender application. Screenshot by the author.}
+\label{fig:bpy-headless}
+\end{figure}
+
+\subsection{Audience Engagement \& Feedback}
+
+As the event schedule ran over time, there was insufficient opportunity for questions and discussion. However, several participants shared their creative work after the talk and sought discussion on creative coding techniques. 
+
+The talk followed Paris Buttfield-Addison's presentation on \textit{Machine Learning with Python and a Game Engine}, based on his book \textit{Practical Simulations for Machine Learning: Using Synthetic Data for AI}~\cite{buttfield-addison_practical_2022}. This inspired further consideration on how educators might utilise Thonny-py5mode to teach foundational machine learning concepts. One possibility is to employ py5 to visualise ideas similar to those in Tariq Rashid's \textit{Make Your Own Neural Network}, described as a ``step-by-step, gentle journey through the mathematics of neural networks, and creating your own using the Python programming language''~\cite{rashid_make_2016}. Another option is to adapt material from David Glassner's \textit{Deep Learning: A Visual Approach}~\cite{glassner_deep_2021}. A further direction could involve reworking Daniel Shiffman's \textit{Neural Networks} chapter from \textit{The Nature of Code}, which demonstrates building ``the simplest possible example of [a neural network]'' using only p5.js, Processing's JavaScript environment~\cite{shiffman_nature_2024}.
+
+To delve into machine learning more directly, educators can bypass the programming of a basic neural network from scratch and move immediately into model training. For this approach, we can draw on Python's established ecosystem of pre-built libraries and frameworks, such as \textit{PyTorch}, \textit{TensorFlow}, and \textit{Scikit-learn}~\cite{gallatin_machine_2023, kneusel_practical_2021, raschka_machine_2020}.
+
+Although this PhD study does not focus on machine learning or generative AI, its potential relevance to future work, as well as its impact on programming education, is explored in Section~\ref{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks} and readressed in the ``\nameref*{chap:conclusion}'' chapter.
+
+\subsection{Reflections \& Implications}
+
+This was an opportunity to collaborate with co-presenter Taylor Carrasco\footnote{~\url{https://www.imdb.com/name/nm3576725}}, a practitioner, researcher, and educator in VFX, animation, post-production, and visual narratives, whose expertise in 3D environments and VFX scripting directly informed the bpy component.
+
+The presentation research highlighted opportunities to extend Thonny-py5mode beyond py5 by integrating additional creative coding capabilities. The bpy experiments, for example, serve as a proof of concept for seamless Blender scripting integration, enabling students to explore advanced 3D content. Using Python to interface with Blender's render engine enables high-resolution outputs that incorporate particle systems, rigid-body dynamics, fluid dynamics, cloth dynamics, metaballs, and volumetrics~\cite{bunn_blender_2023}.
+
+Another possible enhancement involves adding a preview tool for inspecting SVG markup alongside py5 graphics, with features such as browsing nested tags and attributes---akin to browser developer tools. These examples point to future directions for creative coding support in Thonny-py5mode.
+
+Thonny-py5mode takes the second part of its name from py5, but renaming the tool may become necessary if it expands to include additional features (such as bpy support). The \textit{thonny-} prefix follows Thonny's required naming convention for plugins.
+
+While the focus of Thonny-py5mode and this PhD research is not NFT art, the scene offers relevance, thought-provoking class discussion topics, and even a potential income-generating hobby for students learning Python programming using creative coding environments. Although many observers note that the hype around NFT art has subsided, others argue that NFTs remain in a state of ongoing evaluation, particularly in the context of the art business. Several prominent NFT platforms continue to sell generative art, demonstrating some enduring appeal and market presence~\cite{chun_when_2023}.
+
+The bpy exploration also inspired further research into Blender as a creative coding tool, leading to an expanded collaboration with Carrasco, culminating in a more in-depth presentation at SIGGRAPH Asia 2022 (see \textit{\nameref{sec:blender-scripting-for-creative-coding-projects}}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Blender Scripting for Creative Coding Projects}
+\label{sec:blender-scripting-for-creative-coding-projects}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: SIGGRAPH Asia 2022 \\
+\textbf{Author(s)}: Bunn, T., and Carrasco, T. \\
+\textbf{Statement of Authorship}: See Appendix \ref{appendix:statement-of-authorship-siggraph-asia} \\
+\textbf{Venue}: Daegu, South Korea \\
+\textbf{Start/Finish Dates}: 06 December 2022 -- 09 December 2022 \\
+\textbf{URL}: \url{https://sa2022.siggraph.org/en/?post_type=page&p=2122&id=crs_111&sess=sess135} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:siggraph-asia-2022}
+\end{outputmeta}
+
+\subsection{Conference/Event Overview}
+
+SIGGRAPH Asia is a leading annual conference and exhibition covering advancements in computer graphics, interactive techniques, and emerging technologies across the Asia-Pacific region. Its diverse programme includes technical papers, workshops, keynotes, panel discussions, and showcases like the Art Gallery, Computer Animation Festival, and Emerging Technologies demos. By bridging disciplines, SIGGRAPH Asia delivers fresh perspectives on 3D graphics, VFX, virtual reality, artificial intelligence, computer vision, and game design, aiming to drive innovation and shape the future of digital creativity. The SIGGRAPH Asia 2022 event drew over 3,000 attendees \cite{wikipedia_siggraph_2025}, from 52 countries and regions, including researchers, artists, developers, and industry leaders.
+
+\subsection{Presentation Abstract}
+
+\textit{This session introduces Blender as a creative coding tool. Blender is open-source 3D modelling and animation software with a Python API for coding 3D objects, animations, and effects. We'll cover Blender's scripting tools, the bpy module, and techniques for creating and manipulating 3D objects with Python. Participants will generate animated 3D patterns entirely through code, learn to import and manage different Python modules, and employ external code editors to interface with Blender. Attendees can code along or observe and ask questions.}
+
+\subsection{Content \& Method}
+
+This session content built on previous the presentations, \textit{\nameref{sec:generate-svg-for-pen-plotters-using-python}} and \textit{\nameref{sec:generative-art-with-python-using-py5-and-bpy}}, to further explore Blender as a tool for creative coding, focusing on deeper insights into Blender's bpy API and more involved techniques for programming generative 3D art.
+
+While Blender is widely known for 3D modelling and animation using its GUI and node-based workflows~\cite{van_gumster_procedural_2022}, one can also employ Python scripting for a broad range of Blender tasks. These range from programmatically generating basic objects to advanced operations, such as particle systems, physics simulations, procedural modelling, and scene automation. This approach offers high-quality 3D renderings beyond what more 2D-oriented creative coding tools like Processing can output~\cite{p5js_contributors_p5js_2024}.
+
+This session spanned approximately 1.5 hours, guiding participants through calibrating a Blender scene, and using Python to programmatically generate 3D objects and algorithmically control transformations and animations. The content was structured as follows:
+
+\begin{enumerate}
+
+\item \textbf{Setup}: Installing Blender across Windows, macOS, and Linux, launching it via the command line, and running basic Python scripts using the Blender \textit{Scripting} tab (Figure~\ref{fig:blender-scripting}).
+
+\item \textbf{Blender Scripting Features}: Exploring core tools within the Blender interface, including the \textit{Info Editor} for logging Python commands from GUI actions, the \textit{Python Console} for executing Python commands interactively, and configuration settings for developer extras like Python tooltips.
+
+\item \textbf{bpy Fundamentals}: Introducing the bpy module, focusing on key components like \texttt{bpy.data} and \texttt{bpy.context}; this included addressing and manipulating objects via bpy.
+
+\item \textbf{Programming Animations}: Demonstrating the creation of animations using programmatically generated keyframes and sine wave functions to produce intricate wave-like motion.
+
+\item \textbf{Advanced Techniques}: Covering how to manage external files, integrate third-party libraries, and execute Blender scripts directly from the command line for `headless' execution.
+
+\item \textbf{Using External Editors}: Describing how to edit scripts in external code editors (such as Thonny or Atom) and methods to auto-reload rendering previews during headless execution.
+
+\end{enumerate}
+
+The session materials and resources are archived at \url{https://github.com/tabreturn/blender-creative-coding}. The repository includes additional resources for further exploration, inspiring examples, and scripts incorporating procedural generation and related techniques.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{chapters/chapter05-presentation-outputs/blender-scripting}
+\caption{Demonstrating the creation of programmatically generated patterns using Blender's scripting tools, before moving into an external editor. Screenshot by the author.}
+
+\label{fig:blender-scripting}
+\end{figure}
+
+\subsection{Audience Engagement \& Feedback}
+
+Bunn, the PhD candidate who prepared the proposal and materials for the accepted talk, transitioned to a role with a new employer prior to the SIGGRAPH Asia event, forfeiting his funding and availability to present. As a result, collaborator Carrasco (the second-listed author) delivered the session solo.
+
+\subsection{Reflections \& Implications}
+
+This session highlighted Blender's potential for Python-based creative coding---a capability that may be overlooked by practitioners using Processing, OpenFrameworks, and similar frameworks. 
+
+Consider GitHub \textit{topics}: these are tags developers assign to repositories to categorise them by technology, framework, programming language, or subject area, aiding discoverability and filtering. For example, the topic ``p5js'' includes 4,405 public repositories\footnote{~\url{https://github.com/topics/p5js}}, while ``openframeworks'' lists 765\footnote{~\url{https://github.com/topics/openframeworks}}. By contrast, ``blender-scripts,'' identified as the most representative tag for Blender scripting after a review of various repositories, contains only 325\footnote{~\url{https://github.com/topics/blender-scripts}}. The topic ``Processing'' (4,442 repositories) is excluded here because its broad usage across unrelated domains makes it an unreliable indicator.
+
+Processing's Python Mode, py5, p5py, DrawBot, and Shoebot provide valuable gateways into creative coding, the Python language, and programming fundamentals in general. While these environments offer robust support sufficient for most 2D and some light 3D creative coding applications, they lack the powerful 3D capabilities Blender can provide. Through Blender scripting, users gain access to a high-performance rendering engine via Python, enabling the creation of high-resolution images and videos. Moreover, bpy enables the exploration of advanced 3D concepts and graphically intensive techniques.
+
+Building on prior presentations, the research and experimentation for this session revealed further opportunities to enhance Thonny-py5mode by integrating additional creative coding features beyond py5, potentially adding Blender scripting support for generating non-interactive 3D output.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section[Mitigating AI Misuse with Graphical Programming Tasks]{Mitigating AI Misuse in Introductory Python Courses with Graphical Programming Tasks}
+\label{sec:mitigating-ai-misuse-in-introductory-python-courses-with-graphical-programming-tasks}
+
+\vspace{1.5em}
+\begin{outputmeta}
+\textbf{Conference/Event Name}: Kiwi PyCon 2025 \\
+\textbf{Author(s)}: Bunn, T. \\
+\textbf{Venue}: Wellington, New Zealand \\
+\textbf{Start/Finish Dates}: 21 November 2025 -- 23 November 2025 \\
+\textbf{URL}: \url{https://kiwipycon.nz} \\
+\textbf{Acceptance Letter/Invitation or Event Programme}: See Appendix \ref{appendix:kiwi-pycon-2025}
+\end{outputmeta}
+
+\subsection{Presentation Abstract}
+
+\textit{As LLMs reshape how students engage with programming, educators face increasing challenges in maintaining academic integrity. Drawing on the presenter's doctoral research, this talk explores how graphical programming tasks can meaningfully resist unauthorised AI assistance, offering a robust alternative to conventional text-based exercises that are highly susceptible to automation. We present a series of tasks to complete in a Python-based creative coding environment (Thonny-py5mode), employed in undergraduate assessments, and evaluate the performance of leading LLMs in replicating them. This session presents a scalable, discipline-agnostic strategy for designing resilient assessments in the GenAI era that is adaptable to other Python graphics libraries.}
+
+\subsection{Content \& Method}
+
+General artificial intelligence (GenAI) technologies, particularly large language models (LLMs), are transforming programming education. Since the introduction of tools such as ChatGPT and GitHub Copilot in 2022, it has become increasingly easy for students to generate functional Python code with little to no conceptual understanding of its workings~\cite{world_intellectual_property_organization_generative_2024}. On one hand, these tools can benefit students by assisting with code interpretation, debugging, and modification tasks. On the other, LLM-assisted programming risks compromising the educational experience, reducing learning to surface-level engagement, where it is difficult for educators to determine genuine understanding from AI-assisted mimicry~\cite{kazemitabaar_studying_2023}. Moreover, this presents serious challenges for institutions seeking to uphold academic integrity, ensure fair assessment practices, and effectively grade students' code comprehension, computational reasoning, and problem-solving abilities~\cite{odea_generative_2024}.
+
+Kiesler \& Schiffner (2023) demonstrated that GPT-4 performs strongly on beginner programming tasks, solving 94.4\% correctly. The study utilised 72 appropriately scoped Python tasks from CodingBat~\cite{parlante_codingbat_2017}, typical of CS1 courses, covering foundational topics such as strings, lists, and logic~\cite{kiesler_large_2023}. Prather \textit{et al.} (2024) investigated the differential impact of GenAI tools on novice programmers and found that such technologies tend to amplify existing disparities rather than mitigate them. In their study, students with higher prior performance and self-efficacy were able to leverage GenAI to accelerate their progress, often using it strategically to test ideas or refine code. In contrast, students who already struggled relied on it in ways that masked their lack of understanding, leading to superficial task completion without deeper learning~\cite{prather_widening_2024}. 
+
+However, LLMs are now capable of performing tasks far more complex than simple scripts or CS1-level assessment work, including the generation and deployment of complete applications spanning multiple coding languages, libraries, and frameworks. For instance, Replit Agent can create fully functional web apps from a single natural language prompt~\cite{replit_inc_replit_2025}.
+
+Institutions have responded to the challenges presented by GenAI in varying ways, sometimes inconsistently across departments or even within the same diploma or degree program~\cite{kohen-vacs_integrating_2025, puthumanaillam_lazy_2025}. Some universities have adopted open and exploratory stances, encouraging students to engage with GenAI for its creative or professional value; others have implemented restrictive policies borne of concerns around plagiarism, over-reliance, and the erosion of foundational programming competencies~\cite{mcdonald_generative_2025}. However, even within environments that restrict GenAI use, it remains difficult for educators to enforce such policies---automated detection systems remain unreliable, policies can be challenging to interpret and apply consistently across different assessments, and many staff face limited support for conducting time-consuming investigations into suspicious work~\cite{an_investigating_2025}.
+
+In creative computing disciplines, many educators consider expression and experimentation as central tenets of their pedagogy. Recognising the opportunities that GenAI presents, some have begun to integrate it more deliberately into coursework. For instance, \textit{Creative Coding and Generative AI} at Carleton College is a project-based course that engages students using tools such as Inform~7, Tracery, p5.js, and ml5.js---blending narrative, visuals, code, and AI~\cite{salter_dgah_2025}. Similarly, Victoria University of Wellington offers \textit{Creative Coding and AI}, which integrates GenAI to support both design workflows and code review processes~\cite{victoria_university_of_wellington_dsdn_2025}. 
+
+It is also relevant to note that programming graphical output with Python provides a tangible way for students to explore the mechanics underlying AI through graphics, animation, and visualisation. For example, Daniel Shiffman's \textit{The Nature of Code} includes chapters on evolutionary algorithms and neural networks, demonstrating these concepts using p5.js. Educators can readily adapt these approaches to Python using py5 or other Processing-inspired frameworks~\cite{shiffman_nature_2024}.
+
+Even in settings where educators wish to avoid GenAI-powered tools, they may find that the software they teach now includes embedded LLM features for contextual guidance, conversational prompting, and real-time assistance~\cite{amiri_enhancing_2025, yang_enhancing_2024, zabala_development_2024}. For instance, the latest version of Anaconda integrates the \textit{Anaconda Assistant} within Jupyter Notebook (Figure~\ref{fig:anaconda-ai-assistant}). These notebooks serve as environments for Python-based data science, machine learning, and other cross-disciplinary computing. Jupyter is popular in educational settings, particularly in disciplines outside computer science or software engineering, as it combines executable code, narrative text, and inline visuals. This aligns naturally with literate programming paradigms and supports documented experimentation~\cite{vaughan_python_2023}. As GenAI tools continue to permeate standard learning workflows, educators are increasingly rethinking teaching and assessment, considering ways to emphasise interpretation, personalisation, and reflection, rather than simply producing working code~\cite{denny_prompt_2024, prather_widening_2024}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\textwidth]{chapters/chapter05-presentation-outputs/anaconda-ai-assistant}
+  \caption{Anaconda's Jupyter Notebook environment with integrated AI Assistant (v4.18.0) explaining a \texttt{lambda} expression. Screenshot by the author.}
+  \label{fig:anaconda-ai-assistant}
+\end{figure}
+
+Given the prevalence and convenient accessibility of LLM technologies, educators are exploring ways to mitigate their negative impacts on learning and assessment. To enhance the reliability and trustworthiness of assessment practices, research suggests a combination of complementary approaches that mitigate the misuse of GenAI~\cite {mahon_guidelines_2024, xie_ai_2023}. Current literature outlines a layered framework of strategies encompassing:
+
+\begin{enumerate}
+\item \textbf{Code Tracking and Authorship Methods}: Employing version control and IDE-integrated trackers (e.g., zyBooks' Coding Trails), as well as stylometric analysis to verify authorship~\cite{gurioli_is_2024, idialu_whodunit_2024, vahid_chatgpt_2023}. In high-stakes contexts, secure exams administered online or in physically proctored settings remain among the most effective deterrents to cheating. However, it is also important to acknowledge that such systems can raise ethical concerns, including surveillance overreach, invasive data collection, algorithmic bias, and restrictions on students' control over their physical space and movement~\cite{lee_online_2022}.
+
+\item \textbf{Integrity Culture and Student Engagement}: Strategies that do not focus on code itself, but instead shape student attitudes and behaviours around academic integrity and the responsible use of GenAI. These approaches aim to establish clear and specific policies that encourage the appropriate use of such tools, promoted through explicit guidelines, reflective activities, and ethical discussion~\cite{king_artificial_2025, balalle_reassessing_2025}. Additionally, educators can remind students to seek help with assessments through office hours, peer collaboration, or tutoring services, thereby mitigating pressures that may drive dishonest behaviour~\cite{balalle_reassessing_2025}.
+
+\item \textbf{Modified Assessment Design and Expository Practice}: Utilising authentic, individualised, or expository processes to resist automation~\cite{zastudil_generative_2023, mahon_guidelines_2024}. Assignments tied to current events or newly released APIs can exploit knowledge gaps in GenAI training data; bespoke datasets introduce contextual dependencies that are unlikely to be accommodated in public models~\cite{rahe_how_2025}. Instructors may also redesign tasks to emphasise higher-order thinking and minimise rote GenAI use by focusing on problem-solving rather than implementation details (where LLMs tends to excel)~\cite{zastudil_generative_2023}. Expository strategies such as reflective writing or recorded walkthroughs can reveal discrepancies between claimed and actual code authorship~\cite{mahon_guidelines_2024}.
+\end{enumerate}
+
+Extending on Item~3 (Modified Assessment Design), McDanel and Novak (2025) evaluated the performance of GPT-3.5, GPT-4o, and Claude Sonnet on a set of representative Python programming tasks from SIGCSE's \textit{Nifty Assignments}~\cite{sigcse_nifty_2025}. The study sought to identify additional areas in which GenAI performs ineffectively on assessment tasks. Figure~\ref{fig:nifty-spectrum} visualises this sample according to visual complexity and task length.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter05-presentation-outputs/nifty-spectrum}
+\caption{McDanel and Novak's spectrum of Nifty Assignments across visual complexity and task length. Source:~\cite{mcdanel_designing_2025}.}
+\label{fig:nifty-spectrum}
+\end{figure}
+
+McDanel and Novak analysed both qualitative and quantitative aspects of model performance and proposed practical strategies to help educators design assignments that resist automation by GenAI. The authors explicitly note that ``certain assignments, particularly those involving visual elements, proved challenging for all models.'' Furthermore, they observed that ``when the input is an image or the solution is defined as a correct-looking visual, current-era LLMs literally do not have a way to interpret such information and struggle.'' However, ``due to the fuzzy nature of correctness often found in graphical programs, they are usually less testable as well.''~\cite{mcdanel_designing_2025}
+
+\subsubsection{Thonny-py5mode Graphical Tasks}
+
+Inspired by McDanel and Novak's findings, this presentation posits that assessment designers can apply similar techniques to Thonny-py5mode-based tasks. More accurately, this ancillary insight emerged during the study reported in \textit{\nameref{sec:jise}}, which examined students' use of Thonny-py5mode for graphical coding challenges. Devising the py5 assessment tasks revealed that the combination of visual reasoning and algorithmic logic required to complete them effectively limited the capabilities of LLMs. It was this observation that prompted further exploration of existing literature, leading to the work of McDanel and Novak, among others. Appendix~\ref{appendix:thonny-py5-mode-brief} provides the complete assessment brief, comprising all six challenges, each including scaffolded starter code and contextual hints as provided to students.
+
+Thonny-py5mode makes it straightforward for students to access programming for visual output. Using just a few functions, they can render a variety of shapes with different fill and stroke attributes, enabling them to engage with graphical commands after a brief introduction. Note that a two-page introduction (pp.~2--3) in the brief provided sufficient instruction for students to begin the assessment tasks. Consequently, the original learning outcomes---focused on control flow and loops in particular---remained unchanged, while the refreshed brief substantially enhanced the assessment's resistance to GenAI assistance.
+
+Testing this hypothesis entailed feeding the same six task graphics into three popular LLMs: Claude Sonnet~4, Gemini~2.5~Flash, and OpenAI GPT-4o, along with the associated starter code and prompts requesting py5-based solutions. Figure~\ref{fig:tasks-challenges} presents the six visual tasks for students to reproduce. These replaced a series of six textual-output tasks that comprised the original assessment brief, trivial to complete using modern LLMs. 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1.0\textwidth]{chapters/chapter05-presentation-outputs/tasks-challenges}
+\caption{Thonny-py5mode graphical challenges used in Assessment~2. Developed by the author using py5.}
+\label{fig:tasks-challenges}
+\end{figure}
+
+Figures~\ref{fig:tasks-attempts-sonnet-4}, \ref{fig:tasks-attempts-2.5-flash}, and \ref{fig:tasks-attempts-gpt-4o} present the most accurate results from three attempts per model. Someone with a reasonable understanding of Processing or py5 can identify a high-level approach to each task before writing a single line of code. While some outputs were partially correct, none successfully replicated the target images. 
+
+\begin{figure}[htbp]
+  \vfill
+  \centering
+  \includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/tasks-attempts-sonnet-4}
+  \caption{\textbf{Claude Sonnet 4} attempts at recreating graphical challenges.}
+  \label{fig:tasks-attempts-sonnet-4}
+
+  \vspace{2em}
+  \includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/tasks-attempts-2.5-flash}
+  \caption{\textbf{Gemini 2.5 Flash} attempts at recreating graphical challenges.}
+  \label{fig:tasks-attempts-2.5-flash}
+  \vfill
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{chapters/chapter05-presentation-outputs/tasks-attempts-gpt-4o}
+\captionsetup{width=0.8\textwidth}
+\caption{\textbf{OpenAI GPT-4o} attempts at recreating graphical challenges.}
+\label{fig:tasks-attempts-gpt-4o}
+\end{figure}
+
+As the reader can observe, inaccuracies range from relatively minor---such as variations in the number of circles and stroke weight for the first (top-left) task---to more conspicuous failures. For instance, none of the models identified that a white rectangle obscures the centre of the green-blue concentric circles (top row, middle graphic). The remaining outputs similarly fall short, often in ways that appear suspicious, as if a student had approximated the layout and managed to code the complex Python logic yet overlooked obvious visual characteristics. While multiple approaches and code implementations could produce identical visual results, the intended solution path should be fairly evident.
+
+These findings suggest that visually oriented coding exercises reveal specific weaknesses in popular GenAI models. Consequently, educators might employ similar tasks to mitigate unauthorised assistance. Even with starter code and clear visual targets, the models consistently failed to produce accurate results, highlighting persistent difficulties in translating graphical goals into functional code, particularly in terms of geometric precision.
+
+\subsection{Audience Engagement \& Feedback}
+
+\textit{Kiwi PyCon 2025 is scheduled to take place following the submission of this thesis for examination.}
+
+\subsection{Reflections \& Implications}
+
+Research suggests that Python tasks involving spatial reasoning and visual composition remain challenging for GenAI tools. Thonny-py5mode graphics exploit this limitation, requiring geometric reasoning. The tests presented here demonstrate promising resistance to GenAI automation and merit continued exploration. However, it will be crucial to establish clear rubrics for evaluating visual fidelity in future studies. Further studies should also test whether iterative prompting, added context, or alternative libraries (e.g., p5.js, Pillow) improve GenAI accuracy.
+
+Animated challenges would further amplify this effectiveness. Moreover, parameter variation, where each student receives a unique dataset or task specification, would help reduce the risk of shared or copied code~\cite{deitrick_individualizing_2022}. To individualise tasks, educators can generate variations programmatically.
+
+If GenAI improves at these tasks, future research might shift toward intelligent tutoring systems (ITSs). The boundary between coding assistants and ITSs is increasingly blurred, with GenAI tools now assuming pedagogical roles once reserved for human tutors. While ITSs offer adaptive instruction and feedback~\cite{crow_intelligent_2018}, GenAI assistants can now provide similar support when prompted strategically~\cite{denny_prompt_2024}. Recent work on Python-focused AI tutoring reflects this convergence~\cite{chen_gptutor_2023}, including that of Yang \textit{et al.}~(2024), who found that PyTutor improved engagement while also cautioning against over-reliance~\cite{yang_advancing_2024}. 
+
+For creative coding, ShiffBot\footnote{~\url{https://shiffbot.withgoogle.com}} is a GenAI tutoring experiment co-developed with Daniel Shiffman, integrating Retrieval-Augmented Generation (RAG) into the p5.js web editor to deliver context-aware, pedagogically aligned feedback~\cite{rubinovitz_how_2024}. No Python-based equivalent appears to exist, though tools like GitHub Copilot and the Anaconda Assistant can generate py5 code with moderate accuracy for beginner tasks. Unlike ShiffBot, though, their educational value depends on constructive use rather than quick solutions.
+
+In conclusion, the research and experimentation that informed this presentation offer new approaches to mitigate AI misuse in introductory Python courses through Thonny-py5mode tasks, highlighting a promising direction for future research on AI-resistant assessment and human--AI collaboration in programming education.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\section{Chapter Summary}
+
+This chapter presented the outputs forming the presentations component of the PhD folio, tracing the evolution of the research journey and its progression. These activities contributed to the development of new tools, resources, and techniques for enhancing Python programming education through creative computing environments. They also offered valuable opportunities to share findings, spark collaborations, and receive critical feedback. Collectively, these outputs explored the following significant themes:
+
+\begin{itemize}
+
+\item \textbf{Creative Coding for Beginners}: Demonstrated the accessibility of Python creative coding tools to support learning programming fundamentals through graphical and creative tasks, establishing foundations for pedagogical development. These insights and materials later informed the writing and publication of the sole-authored book, \textit{\nameref{sec:no-starch}} (No Starch Press, 2021).
+
+\item \textbf{Web-Based Creative Coding}: Explored browser-based environments, such as Computiful and Strive, that make Python creative coding more accessible by removing software installation barriers. This work examined the trade-offs between web-based and desktop-based tools, as well as frameworks and libraries that support cross-platform deployment.
+
+\item \textbf{Interactive Data Visualisation}: Highlighted the p5/p5py library and Thonny-py5mode's capacity to generate unique and interactive data visualisations, expanding Python's capabilities beyond traditional charting libraries. These explorations enabled presentations across events targeting different disciplines, including data visualisation, simulation, numerical methods, and analytics.
+
+\item \textbf{Innovative Educational Tools}: Documented the development of Thonny-py5mode, a Python 3-based environment designed to succeed the PDE's Python Mode (Processing.py). The \nameref{chap:software} chapter details the plugin's design, rationale, educational uses, accompanying materials, and development challenges.
+
+\item \textbf{Plotting Art from Code}: Showcased Python's potential to produce vector-based (SVG) designs for pen plotters using Thonny-py5mode, and optimised these workflows with tools such as vpype and Inkscape to translate digital creations into tangible artworks. The works presented in \nameref{chap:creative-works} further demonstrate these techniques, experiments, and insights.
+
+\item \textbf{Comparative Tools Analysis}: Analysed the strengths and limitations of Python--Processing tools---such as Processing.py, py5, p5py, and others---guiding the selection of suitable tools for diverse creative coding and educational applications. These research insights integrate into the MTAP (Q1-ranked) journal article, \textit{\nameref{sec:mtap}}.
+
+\item \textbf{Generative 3D Art}: Demonstrated the capabilities of Blender's Python API (bpy) for creating high-fidelity generative 3D art, bridging creative coding with advanced rendering engines. This work also highlighted opportunities to extend Thonny-py5mode with a Blender `back-end.'
+
+\item \textbf{Expanding Creative Coding Frontiers}: Illustrated how combining 2D and 3D programming techniques with various Python libraries, including py5 and bpy, enables the creation of innovative generative art that can appeal to learners and artists alike. Several workshops provided opportunities to share these practical methods.
+
+\item \textbf{Mitigating GenAI Misuse with Graphical Tasks}: Investigated strategies to reduce students' potential over-reliance on generative AI for completing programming assessments. By integrating graphical tasks, these approaches encouraged a deeper understanding of Python programming fundamentals and computational thinking.
+
+\end{itemize}
+
+Each output drew upon prior research, experimentation, and audience feedback, illustrating how creative coding environments can democratise Python programming by making it more accessible and engaging for both novices and experienced coders. Together, these contributions point toward future directions, including enhanced 3D and SVG tools and integration with emerging technologies such as artificial intelligence and machine learning.
