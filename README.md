@@ -2,7 +2,7 @@
 
 *A PhD LaTeX thesis template based on Mimosis*
 
-This repository contains a customized PhD thesis template adapted from the excellent Mimosis LaTeX class by Bastian Rieck.
+This repository contains a customized PhD thesis template adapted from the excellent *Mimosis* by Bastian Rieck.
 
 All credit for the original design goes to the [Mimosis](https://github.com/Pseudomanifold/latex-mimosis) project; this version adds personal adaptations and workflow tweaks.
 
@@ -16,7 +16,7 @@ A compiled example thesis is available here:
 
 ## Requirements
 
-A reasonably recent LaTeX distribution:
+A reasonably recent LaTeX distribution.
 
 ---
 
@@ -46,12 +46,4 @@ Remove all generated files (including the PDF):
 ```bash
 latexmk -C
 ```
-
----
-
-## Acknowledgements
-
-Based on the Mimosis thesis class by Bastian Rieck:
-
-https://github.com/Pseudomanifold/latex-mimosis
 
