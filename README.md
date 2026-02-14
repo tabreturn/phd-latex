@@ -6,6 +6,8 @@ This repository contains a customized PhD thesis template adapted from the excel
 
 All credit for the original design goes to the [Mimosis](https://github.com/Pseudomanifold/latex-mimosis) project; this version adds personal adaptations and workflow tweaks.
 
+![](README-banner.png)
+
 ## Sample
 
 A compiled example thesis is available here:
